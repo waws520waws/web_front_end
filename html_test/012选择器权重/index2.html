@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			a{
+				color: yellow;     <!--优先级权重 1-->
+			}
+			div a{
+				color: green;      <!--优先级权重 1+1=2-->
+			}
+			.demo a{
+				color: black;      <!--优先级权重 10+1=11-->
+			}
+			#demo a{
+				color: orange;     <!--优先级权重 100+1=101-->
+			}
+			div#demo a{
+				color: red;        <!--优先级权重 1+100+1=102-->
+			}
+		</style>
+	</head>
+	<body>
+		<a href="">应该是黄色</a>
+		<div class="demo">
+			<a href="">应该是黑色</a>
+		</div>
+		<div id="demo">
+			<a href="">应该是红色</a>
+		</div>
+		
+	</body>
+</html>

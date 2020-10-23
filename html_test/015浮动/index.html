@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			.green{
+				width: 100px;
+				height:100px;
+				background-color: green;
+				float: left;
+			}
+			.red{
+				width: 200px;
+				height:150px;
+				background-color: red;
+			}
+			
+			.a {
+				width: 200px;
+				background-color: green;
+			}
+			.b {
+				width: 700px;
+				background-color: red;
+			}
+			.c {
+				width: 300px;
+				background-color: blue;
+			}
+			
+			.a,.b,.c{
+				float: left;
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>文字环绕</p>
+		<!--不用浮动的话，两个div,甚至多个div都是纵向排列，不能完成横向排列的需求-->
+		<div class="green"></div>  
+		<div class="red">
+			文字环绕文字环绕文字环绕文字环绕文字环绕文字环绕文字环绕文字环绕
+			文字环绕文字环绕文字环绕文字环绕文字环
+		</div>
+		
+		<p>横向排版布局</p>
+		<div class="a"></div>
+		<div class="b"></div>
+		<div class="c"></div>
+	</body>
+</html>

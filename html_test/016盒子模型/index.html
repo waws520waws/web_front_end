@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0; /*将所有的元素的边距都设置成0,有些元素生来自带边距*/
+			}
+			.item {
+				width: 210px;
+				height: 136px;
+				float: left;
+				margin: 20px;
+			}
+			.box{
+				width: 750px;
+				overflow: auto;
+				margin: auto;  /*这个只在水平方向上有效，居中左右留余相等*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="item" style="background-image: url(img/01.png);"></div>
+			<div class="item" style="background-image: url(img/02.png);"></div>
+			<div class="item" style="background-image: url(img/03.png);"></div>
+		</div>
+	</body>
+</html>
