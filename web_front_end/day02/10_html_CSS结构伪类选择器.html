@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 集合中按照指定数字进行添加样式 */
+        /* li:nth-of-type(3){background-color: red;} */
+
+        /* 集合中按照数字规律进行添加样式 */
+        /* li:nth-of-type(3n+1){background-color: red;}
+        li:nth-of-type(3n+2){background-color: blue;}
+        li:nth-of-type(3n){background-color: green;} */
+
+        /* 集合中第一个进行添加样式 */
+        /* li:first-of-type{background-color: red;} */
+
+        /* 集合中最后一个进行添加样式 */
+        /* li:last-of-type{background-color: red;} */
+
+        /* 集合中元素唯一的时候进行添加样式 */
+        /* li:only-of-type{background-color: red;} */
+
+        /* li:nth-of-type(2){background-color: red;} */
+
+        /* :nth-child()这个需要知道前面的元素在大的集合中排在第几个，简单说就是第几个孩子,元素和孩子不对应也添加不上CSS效果 */
+        /* div:nth-child(2){background-color: blue;}
+        li:nth-child(3){background-color: blue;} */
+
+        div:only-of-type{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <div>aaaa</div>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

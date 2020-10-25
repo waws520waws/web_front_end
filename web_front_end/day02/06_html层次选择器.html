@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*后代选择器*/
+        ul li{
+            color:red;
+        }
+        /*父子选择器*/
+        li>p{
+            color: green;
+        }
+        /*兄弟选择器：注意是选中当前元素下面的兄弟添加CSS样式，上面的不变*/
+        /*tttttt是红色  hahahha是紫色*/
+        div~h2{
+            color:indigo;
+        }
+        /*相邻选择器*/
+        /*与div相邻的第一个h2 ppppppppp 会被设置成粉色 其他的不会*/
+        div+h2{
+            color:lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <p>哈哈哈</p>
+            <ul>
+                <li>
+                    <h2>ttttttttt</h2>
+                    <div>
+                        <p>哈哈</p>
+                    </div>
+                    <h2>ppppppppp</h2>
+                    <h2>hahaha </h2>
+                </li>
+                <li>我们都是好孩子</li>
+                <li>我们都是好孩子</li>
+            </ul>
+        </li>
+        <li>我们都是好孩子</li>
+        <li>我们都是好孩子</li>
+    </ul>
+    <ol>
+        <li>我们都是好孩子</li>
+        <li>我们都是好孩子</li>
+        <li>我们都是好孩子</li>
+    </ol>
+</body>
+</html>

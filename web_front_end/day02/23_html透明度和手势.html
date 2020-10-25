@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        /* opacity的透明度 */
+        #div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 0;
+        }
+
+        /* rgba的透明度 */
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color:rgba(255,0,0,0.4);
+            
+            /* 手型 */
+            /* cursor: pointer; */
+
+            /* 四角箭头 */
+            /* cursor: move; */
+
+            /* 自定义手势 */
+            cursor: url(img/cursor.ico),auto;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div id="div">这是一个块</div>
+    <p>这是一个段落</p>
+
+    <div id="div2">这是另一个块</div>
+</body>
+</html>

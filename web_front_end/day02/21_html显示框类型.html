@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            /* 内联显示 */
+            display: inline;
+        }
+
+        span{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            /* 块显示 */
+            display: block;
+        }
+
+        input{
+            /* 不进行显示,用于在正常时候隐藏,不正常时候显示的场景 提示密码输入错误 */
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>块1</div>
+    <div>块2</div>
+
+    <span>块3</span>
+    <span>块4</span>
+
+    <input type="text">
+</body>
+</html>

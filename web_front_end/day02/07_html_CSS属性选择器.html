@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* M[attr]的形式 */
+        div[class]{
+            background-color: red;
+        }
+
+        /* M[attr=value]的形式，严格按照value进行匹配 */
+        div[class=search]{
+            background-color: green;
+        }
+
+        /* M[attr*=value]通配的方式,值在其中出现过即可匹配 */
+        div[class*=search]{
+            background-color: blue;
+        }
+
+        /* M[attr^=value]通配的方式,值在开头出现才能匹配 */
+        div[class^=search]{
+            background-color: palevioletred;
+        }
+
+        /* M[attr$=value]通配的方式,值在结尾出现才能匹配 */
+        div[class$=search]{
+            background-color: hotpink;
+        }
+
+        /* M[attr][attr]多属性方式匹配,存在多个属性才能匹配 */
+        div[class][id]{
+            background-color: mediumpurple;
+        }
+    </style>
+</head>
+<body>
+    <div>aaaaaaaaaa</div>
+    <div class="box">aaaaaaaaaa</div>
+    <div class="search">aaaaaaaaaa</div>  
+    <div class="hh-search-box">aaaaaaaaaa</div>  
+    <div class="search-box">aaaaaaaaaa</div>  
+    <div class="box-search">aaaaaaaaaa</div>  
+    <div class="hh" id="kk">aaaaaaaaaa</div>  
+
+
+</body>
+</html>

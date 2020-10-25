@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS reset */
+        *{
+            margin:0;padding: 0;
+        }
+        a{
+            color:rgb(102,102,102);
+            text-decoration: none;
+        }
+        img{
+            display: block;
+        }
+        ul {
+            list-style: none;
+        }
+
+        /* CSS样式添加 */
+        #main{
+            width: 392px;
+            border-top: 5px solid rgb(255,132,0);
+            border-left: 2px rgb(217,224,238) solid;
+            border-right: 2px rgb(217,224,238) solid;
+            border-bottom:  2px rgb(217,224,238) solid;
+        }
+        #main h2{
+            height:57px;
+            /* 注意这个地方行高的运用 直接一行文字 设置垂直居中直接使用line-height */
+            line-height: 57px;
+            padding-left: 19px;
+            border-bottom: 2px rgb(217,224,238) solid;
+        }
+        #main h2 a:hover{
+            color:rgb(255,132,0)
+        }
+
+        #main div img{
+            margin:12px auto 4px auto;
+        }
+
+        #main div ul{
+            font-size: 18px;
+            line-height: 40px;
+            margin-bottom: 8px;
+        }
+
+        #main ul li{
+            padding-left: 30px;
+            background: url(../img/dot.png) no-repeat 12px center;
+
+        }
+
+        #main ul .first-line{
+            border-bottom: 2px rgb(217,224,238) solid;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+
+        }
+        
+        
+
+        #main li a:hover{
+            color:rgb(255,132,0);
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h2><a href="">探索趣图</a></h2>
+        <div><img src="../img/搞笑1.png" alt=""></div>
+
+        <div>
+            <ul>
+                <li class="first-line"><a href="http://gif.sina.com.cn/">GIF：退房作品</a></li>
+                <li class="second"><a href="https://finance.sina.com.cn/tech/2020-10-23/doc-iiznezxr7600886.shtml">向我懂你迈进：机器人实现“换位思考”</a></li>
+                <li class="third"><a href="https://finance.sina.com.cn/tech/2020-10-23/doc-iiznctkc7183634.shtml">要么不来，要么“乱来”专家解读台风</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* !important的使用 */
+        #elem{color: green;}
+
+
+        /* 标签+类 与 单类 优先级 */
+
+        p.p{
+            color: indigo;
+        }
+
+        p{
+            color: hotpink;
+        }
+        
+        /* 群组选择器和单一选择器 优先级 */
+        div{
+            color:red
+        }
+        
+        div,span,li{
+            color: sienna;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="elem" style="color: red;">这个是一个测试的位置</div>
+    <p class="p">hhhhhhhh</p>
+    <div>hehehhehe</div>
+</body>
+</html>

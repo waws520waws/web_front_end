@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            /* border: 1px solid #000;  margin传递的加边框的解决方式 */
+
+            /* 这个是使用padding 的方式进行解决margin传递的问题 需要改两个地方 1.父元素增加padding 子元素去掉margin 2.对父元素的height进行调整，得到想要的结果 */
+            padding-top: 50px;   
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            /* margin-top: 50px; */
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box1">
+        <div id="box2">
+        </div>
+    </div>
+</body>
+</html>
