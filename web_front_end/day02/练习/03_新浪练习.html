@@ -6,83 +6,73 @@
     <title>Document</title>
     <style>
         /* CSS reset */
-        *{
-            margin:0;padding: 0;
-        }
-        a{
-            color:rgb(102,102,102);
-            text-decoration: none;
-        }
-        img{
-            display: block;
-        }
-        ul {
-            list-style: none;
-        }
+        *{margin: 0;padding: 0;}
+        a{text-decoration: none;color: rgb(102,102,102);}
+        img{display: block;}
+        ul{list-style-type: none;}
 
-        /* CSS样式添加 */
+        /* 为html设置样式 */
         #main{
-            width: 392px;
-            border-top: 5px solid rgb(255,132,0);
-            border-left: 2px rgb(217,224,238) solid;
-            border-right: 2px rgb(217,224,238) solid;
-            border-bottom:  2px rgb(217,224,238) solid;
-        }
-        #main h2{
-            height:57px;
-            /* 注意这个地方行高的运用 直接一行文字 设置垂直居中直接使用line-height */
-            line-height: 57px;
-            padding-left: 19px;
-            border-bottom: 2px rgb(217,224,238) solid;
-        }
-        #main h2 a:hover{
-            color:rgb(255,132,0)
+            width: 286px;
+            border-top: 4px rgb(255,132,0) solid;
+            border-left: 1px rgb(217,224,238) solid;
+            border-right: 1px rgb(217,224,238) solid;
+            border-bottom: 1px rgb(217,224,238) solid;
         }
 
+        h2{
+            height:42px;
+            line-height: 42px;
+            /* margin-left:14px;  会造成border断裂的问题，这里使用的是padding*/
+            padding-left: 14px;
+            border-bottom: 1px rgb(217,224,238) solid;
+        }
+
+        h2 a:hover{
+            color:  rgb(255,132,0);
+        }
+        
         #main div img{
-            margin:12px auto 4px auto;
+            margin-top: 8px;
+            margin-left: 9px;
         }
 
-        #main div ul{
-            font-size: 18px;
-            line-height: 40px;
-            margin-bottom: 8px;
+        #main ul{
+            font-size: 14px;
+            line-height: 28px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-family: 微软雅黑;
         }
 
-        #main ul li{
-            padding-left: 30px;
-            background: url(../img/dot.png) no-repeat 12px center;
-
+        #main li{
+            background: url(../img/dot.png) no-repeat 9px center;
+            padding-left: 21px;
         }
 
-        #main ul .first-line{
-            border-bottom: 2px rgb(217,224,238) solid;
-            padding-bottom: 6px;
-            margin-bottom: 12px;
-
+        #main ul li.first{
+            padding-bottom: 4px;
+            border-bottom: 1px rgb(217,224,238) solid;
+            margin-bottom: 10px;
         }
-        
-        
 
         #main li a:hover{
-            color:rgb(255,132,0);
             text-decoration: underline;
+            color:  rgb(255,132,0);
         }
+
 
     </style>
 </head>
 <body>
     <div id="main">
-        <h2><a href="">探索趣图</a></h2>
-        <div><img src="../img/搞笑1.png" alt=""></div>
-
-        <div>
-            <ul>
-                <li class="first-line"><a href="http://gif.sina.com.cn/">GIF：退房作品</a></li>
-                <li class="second"><a href="https://finance.sina.com.cn/tech/2020-10-23/doc-iiznezxr7600886.shtml">向我懂你迈进：机器人实现“换位思考”</a></li>
-                <li class="third"><a href="https://finance.sina.com.cn/tech/2020-10-23/doc-iiznctkc7183634.shtml">要么不来，要么“乱来”专家解读台风</a></li>
-            </ul>
-        </div>
+        <h2><a href="http://tech.sina.com.cn/d/photo/">探索趣图</a></h2>
+        <div><img src="../img/xin1.png" alt=""></div>
+        <ul>
+            <li class="first"><a href="https://gif.sina.com.cn/">GIF：退房作品</a></li>
+            <li><a href="https://finance.sina.com.cn/tech/2020-10-23/doc-iiznezxr7600886.shtml">向我懂你迈进：机器人实现“换位思考”</a></li>
+            <li><a href="https://finance.sina.com.cn/tech/2020-10-23/doc-iiznctkc7183634.shtml">要么不来，要么“乱来”专家解读台风</a></li>
+        </ul>
     </div>
 </body>
 </html>
