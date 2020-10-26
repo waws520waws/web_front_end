@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border-radius: 20px;
+        }
+
+        /* 形成一个圆 */
+        #box2{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border-radius: 50%;
+        }
+
+
+        /* 两个值，左上角和右上角 */
+        #box3{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border-radius: 10px 50px;
+        }
+
+        /* 四个值，左上角和右上角 右下 左下 顺时针 */
+        #box4{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border-radius: 10px 20px 30px 40px;
+        }
+
+        /* 四个值，椭圆相切 */
+        #box5{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border-radius: 20px / 40px;
+        }
+
+        /* 半圆 */
+        #box6{
+            width: 200px;
+            height: 100px;
+            background: red;
+            border-radius: 100px 100px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    <div id="box5"></div>
+    <div id="box6"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{width: 100px;height: 100px;background-color: red;}
+
+        /* 如果没有设置定位偏移量，对元素本身没有任何影响
+        不使元素脱离文档流 */
+        /* #box2{width: 100px;height: 100px;background-color: blue;position: relative;} */
+
+
+        /* 自身的左上角默认为(0,0),以自身为坐标进行偏移 */
+        /* 不影响其他元素的布局 */
+        #box2{width: 100px;height: 100px;background-color: blue;position: relative; left:50px;bottom:100px} 
+        #box3{width: 100px;height: 100px;background-color: yellow;}
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+</body>
+</html>

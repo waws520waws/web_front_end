@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 默认z-index的值就是0 */
+        /* #box1{width: 100px;height: 100px;background: red;position: absolute;z-index: 0;} */
+        /* #box1{width: 100px;height: 100px;background: red;position: absolute;z-index: 1;} */
+        /* #box2{width: 100px;height: 100px;background: blue;position: absolute;left: 50px;top:50px;} */
+        
+
+        /* 嵌套层级的位置优先级 只比同级的爹，儿子在NB,也没用 */
+        #box1{width: 100px;height: 100px;border: 1px solid #000;position: absolute;z-index: -1;}
+        #box2{width: 100px;height: 100px;background: red;position: absolute;z-index: 3;} 
+        #box3{width: 100px;height: 100px;background: blue;position: absolute;left: 50px;top:50px;z-index: 0;}
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- <div id="box1"></div>
+    <div id="box2"></div> -->
+
+    <div id="box1">
+        <div id="box2"></div>
+    </div>
+    <div id="box3"></div>
+</body>
+</html>

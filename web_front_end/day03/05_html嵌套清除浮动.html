@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #box1{
+            width: 200px;
+            border: 1px solid #000;
+        } */
+
+        /* 父元素固定高度 局限性太大 不推荐
+        #box1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        } */
+
+        /* 父元素增加浮动 不推荐
+        #box1{
+            width: 200px;
+            border: 1px solid #000;
+            float: left;
+        } */
+
+        /* 父元素overflow:hidden 基本解决所有问题(不是最完美，设置死了hidden的效果)
+        #box1{
+            width: 200px;
+            border: 1px solid #000;
+            overflow: hidden;
+        } */
+
+        /* 父元素display: inline-block; 布局会受到影响
+        #box1{
+            width: 200px;
+            border: 1px solid #000;
+            display: inline-block;
+        } */
+
+        /* 设置空标签
+        #box1{
+            width: 200px;
+            border: 1px solid #000;
+        }
+
+        .clear{
+            clear:left;
+        } */
+
+        #box1{
+            width: 200px;
+            border: 1px solid #000;
+        }
+
+        .clear::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color:red;
+            float: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 最推荐的做法 :after -->
+    <div id="box1" class="clear">
+        <div id="box2"></div>
+        <!-- 设置空标签 <div class="clear"></div> -->
+    </div>
+    <span>aaaaaa</span>
+    
+</body>
+</html>

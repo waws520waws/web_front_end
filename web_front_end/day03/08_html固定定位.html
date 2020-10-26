@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 使当前元素脱离文档流 */
+        /* #box1{width: 100px;height: 100px;background-color: red;position: fixed;} */
+        /* #box2{width: 200px;height: 1200px;background-color: blue;}  */
+
+        /* 内联元素支持宽高 */
+        /* span{width: 200px;height: 200px;background-color: yellow;position: fixed;} */
+
+
+        /* 使块元素默认宽根据内容决定(让块具备内联的特性) */
+        /* #box3{
+            border: 1px solid #000;
+            position:fixed;
+        } */
+
+        /* 相对于整个浏览器窗口进行偏移，不受到浏览器滚动条的影响 */
+        body{height: 2000px;}
+        #box4{width: 1000px; height: 200px;border: 1px solid #000;position: fixed;background-color: aqua;}
+
+    </style>
+</head>
+<body>
+    <!-- <div id="box1"></div>
+    <div id="box2"></div>
+
+    <span>这是一个内联标签</span>
+    <div id="box3">haahhahhahha</div> -->
+
+    <div id="box4"></div> 
+</body>
+</html>

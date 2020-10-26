@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 为什么雪碧图左右都有，有些是为了方便左侧使用，有些是为了方便右侧使用，都放在左边，应该展示在浏览器中的右边部分无法定位 */
+        #box1{
+            width: 20px;
+            height: 21px;
+            background: url(./img/sprite_icon.png) no-repeat left -596px;
+        }
+
+
+        #box2{
+            width: 300px;
+            height: 50px;
+            border: 1px black solid;
+            line-height: 50px;
+            padding-left: 30px;
+            /* background: url(./img/sprite_icon.png) no-repeat left -580px; */
+            background: url(./img/sprite_icon.png) no-repeat right -520px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2">这是一个测试的块</div>
+</body>
+</html>

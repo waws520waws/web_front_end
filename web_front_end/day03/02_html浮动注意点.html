@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{border: 2px solid #000;}
+
+        /* 浮动只会影响下面的文档流，对上面的元素无影响
+        文字不会被浮动元素遮蔽，楼层半层，环绕可见 */
+        
+        #box1{width: 100px;height: 100px;background-color: yellowgreen;}
+        #box2{width: 200px;height: 200px;background-color: red; float: left;}
+        #box3{width: 300px;height: 300px;background-color: blue;}
+
+        /* 浮动之前的元素宽不设置和父容器相同，设置浮动之后，浮动元素部分的宽度由内容决定 */
+        #box4{
+            background-color:hotpink;
+            float: left;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <!-- 注意点1 -->
+    <!-- <div id="box3"></div> -->
+
+    <!-- 注意点2 -->
+    <div id="box3">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+
+    <div id="box4">hahahahahhaha</div>
+</body>
+</html>

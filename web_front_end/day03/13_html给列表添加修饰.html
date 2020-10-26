@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 利用之前的新浪练习的例子 之前文字前面的小点是用背景图片的方式制作的，现在可以使用定位的方式进行设置 -->
+
+    <style>
+        /* CSS reset */
+        *{margin: 0;padding: 0;}
+        a{text-decoration: none;color: rgb(102,102,102);}
+        img{display: block;}
+        ul{list-style-type: none;}
+
+        /* 为html设置样式 */
+        #main{
+            width: 286px;
+            border-top: 4px rgb(255,132,0) solid;
+            border-left: 1px rgb(217,224,238) solid;
+            border-right: 1px rgb(217,224,238) solid;
+            border-bottom: 1px rgb(217,224,238) solid;
+        }
+
+        h2{
+            height:42px;
+            line-height: 42px;
+            /* margin-left:14px;  会造成border断裂的问题，这里使用的是padding*/
+            padding-left: 14px;
+            border-bottom: 1px rgb(217,224,238) solid;
+        }
+
+        h2 a:hover{
+            color:  rgb(255,132,0);
+        }
+        
+        #main div img{
+            margin-top: 8px;
+            margin-left: 9px;
+        }
+
+        #main ul{
+            font-size: 14px;
+            line-height: 28px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            font-family: 微软雅黑;
+        }
+
+        #main li{
+            position: relative;
+            padding-left: 21px;
+        }
+
+        /* 核心更改区域 */
+        #main li:before{content:"";display: block;width: 3px;height: 3px;background: red;position:absolute;left: 8px;top:40%}
+
+        #main ul li.first{
+            padding-bottom: 4px;
+            border-bottom: 1px rgb(217,224,238) solid;
+            margin-bottom: 10px;
+        }
+
+        #main li a:hover{
+            text-decoration: underline;
+            color:  rgb(255,132,0);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h2><a href="http://tech.sina.com.cn/d/photo/">探索趣图</a></h2>
+        <div><img src="./img/xin1.png" alt=""></div>
+        <ul>
+            <li class="first"><a href="https://gif.sina.com.cn/">GIF：退房作品</a></li>
+            <li><a href="https://finance.sina.com.cn/tech/2020-10-23/doc-iiznezxr7600886.shtml">向我懂你迈进：机器人实现“换位思考”</a></li>
+            <li><a href="https://finance.sina.com.cn/tech/2020-10-23/doc-iiznctkc7183634.shtml">要么不来，要么“乱来”专家解读台风</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        /* 自己的代码：比较繁琐 基本实现功能 */
+
+        /* 多背景图的书写方法
+        li{background: url(../img/加勒比1.png) repeat-x,url(../img/加勒比2.png),no-repeat;} 存在层次关系，最上面的放在前面先写 */
+
+
+        *{margin: 0;padding: 0;}
+        a{text-decoration: none;color:rgb(51,51,51)}
+        ul{list-style-type: none;}
+        img{display: block;}
+
+        /* CSS样式设计 */
+        #main{
+            width: 366px;
+        }
+
+        h2{
+            font-size: 12px;
+            font-weight: bold;
+            height: 22px;
+            line-height: 22px;
+            padding-left: 30px;
+            border-bottom:1px solid rgb(217,238,243);
+            background: url(../img/加勒比4.png) no-repeat 6px center;
+        }
+
+        #main ul{
+            margin-top: 13px;
+            margin-bottom: 11px;
+            font-size: 12px;
+            line-height: 20px;
+
+        }
+        #main ul li{
+            margin-left:5px;
+            margin-bottom: 22px;
+        }
+        #main ul li:last-of-type{
+            margin-bottom: 12px;
+        }
+
+        /* 注意这里面的文字的部分，当图片悬空了，他的padding的值是相对父元素的最左边进行的 */
+        .title{
+            font-weight: bold;
+            padding-left: 125px;
+        }
+        .content{
+            padding-left: 119px;
+
+        }
+
+        #main li img{
+            padding: 2px;
+            border: 1px solid rgb(200,196,211);
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h2>外媒评论精选</h2>
+        <ul>
+            <li>
+                <img src="../img/加勒比1.png" alt="">
+                <p class="title">《加勒比海盗4》—— 商业味浓郁</p>
+                <p class="content">本集《加勒比海盗》讲述了杰克船长受英王所托寻找“不老泉”，与地…[详细]</p>
+            </li>
+            <li>
+                <img src="../img/加勒比2.png" alt="">
+                <p class="title">《雷神托尔》—— —— 神话版沙文戏剧</p>
+                <p class="content">《雷神》由克里斯·海姆斯沃思和今年新晋奥斯卡影后娜塔莉·波特曼…[详细]</p>
+            </li>
+            <li>
+                <img src="../img/加勒比3.png" alt="">
+                <p class="title">《源代码》—— —— 科幻与惊悚完美结合</p>
+                <p class="content">《源代码》由杰克·吉伦哈尔、米歇尔·莫纳汉、维拉·法梅主演。…[详细]</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

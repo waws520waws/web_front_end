@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{list-style:none;}
+        #menu{width: 100px;height: 30px;margin: 20px auto;border: 1px #000 solid;position: relative;}
+        #menu ul{width: 100px;height: 100px;border: 1px solid #000;position: absolute;left: -1px;top: 30px;background: cornsilk;display: none;}
+        p{
+            text-align: center;
+        }
+
+        /* 注意这个地方的写法 */
+        #menu:hover ul{display: block;}
+        #menu ul li:hover{background-color: green;}
+    </style>
+</head>
+<body>
+    <div id="menu">
+        卖家中心
+        <ul>
+            <li>列表项1</li>
+            <li>列表项2</li>
+            <li>列表项3</li>
+            <li>列表项4</li>
+        </ul>
+    </div>
+    <p>哈哈哈哈哈哈哈哈哈哈哈会尽快立刻脚后跟v发v不那么</p>
+</body>
+</html>
