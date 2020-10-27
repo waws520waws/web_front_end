@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        span{direction: rtl;unicode-bidi: bidi-override;}
+    </style>
+</head>
+<body>
+    <ruby>
+        只<rt>zhǐ</rt>
+    </ruby>
+
+    <p>
+        <!-- ltr----left to right 从左到右 -->
+        <!-- rtl----right to left 从右到左 -->
+        <bdo dir="ltr">爱神的剑</bdo>我们都是好孩纸<br>
+        <bdo dir="rtl">爱神的剑</bdo>我们都是好孩纸
+    </p>
+
+    <span>爱神的剑我们都是好孩纸</span>
+</body>
+</html>

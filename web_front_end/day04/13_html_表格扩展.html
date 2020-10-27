@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 空单元格隐藏/默认双线变单线 */
+        table{empty-cells: hide;border-collapse: collapse;}
+
+        /* 实现斜线分割单元格 */
+        table .line{border-top: 50px solid red;border-left: 150px solid blue;position: relative;color: white;}
+        table .line em{position:absolute;left: -50px;top:-50px;}
+        table .line span{position:absolute;left: -120px;top:-30px;}
+    </style>
+</head>
+<body>
+    <table border="1px" cellpadding="30px" cellspacing="10px">
+        <caption><strong>天气预报</strong></caption>
+        
+        <!-- 对于成组的列元素进行操作 -->
+        <colgroup>
+            <col span="1" style="background-color: yellow;"> 
+            <col span="2" style="background-color: green;"> 
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th>
+                   <div class="line">
+                       <em>详情</em>
+                       <span>日期</span>
+                   </div> 
+                </th>
+                <th>天气情况</th>
+                <th>出行情况</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2020-10-24</td>
+                <td><img src="img/tianqi_1.png" alt=""></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2020-10-25</td>
+                <td><img src="img/tianqi_2.png" alt=""></td>
+                <td>有小雨，出门请带伞</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

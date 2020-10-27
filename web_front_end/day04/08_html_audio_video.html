@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- controls用于显示控件  loop当音频播放结束了从头开始播放，循环  autoplay 自动播放-->
+    <!-- <audio src="./ziyuan/johann_sebastian_bach_air.mp3" controls loop autoplay></audio> -->
+
+    <!-- <video src="./ziyuan/Intermission-Walk-in_512kb.mp4" controls loop></video> -->
+
+    <!-- 多浏览器兼容问题/使用source对资源进行排版，先找第一个看一下浏览器是不是支持，不支持在浏览器中加载第二个，看支不支持，依此下推，最终都不支持，就不支持，如支持，资源加载进入浏览器即可 -->
+    <video controls>
+        <source src="./ziyuan/Intermission-Walk-in.ogv"></source>
+        <source src="./ziyuan/Intermission-Walk-in_512kb.mp4"></source>
+    </video>
+</body>
+</html>

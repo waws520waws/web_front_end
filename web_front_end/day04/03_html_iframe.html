@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 创建好有一个默认的大小 -->
+    <!-- src 用来连接本地的地址或者远程连接的地址 --> 
+    <!-- <iframe src="https://www.taobao.com" frameborder="0"></iframe> -->
+
+    <!-- 尝试frameborder--边框 -->
+    <!-- <iframe src="https://www.taobao.com" frameborder="1"></iframe> -->
+
+    <!-- 滚动条默认是有的 scrolling="no" 设置没有 -->
+    <!-- <iframe src="https://www.taobao.com" frameborder="0" scrolling="no"></iframe> -->
+
+    <!-- 改变宽高默认不要px,字符串的形式 -->
+    <!-- <iframe src="https://www.taobao.com" frameborder="0" width="400" height="400"></iframe> -->
+
+    <!-- 当srcdoc和src都存在的时候srcdoc会覆盖src的作用 -->
+    <iframe srcdoc="<h1>hello</h1>" src="https://www.taobao.com" frameborder="0"></iframe>
+
+
+
+</body>
+</html>
