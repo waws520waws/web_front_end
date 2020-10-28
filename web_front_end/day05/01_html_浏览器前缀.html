@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation: 10s move;
+        }
+
+        @keyframes move{
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+
+        /* 添加浏览器版本--chrome */
+        /* @-webkit-keyframes move{
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        } */
+
+        /* 添加浏览器版本--IE */
+        /* @-ms-keyframes move{
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        } */
+    </style>
+
+    
+</head>
+<body>
+    <div></div>
+</body>
+</html>

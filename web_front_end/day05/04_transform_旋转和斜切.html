@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{width: 300px;height: 300px;border: 1px solid #000; margin: 100px auto;}
+        .box2{width: 100px;height: 100px;background: red; transition:2s;}
+        
+        /* 旋转默认就是 rotateZ  后面的值是正值:顺时针  后面的值是负值:逆时针 */
+        /* .box1:hover .box2{transform: rotate(45deg);}
+        .box1:hover .box2{transform: rotateZ(45deg);} */
+
+        /* 斜切 正值向左斜切 负值向右斜切 */
+        /* .box1:hover .box2{transform: skew(45deg);}  */
+        .box1:hover .box2{transform: skew(-30deg,-30deg);} 
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

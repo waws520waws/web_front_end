@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{width: 100px;height: 100px;margin-bottom: 30px;background-color: black;}
+        .box2{width: 200px;height: 200px;margin-top: 30px;background-color: red;}
+
+        /* 触发BFC条件，变成一个独立的容器 */
+        .box{overflow: hidden;}
+    </style>
+</head>
+<body>
+    <!-- BFC规范解决margin叠加的问题 -->
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+    
+    <div class="box"> 
+        <div class="box2"></div>
+    </div>
+
+    <!-- BFC解决margin传递的问题解决方法就是之前提到过的overflow：hidden 不在复写 -->
+</body>
+</html>

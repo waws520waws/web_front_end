@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* animation-fill-mode的使用体会 */
+
+        .box1,.box2,.box3,.box4{width: 100px;height: 100px;background-color: red;margin: 5px;}
+        /* none 在延迟的情况下，让0%在延迟后生效 2s之后背景变成蓝色 停在起点 */
+        .box1{animation: move 2s 2s;}
+        /* backwards 在延迟的情况下，让0%在延迟前生效 立刻背景变成蓝色 停在起点*/
+        .box2{animation: move 2s 2s;animation-fill-mode: backwards;}
+        /* backwards 在延迟的情况下，让0%在延迟后生效 立刻背景变成蓝色 停在终点*/
+        .box3{animation: move 2s 2s;animation-fill-mode: forwards;}
+        /* backwards 在延迟的情况下，让0%在延迟前生效 立刻背景变成蓝色 停在终点  兼具有backwards和forwards的特点 */
+        .box3{animation: move 2s 2s;animation-fill-mode: both;}
+
+
+        @keyframes move{
+            0%{transform: translate(0,0);background-color: blue;}
+            100%{transform: translate(300px,0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <div class="box4">4</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* perspective是景深 3D的实际的原理 实际上就是通过在远处放置一个照相机，这样在照相机中会呈现3d的效果然后再转化成人眼视觉的方式呈现，然人看浏览器有3d的感觉 */
+        .box1{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto; perspective: 80px;}
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 100px;
+            transition: 1s;
+            
+            /* x上下旋转 正上负下 */
+            /* transform: rotatex(0); */
+
+            /* Y左右旋转 正右负左 */
+            transform: rotateY(0);
+
+            /* translateZ 前后移动 正前负后*/
+            transform: translateZ(0);
+        }
+        .box1:hover .box2{
+
+            /* x上下旋转 正上负下 */
+            /* transform: rotateX(360deg); */
+
+            /* Y左右旋转 正右负左 */
+            /* transform: rotateY(360deg); */
+
+            /* translateZ 前后移动 正前负后*/
+            transform: translateZ(50px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+[2020-10-27 09:26:49] layer "1.web design": Expected end of input but "d" found.
+[2020-10-27 09:26:49] layer "2.graphic design": Expected end of input but "d" found.
+[2020-10-27 09:26:49] layer "3.e-business plan": Expected end of input but "-" found.
+[2020-10-27 09:26:49] layer "4.mailboxagents": Unsupported extension: mailboxagents

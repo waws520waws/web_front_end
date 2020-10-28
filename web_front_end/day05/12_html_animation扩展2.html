@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* animation-direction  播放方向----是否应该轮流反向播放动画 */
+
+        /* alternate 从0%运动到100%--再从100%运动到0% animation 次数是1次不生效 */
+        /* .box1{width: 100px;height: 100px;background-color: red;animation: move 2s infinite;animation-direction: alternate;} */
+
+        /* reverse 永远都是反向 , 从100%~0% */
+        /* .box1{width: 100px;height: 100px;background-color: red;animation: move 2s infinite;animation-direction: reverse;} */
+
+        /* none (默认值) : 永远都是正向 , 从0%~100%*/
+        .box1{width: 100px;height: 100px;background-color: red;animation: move 2s infinite;animation-direction: none;}
+
+
+        @keyframes move{
+            0%{transform: translate(0,0);}
+            100%{transform: translate(300px,0);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+</body>
+</html>

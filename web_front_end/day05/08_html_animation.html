@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* animation 动画 */
+        .box1{width: 300px;height: 300px;border: 1px solid #000;}
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* 名字(自由起名)需要和@keyframes进行对应 */
+            animation: myBox;
+            /* 持续时间 */
+            animation-duration: 4s;
+            /* 延迟的时间，可以为负，负数其实也是再运动，然后起始能看见的位置就是延迟了时间的位置 */
+            animation-delay: 2s;
+
+            /* 重复执行的次数，默认1次，infinite无限次 */
+            animation-iteration-count: infinite;
+
+            /* 运动速度曲线的设置 */
+            animation-timing-function: ease-out;
+
+            /* 综合设置 */
+            /* animation: myBox 4s 2s infinite linear; */
+        }
+    
+    /* 动画默认是从开始移动到结束，最后回到动画开始的地方 from/to都是关键帧*/
+    /* @keyframes myBox{
+        from{transform:translate(0,0);}
+        to{transform:translate(200px,0);}
+    } */
+
+    @keyframes myBox{
+        0%{transform:translate(0,0);}
+        25%{transform:translate(200px,0);}
+        50%{transform:translate(200px,200px);}
+        75%{transform:translate(0,200px);}
+        100%{transform:translate(0,0);}
+    }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

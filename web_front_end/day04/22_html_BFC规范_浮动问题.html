@@ -1,0 +1,40 @@
+<!-- 上面使用的是after伪类的方式清除浮动 -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{width:300px;border: 2px solid #000;}
+        .box2{width: 100px;height: 100px;float:left;background-color: blue;}
+        .clear::after{content: "";display: block;clear: both;}
+    </style>
+</head>
+<body>
+    <div class="box1 clear">
+        <div class="box2">
+
+        </div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{width:300px;border: 2px solid #000; overflow: hidden;}
+        .box2{width: 100px;height: 100px;float:left;background-color: blue;}
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

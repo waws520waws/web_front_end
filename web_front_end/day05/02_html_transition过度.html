@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* transition 过度效果 */
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            /* all 指定所有上面设置过的属性width、height、color */
+            /* transition-property:all; */
+
+            /* 只针对某一个或几个属性 width 其他的属性都是瞬间完成变化 */
+            transition-property:width;
+            transition-duration: 5s;
+            /* transition-delay: 3s; */
+            transition-timing-function: cubic-bezier(0,-0.83,1,1.49);
+        }
+
+        /* transition复合写法 */
+        /* div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: 1s 2s linear;
+        } */
+
+
+
+        div:hover{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

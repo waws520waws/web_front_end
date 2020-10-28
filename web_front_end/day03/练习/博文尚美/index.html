@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/commen.css">
+    <style>
+        /* 因为banner这个样式是index首页独有的所以，我们将其写在本页的内部CSS样式中即可 */
+
+        #banner{position: relative;}
+        #banner .banner_list{width: 100%;height:469px;position: relative;}
+        #banner .banner_list li{width: 100%; height: 100%;background: no-repeat center 0;position: absolute;left: 0;top:0;z-index: 1;opacity: 0;}
+        #banner .banner_list li.active{opacity: 1;z-index: 10;}
+        #banner .banner_list a{display: block;width: 100%;height: 100%;}
+        #banner .banner_btn{width: 100%; position: absolute;bottom: 19px;z-index: 20;font-size: 0;text-align: center;}
+        #banner .banner_btn li{display: inline-block;width: 12px;height: 12px;border: 2px white solid;border-radius: 50%;box-sizing: border-box;margin: 0 6px;cursor: pointer;}
+        #banner .banner_btn li.active{background: white;}
+
+        /* 服务部分的css样式 */
+        /* 避免margin传递的问题 */
+        #service{overflow: hidden;min-height: 407px;}
+        #service .service_list{text-align: center; margin-top: 34px;}
+        #service .service_list li{float: left;width: 250px;margin: 0 10px;}
+        #service .service_list div{width: 102px;height: 102px;margin: 0 auto;margin-bottom: 25px;}
+        #service .service_list li:nth-of-type(1) div{background-image: url(./img/web1.png);}
+        #service .service_list li:nth-of-type(2) div{background-image: url(./img/graphic1.png);}
+        #service .service_list li:nth-of-type(3) div{background-image: url(./img/e-bussiness1.png);}
+        #service .service_list li:nth-of-type(4) div{background-image: url(./img/mail1.png);}
+        #service .service_list h3{font-size: 18px;line-height: 36px;color: #434343;}
+        #service .service_list p{font-size: 14px;line-height: 22px;margin-top: 11px;color:#6D6D6D;}
+
+        
+        /* 是否做成背景需要考虑的是：这个图片他在整个的案例中是否经常性的发生变化，若不经常发生变化则设置成背景图片，若经常需要更换就需要我们使用img标签将图片进行显示 */
+        #client-case-all{background-color: #F8F8F8;height: 460px;}
+        #client-case{overflow: hidden;}
+        #client-case .area-title h2{color:#66C5B4;margin-top: 55px;}
+        #client-case ul{overflow: hidden;margin-bottom: 36px;margin-top: 27px;}
+
+        /* 在这个地方的图片的width的计算方法：并不是直接按照量出来的width进行操作的，而是[整体的宽度-(margin-left-right)*个数]/个数=真实图片的width 得到的 */
+        #client-case ul li {float:left;width: 341px;height: 181px;margin-right: 9px;margin-left: 9px;}
+        #client-case ul li:nth-of-type(1){background: url(./img/1.png) no-repeat center 0;}
+        #client-case ul li:nth-of-type(2){background: url(./img/2.png) no-repeat center 0;}
+        #client-case ul li:nth-of-type(3){background: url(./img/3.png) no-repeat center 0;}
+
+        /* 注意下这个地方的div和a的处理方式 */
+        #client-case .input{width:176px;height: 37px;text-align: center;background: #66C5B4;margin: 0 auto;border-radius: 50px 50px;font-size: 14px;line-height: 37px;}
+        #client-case .input a{display: block;width: 100%;height: 100%;color: #FFFFFF;}
+
+        /* 这种写法是只给了a链接上的文字进行添加链接，点击区域并没有任何变化，若我们想整个区域全部都有链接效应的话，使用div>a a的width/height--100%的写法 */
+        /* #client-case .input{width:176px;height: 37px;text-align: center;background: #66C5B4;margin: 0 auto;border-radius: 50px 50px;}
+        #client-case .input a{font-size: 14px;line-height: 37px;color: #FFFFFF;} */
+
+        /* #News{min-height: 451px;}
+        #News .area-title p{color:#9F9F9F;font-size: 10px;line-height:34px;margin-bottom: 58px;}
+        #News .news_img{width:234px;height: 196px;background-color: #E5E5E7;}
+        #News .news_list{width:224px;height: 186px;padding: auto;}
+        /* #News .news_list li{text-align: center;} */
+        /* #News .news_list li .month{font-size: 39px;color: #66C5B4;}
+        #News .news_list li .e-month{font-size: 20px;color: #999999;}
+        #News .news_list li div.d{width: 311px;}
+        #News .news_list li div.d h2{font-size: 14px;color:#3F3F3F;line-height: 36px;margin-bottom: 10px;}
+        #News .news_list li div.d p {width: 311px; font-size: 12px;color: #A4A4A4;height: 21px;} */ 
+
+        #news{overflow: hidden;min-height: 451px;}
+        #news .area-title{margin-top: 68px;}
+        #news .area-title h2{color: #363636;font-size: 20px;}
+        #news .area-title p{color: #9F9F9F;font-size: 14px;line-height: 36px;margin-bottom:47px;}
+        #news dt{float:left;width: 234px;height: 196px;}
+        #news dd{float:left;width: 846px;}
+        #news ul{width: 100%;}
+        #news ul li{width: 50%;}
+        #news ul li div.month{width:70px;text-align: center;border-right: 1px solid rgb(220,220,220);margin-bottom: 44px;}
+        #news ul i{color: #66C5B4;font-size: 39px;font-weight: bold;}
+        #news ul span{display:block;color: #999999;font-size: 20px;line-height: 36px;}
+        #news ul li div.content{width:311px;text-align: left;margin-left: 20px;}
+        #news ul h2{color: #3F3F3F;font-size: 14px;font-weight: bold;line-height: 36px;}
+        #news ul p{color: #A4A4A4;font-size: 12px;line-height: 21px;}
+
+
+        /* 尾部的css设置 */
+        #footer-all{background-color: #66C5B4;height: 54px;}
+        #footer .foot-left{font-size: 12px;height: 36px;line-height: 36px;color: #FFFFFF;margin-top:10px;}
+        #footer ul li{float: left;padding: 0 15px;border-right: 2px #FFFFFF solid;font-size: 12px;margin-top: 22px;color:#FFFFFF}
+        #footer ul li:last-of-type{border: none;} 
+    </style>
+
+</head>
+<body>
+    <div id="head" class="container">
+        <div class="head_logo l">
+            <a href="#">
+                <img src="img/logo.png" alt="">
+            </a>
+        </div>
+        
+        <ul class="head_menu r">
+            <li>
+                <a href="#">HOME</a>
+            </li>
+            <li>
+                <a href="#">ABOUT</a>
+            </li>
+            <li>
+                <a href="#">PROTFOLIO</a>
+            </li>
+            <li>
+                <a href="#">SERVICE</a>
+            </li>
+            <li>
+                <a href="#">NEWS</a>
+            </li>
+            <li>
+                <a href="#">CONTACT</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="banner" class="container-fluid">
+        <ul class="banner_list">
+            <li class="active" style="background-image: url(img/banner.png);">
+                <a href="#"></a>
+            </li>
+            <li style="background-image: url(img/banner.png);">
+                <a href="#"></a>
+            </li>
+            <li style="background-image: url(img/banner.png);">
+                <a href="#"></a>
+            </li>
+            <li style="background-image: url(img/banner.png);">
+                <a href="#"></a>
+            </li>
+        </ul>
+        <ol class="banner_btn">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+
+    <div id="service" class="container">
+        <div class="area-title">
+            <h2>服务范围</h2>
+            <p>OUR SERVICES</p>
+        </div>
+        <ul class="service_list">
+            <li>
+                <div></div>
+                <h3>1.WEB DESIGN</h3>
+                <p>企业品牌网站设计/手机网站制作 
+                    <br>动画网站创意设计</p>
+            </li>
+            <li>
+                <div></div>
+                <h3>2.GRAPHIC DESIGN</h3>
+                <p>标志logo设计/产品宣传册设计<br>企业广告/海报设计</p>
+            </li>
+            <li>
+                <div></div>
+                <h3>3.E-BUSINESS PLAN</h3>
+                <p>淘宝/天猫装修设计及运营推广<br>企业微博、微信营销</p>
+            </li>
+            <li>
+                <div></div>
+                <h3>4.MAILBOXAGENTS</h3>
+                <p>腾讯/网易企业邮箱品牌代理<br>个性化邮箱定制开发</p>
+            </li>
+
+        </ul>
+    </div>
+
+    <div id="client-case-all" class="container-fluid">
+        <div id="client-case" class="container">
+            <div  class="area-title">
+                <h2>{ 客户案例 }</h2>
+                <p>With the best professional technology, to design the best innovative web site</p>
+            </div>
+            <ul class="clear">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="input">
+                <a href="#">VIEW MORE</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="news" class="container">
+        <div  class="area-title">
+            <h2>最新资讯</h2>
+            <p>TEH LATEST NEWS</p>
+        </div>
+        <dl>
+            <dt>
+                <img src="./img/xs1.png" alt="">
+            </dt>
+            <dd>
+                <ul class="news_list">
+                    <li class="l">
+                        <div class="l month">
+                            <i>09</i>
+                            <span>Jan</span>
+                        </div>
+                        <div class="l content">
+                            <h2>网站排名进入前三的技巧说明</h2>
+                            <p>很多客户都会纳闷为什么自己的网站老是优化不到搜索引擎 首页，更不用说进首页前三了。那么网站优...</p>
+                        </div>
+                    </li>
+                    <li class="l">
+                        <div class="l month">
+                            <i>09</i>
+                            <span>Jan</span>
+                        </div>
+                        <div class="l content">
+                            <h2>flash网站制作的优缺点</h2>
+                            <p>虽然HTML5程序语言出现，大有逐渐代替Flash网站制作的意味，但是过于生硬的HTML5动画效果，始终...</p>
+                        </div>
+                    </li>
+                    <li class="l">
+                        <div class="l month">
+                            <i>07</i>
+                            <span>Jan</span>
+                        </div>
+                        <div class="l content">
+                            <h2>做个网站多少钱？</h2>
+                            <p>“做个网站多少钱？”很多客户打电话过来直接第一句就抛出来的问题。这好比买辆车多少钱，你是要...</p>
+                        </div>
+                    </li>
+                    <li class="l">
+                        <div class="l month">
+                            <i>06</i>
+                            <span>Jan</span>
+                        </div>
+                        <div class="l content">
+                            <h2>哪些网站优化手法属于网站过度优化</h2>
+                            <p>大部分人都想让自己的网站，一夜之间出现在搜索引擎首页，独占鳌头。但是事实告诉我们罗马不是一...</p>
+                        </div>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+
+
+    <div id="footer-all" class="container-fluid">
+        <div id="footer" class="container">
+            <div  class="foot-left l">
+                <p>Copyright 2006- 2014 Bowenshangmei Culture All Rights Reserved</p>
+            </div>
+            <ul class="r">
+                <li>Home</li>
+                <li>About</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

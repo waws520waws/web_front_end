@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding: 0;}
+        ul{list-style: none;}
+
+        .clear::after{display: block;content: "";clear: both;}
+
+        ul{width: 440px;margin: 30px auto;overflow: hidden;}
+        ul li{float: left;width: 100px;height: 30px;background: red;color: white;line-height: 30px;text-align: center;margin: 0 5px;transform: skew(-30deg); cursor: pointer;}
+        /* 技巧：块元素倾斜，但是块内的文字元素不进行倾斜 */
+        span{display: block;transform: skewX(30deg);}
+
+        ul li:first-child{padding-left: 10px;margin-left: -10px;}
+        ul li:last-child{padding-right: 20px;margin-right: -20px;}
+        .active{background-color: blue;}
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="clear">
+            <li class="active"><span>首页</span></li>
+            <li><span>关于我们</span></li>
+            <li><span>联系方式</span></li>
+            <li><span>招聘信息</span></li>
+        </ul>
+    </div>
+</body>
+</html>
