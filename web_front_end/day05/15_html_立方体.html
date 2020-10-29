@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 制作一个立方体并实现旋转效果 -->
+    <style>
+        *{margin:0;padding: 0;}
+        ul{list-style: none;}
+
+        .box{width: 300px;height:300px;border: 1px solid #000;}
+        
+        /* transform-style: preserve-3d; 前面这个是用3d的视角去看  transform-origin: center center -50px; 是当我们的物体是一个立方体的时候，我们的中心点需要写三个 */
+        /* 但是z轴是没有center的格式的，所以我们需要使用像素变表示 */
+        /* 实操时候注意我们需要用到是ul这个整体进行旋转操作 */
+        .box ul{width: 100px;height:100px;margin:100px;position: relative;transition: 1s;transform-style: preserve-3d;transform-origin: center center -50px;}
+        .box ul li{width: 100px;height: 100px;font-size: 30px;color: white;line-height: 100px;text-align: center;}
+
+        /* 注意下面对于立方体的构建的过程，我们transform-origin: right;可以以边为轴，并不是一定以一个固定的点作为基点进行旋转，平移，缩放的操作 */
+        .box ul li:nth-child(1){float: left;background: red;position: absolute;left: 0px;top:0px;}
+        .box ul li:nth-child(2){float: left;background: blue;position: absolute;left: -100px;top:0px;transform-origin: right;transform: rotateY(-90deg);}
+        .box ul li:nth-child(3){float: left;background: hotpink;position: absolute;left: 100px;top:0px;transform-origin: left;transform: rotateY(90deg);}
+        .box ul li:nth-child(4){float: left;background: gray;position: absolute;left: 0px;top:-100px;transform-origin: bottom;;transform: rotatex(-90deg);}
+        .box ul li:nth-child(5){float: left;background: green;position: absolute;left: 0px;top:100px;transform-origin: top;transform: rotatex(90deg);}
+        .box ul li:nth-child(6){float: left;background: yellow;position: absolute;left: 0px;top:0px;transform: translateZ(-100px) rotateY(180deg);}
+
+        .box:hover ul{transform: rotateY(1080deg);}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</body>
+</html>

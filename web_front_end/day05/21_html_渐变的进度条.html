@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 30px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            background-image: linear-gradient(to top right, red 25%,blue 25%,blue 50%,red 50%,red 75%,blue 75%);
+            background-size: 30px;
+            animation: move 5s infinite linear;
+        }
+
+        @keyframes move{
+            0%{background-position: 0 0;}
+            100%{background-position: 300px 0;}
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

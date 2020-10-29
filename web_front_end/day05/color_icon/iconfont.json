@@ -1,0 +1,30 @@
+{
+  "id": "2166044",
+  "name": "more_color",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "多彩图片的使用",
+  "glyphs": [
+    {
+      "icon_id": "17883965",
+      "name": "工具箱",
+      "font_class": "gongjuxiang",
+      "unicode": "e6cd",
+      "unicode_decimal": 59085
+    },
+    {
+      "icon_id": "17883975",
+      "name": "喷雾",
+      "font_class": "penwu",
+      "unicode": "e6d0",
+      "unicode_decimal": 59088
+    },
+    {
+      "icon_id": "17883992",
+      "name": "剪短长发",
+      "font_class": "jianduanchangfa",
+      "unicode": "e6d2",
+      "unicode_decimal": 59090
+    }
+  ]
+}

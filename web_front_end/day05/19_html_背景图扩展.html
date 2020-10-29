@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            background: url(img/ha1.png) no-repeat;
+
+            /* background-size背景图的尺寸大小，可以写两个像素 一般不用 拉伸后的效果特别丑 */
+            /* background-size: 50px 200px; */
+
+            /* background-size：cover  覆盖:等比放大到充满整个区域 多余部分被裁剪掉 max(width,length)*/
+            /* background-size:cover; */
+
+            /* background-size：contain  包含:等比放大到其中一个边到边界 剩余部分留白 min(width,length) */
+            background-size:contain;
+            /* background-origin: ; */
+            }
+
+        .box2{
+            width: 300px;
+            height: 300px;
+            border: 40px solid rgba(0,0,0,0.5);
+            padding: 30px;
+            background: url(img/ha1.png) no-repeat;
+
+            /* background-origin设置背景图的填充位置 */
+            /* 默认的情况是padding-box，默认填充到padding区域 */
+            /* background-origin:padding-box; */
+
+            /* border-box填充到padding区域是bordr及border以内的区域*/
+            /* background-origin:border-box; */
+
+            /* content-box填充到padding区域是content区域*/
+            background-origin:content-box;
+        }
+
+        .box3{
+            width: 300px;
+            height: 300px;
+            border: 40px solid rgba(0,0,0,0.5);
+            padding: 30px;
+            /* 需要平铺看出效果 */
+            background: url(img/ha1.png);
+
+            /* background-clip设置背景图的裁切方式 */
+            /* padding-box，保留padding区域，以外部分裁切掉 */
+            /* background-clip:padding-box; */
+
+            /*默认： border-box保留border及border内的区域，以外部分裁切掉*/
+            /* background-clip:border-box; */
+
+            /* content-box保留content内的区域，以外部分裁切掉*/
+            background-clip:content-box;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>

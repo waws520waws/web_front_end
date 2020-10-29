@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{list-style: none;}
+        img{display: block;}
+
+
+        .parent{width: 640px;height: 320px;perspective: 700px;margin: 30px auto;transform-style: preserve-3d;perspective-origin:bottom;}
+        .parent ul{width: 100%;height: 100%;position: relative;}
+        .parent ul li{width: 100%;height: 100%;position:absolute;left:0;top:0;transition: 2s;backface-visibility: hidden;}
+        .parent ul li:nth-child(1){transform: rotateY(0);}
+        .parent ul li:nth-child(2){transform: rotateY(-180deg);}
+
+        .parent:hover li:nth-child(1){transform: rotateY(180deg);}
+        .parent:hover li:nth-child(2){transform: rotateY(0deg);}
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <ul>
+            <li>
+                <img src="img2/img1.jpg" alt="">
+            </li>
+            <li>
+                <img src="img2/img2.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

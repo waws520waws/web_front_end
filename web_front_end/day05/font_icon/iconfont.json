@@ -1,0 +1,37 @@
+{
+  "id": "2165977",
+  "name": "运动",
+  "font_family": "sports",
+  "css_prefix_text": "icon",
+  "description": "运动的图标收集",
+  "glyphs": [
+    {
+      "icon_id": "1086",
+      "name": "运动",
+      "font_class": "yundong",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "796639",
+      "name": "运动鞋",
+      "font_class": "yundongxie",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "3901178",
+      "name": "运动",
+      "font_class": "yundong1",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "14975824",
+      "name": "运动",
+      "font_class": "yundong2",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height: 200px;
+            background: red;
+            margin: 100px;
+            
+            /* 上下对比spread的作用 */
+            /* box-shadow: 10px 10px 10px  blue; */
+            /* box-shadow: 10px 10px 10px 5px blue ; */
+
+            /* 内阴影 */
+            /* box-shadow: 10px 10px 10px 5px blue inset; */
+
+            /* 多阴影 */
+            box-shadow: 10px 10px 10px 5px blue ,-10px -10px 10px 5px green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

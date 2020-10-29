@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+
+            /* linear-gradient线性渐变，颜色依次写进即可，都好隔开 */
+            /* background-image: linear-gradient(red,blue,yellow,green); */
+
+            /* linear-gradient线性渐变，指定参数to top 后面颜色添加到前面颜色的上面 */
+            /* background-image: linear-gradient(to top, red,blue,yellow,green); */
+            /* background-image: linear-gradient(to right, red,blue,yellow,green); */
+            /* background-image: linear-gradient(to right bottom, red,blue,yellow,green); */
+
+            /* linear-gradient线性渐变，指定旋转参数deg 正值会按照顺时针进行旋转，负值会按照逆时针进行旋转 */
+            /* background-image: linear-gradient(70deg, red,blue,yellow,green); */
+
+            /* percentage 指定渐变的区域 */
+            /* background-image: linear-gradient(red 25%,blue 75%); */
+
+
+            /* percentage 指定渐变的区域 */
+            background-image: radial-gradient(red 25%,blue 50%,yellow 75%);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

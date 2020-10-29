@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height:300px;
+            background: url(./img/girl.jpg);
+            /* -webkit-mask遮罩效果  url 遮罩图片地址 平铺方式 向右移动距离 向下移动距离 设置宽  设置高  */
+            /* 设置宽高和距离之间需要使用/进行分隔开 */
+            -webkit-mask: url(./img/love.png) no-repeat 200px 100px / 300px 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mask">
+
+    </div>
+</body>
+</html>

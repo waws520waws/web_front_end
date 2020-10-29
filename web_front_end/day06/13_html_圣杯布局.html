@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+
+        .header{height: 100px;background-color: red;}
+        .clear::after{content: "";display: block;clear: both;}
+        .container{margin: 0 150px 0 100px;background-color: yellow;}
+        .container .center{float: left;width: 100%;height: 300px;}
+        .container .left{width: 100px;height: 300px;float: left; background-color: blue;margin-left:-100%;
+        position: relative;left:-100px}
+        .container .right{width: 150px;height: 300px;float: left;background-color: green;margin-left: -150px;position: relative;right:-150px}
+
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="container clear">
+        <div class="center">
+            <p>hahaa</p>
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>
