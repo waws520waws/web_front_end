@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            强制数据类型转换：
+            Boolean()  将其他数据类型强制转化成boolean
+                口诀：非零即真，非空即真
+
+            Number()  将其他数据类型强制转化成number
+                只有纯数字字符组成的字符串转数字，才能转为数字，其他的都是NaN
+            parseInt()  
+                1.取整
+                2.将别的进制转换成十进制，必须要传入字符串
+            parseFloat()  取小数部分
+        */
+
+        //Boolean
+        alert(Boolean(100))
+        alert(Boolean(-100))
+        alert(Boolean(1.07))
+        alert(Boolean(0))    //false
+
+
+        alert(Boolean("11"))
+        alert(Boolean("hello"))
+        alert(Boolean(""))   //false
+
+        alert(Boolean(null))     //false
+        alert(Boolean(undefined))     //false
+        alert(Boolean(NaN))      //false
+
+        //Number()
+        alert(Number("100"))
+        alert(Number("100a"))   //NaN
+
+
+        alert(parseInt("100a"))   //100  将字符串前面的数字取出来
+        alert(parseInt("c100a"))   //NaN 
+        alert(parseInt("3.14"))   //3
+
+        alert(parseFloat("3.14a"))   //3.14
+
+        alert(parseInt("110100",2))   //将二进制字符串转换成十进制
+        alert(parseInt("64",8))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

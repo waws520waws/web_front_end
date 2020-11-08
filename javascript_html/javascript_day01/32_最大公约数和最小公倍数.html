@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+            最小公倍数：
+                从两个数中最大的数，开始，循环找值，找到可以整除这两个数的数，就是最小公倍数
+        */
+
+        var a = 12;
+        var b = 5;
+        var max = a > b ? a : b
+        for(;;max++){
+            if(max % a == 0 && max % b ==0){
+                break;
+            }
+        }
+        document.write(max)
+
+
+        document.write("<br>")
+
+        /*
+            最大公约数：
+                从两个数中最小的数，开始，循环减值，找到可以被这两个数整除的数，就是最大公约数
+        */
+        var c = 12;
+        var d = 5;
+        var min = c < d ? c : d
+        for(;;min--){
+            if(a % min == 0 && b % min ==0){
+                break;
+            }
+        }
+        document.write(min)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

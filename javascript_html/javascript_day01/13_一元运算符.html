@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            一元运算符：
+                ++
+                    功能：对原有的变量进行+1操作
+                    a++
+                        值：++后置，先取a的值作为a++表达式的值，在对a进行+1的操作
+                    ++a
+                        值：++前置，先对a进行+1的操作，在取a的值作为a++表达式的值，
+                --
+                    功能：对原有的变量进行-1操作
+                    a--
+                        值：--后置，先取a的值作为a--表达式的值，在对a进行-1的操作
+                    --a
+                        值：--前置，先对a进行-1的操作，在取a的值作为a--表达式的值
+
+        */
+        var a = 5;
+        // a++;
+        alert(a++)  //5
+        alert(++a)  //6
+        alert(a)
+
+
+        var b = 10;
+        // 10 + 12 + 12 + 13 + 13 + 14 = 74
+        alert(b++ + ++b + b + ++b + b++ + b)
+
+        var c = 10;
+        //10 + 8 + 8 + 7 + 7 + 6 = 46
+        alert(c-- + --c + c + --c + c-- + c)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

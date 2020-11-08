@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            函数的分类：
+                无参数无返回值
+                无参数有返回值
+                有参数有返回值
+                有参数无返回值
+
+            输出n个hello world
+            「注意」：不确定的值
+
+            有参数无返回值
+                function 函数名(形参1，形参2，){
+                    函数体；
+                }
+
+            有参数有返回值
+                function 函数名(形参1，形参2，){
+                    函数体；
+                    return 返回值;
+                }
+
+            注：函数在运行的时候，如果遇到return,整个函数直接终止
+        */
+        
+        //有参数无返回值
+        function print(n){
+            for(var i = 1;i <= n;i++){
+                document.write("hello world<br>");
+            }
+        }
+
+        //程序员可能对函数运行的结果有不同的处理方式
+        //[注意]:我们不能够将函数的运行结果写在函数的里面
+        //有参数有返回值
+        function AddNum(one,two){
+            return one + two;
+        }
+
+        print(3);
+        document.write(AddNum(5,7));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

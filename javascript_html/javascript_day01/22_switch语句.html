@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            switch语句：
+                语法：
+                    switch(表达式){
+                        case 常量1:
+                            执行语句1;
+                            break;
+                        case 常量2:
+                            执行语句2;
+                            break;
+                        ……
+                        default:
+                            当上述所有的case选项都匹配失败，执行这里
+                            break;
+                    }
+            过程：
+                1.计算switch()语句表达式的值
+                2.和case后面的值进行匹配，匹配成功，执行对应case选项下的执行语句
+            
+            注意：
+                    一般情况下不要省略break
+                        break代表的是终止当前的switch语句，要是没有break，下面case中的语句也会被执行
+                        既输出了70~79 又输出了60~69 出现问题
+                    一般情况下不要省略default
+                        选项没有任何匹配项，输出没有任何的反馈，会对使用者造成困扰
+
+
+            if 多分支语句和switch语句：
+                1.如果是匹配确定的结果，优先使用switch
+                2.需要判断的题目，只能使用if语句
+        */
+
+        // var grade = "M"
+        var grade = "B"
+        switch(grade){
+            case "A":alert("80~100");break;
+            case "B":alert("70~79");break;
+            case "C":alert("60~69");break;
+            case "D":alert("<60");break;
+            default:alert("error");break;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

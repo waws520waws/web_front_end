@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            注：每一个函数内部都有一个arguments，系统内置的
+            注：arguments是用来存储实际传入的参数的
+
+            属性：
+                arguments.length  输出当前里面存储的参数个数
+            访问某一个数据：
+                arguments[下标]
+                注：下标是从0开始的
+
+            注：优先使用形参，除非特殊情况
+        */
+
+        function show(){
+            alert(arguments.length)
+            alert(arguments[1])
+        }
+
+        show(1,true,"hello",30)
+
+        /*
+            例子：要求传入任意个数字的和？
+        */
+        function random_num_add(){
+            var sum = 0;
+            for(var i = 0;i<arguments.length;i++){
+                sum += arguments[i]
+            }
+            return sum
+        }
+
+        alert(random_num_add(1,2,3,4,5,5))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

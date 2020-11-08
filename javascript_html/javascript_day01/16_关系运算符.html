@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            关系运算符: 
+                >  <  >=  <=  !=  ==  !==  ===
+                运算的值：boolean
+
+            【注】用于进行比较的运算符称作为关系运算符：小于(<)、大于(>)、小于等于(<=)、大于等 于(>=)、相等(==)、不等(!=)、全等(恒等)(===)、不全等(不恒等)(!==)
+
+            和其他运算符一样,当关系运算符操作非数值时要遵循一下规则:
+            1.两个操作数都是数值，则数值比较；
+            2.两个操作数都是字符串，则比较两个字符串对应的字符编码值；
+                a.如果是两个单个字符，直接比较两个字符的ASCII码值即可
+                b.如果是两个多字符字符串，逐位进行比较，比较出大小，直接true/false
+            3.两个操作数有一个是数值，则将另一个转换为数值，再进行数值比较； 
+
+            在相等和不等的比较上，如果操作数是非数值，则遵循一下规则：
+            1.一个操作数是布尔值，则比较之前将其转换为数值，false 转成 0，true 转成 1；
+            2.一个操作数是字符串，则比较之前将其转成为数值再比较
+            3.一个操作数是 NaN，则==返回 false，!=返回 true；并且 NaN 和自身不等；
+            4.在全等和全不等的判断上，比如值和类型都相等，才返回 true，否则返回 false
+
+        */
+
+       //字符串比较看编码值
+       alert("A" < "a")
+       //逐位比较
+       alert("abcd" < "adbc")
+
+
+        /*
+            彩蛋
+        */
+
+        alert(Number(null))    //0
+        alert(Number(undefined))    //NaN
+        alert(null == undefined)    //true
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

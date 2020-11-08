@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            2.求两个数的最大数
+            3.判断一个年份是闰年还是平年
+                注：能被4整除且不能被100整除，或者能被400整除
+        */
+
+        //输出较大的数
+        // var num1 = 8;
+        // var num2 = 10;
+        // if(num1 > num2){
+        //     alert(num1)
+        // }else{
+        //     alert(num2)
+        // }
+        
+        //平年闰年的判断
+        var years = 1900;
+        if((years % 4 == 0 && years % 100 !=0) || years % 400 == 0){
+            alert(""+years+"年是闰年");
+        }else{
+            alert(""+years+"年不是闰年");
+        }
+
+        /*
+            代码规范：
+                阅读代码的时间站到编写代码总时间的10倍
+                1.运算符前后，都需要加空格
+                2.;或者,后面只需要一个空格
+                3.代码缩进
+        */
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

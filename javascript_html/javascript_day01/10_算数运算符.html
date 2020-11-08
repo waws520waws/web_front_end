@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1.算数运算符：
+                + - * / %(取余运算)
+        */
+        // var  num=5;
+        // alert(num%3);
+
+
+        /*
+            【注】NaN是一个值，这个值的类型是（number）。表现的意思是“不是一个数字”;
+            注意：不同数据类型进行算数运算
+            自动数据类型转换：不同的数据类型之间是没有办法进行运算的，将数据转化成同一类型，在进行计算
+                1.总结：任何类型的数据和字符串类型的数据做相加（+）操作时，其他数据类型会自动的转换为字符串类型。此时的相加（+）不再是数学意义上的加法，而是表示“拼接”的意思。
+                2.规则：任何数据除了和字符串做相加运算外，与NaN做算术运算的结果始终都是NaN。包括NaN本身和NaN做运算的结果也是NaN。字符串是数值会自动的转换为数字，否则会转换为NaN
+                3.总结：任何其他数据除了和字符串做相加操作外，与数字类型做算术运算时，其他数据会自动的转换为数字。
+        */
+
+        // 其他数据类型转换为字符串：
+        var result1 = "你" + "好"   //结果 你好 类型是string
+        var result2 = "1" + 1;                //结果   11 类型是string
+        var result3 = "1" + true   //结果   1true 类型是string
+        var result4 = "1" + undefined ;   //结果 1undefined  类型是string
+        var result5 = "1" + null;                //结果 1null 类型是string
+
+        // alert(result1)
+        // alert(result2)
+        // alert(result3)
+        // alert(result4)
+        // alert(result5)
+
+        // 其他数据类型转换为数字：
+        var result6 = 1 - "2";     //结果    1        类型是 number
+        var result7 = 1 - "我";      //结果    NaN        类型是 number
+
+        // alert(result6)
+        // alert(typeof result7)
+
+        var result9 = 1 * "1";      //结果   1    类型是 number
+        var result10 = 1 / "1";      //结果   1    类型是 number
+
+        
+        
+        //number和非字符串类型数字进行运算
+        var result11 = 1 + true;    //结果   2    类型是number
+        var result12 = 1 * false; //结果   0    类型是 number
+
+        // true会自动的转换为1      false会自动的转换为0
+
+        var result13 = 1 + null ;     //结果是1       类型是number
+        var result14 = 1 + undefined //结果是NaN        类型是number
+
+        // null会自动的转换为0， undefined会自动的转为NaN
+
+        alert(result9)
+        alert(result10)
+        alert(result11)
+        alert(result12)
+        alert(result13)
+        alert(result14)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            与运算
+                格式：
+                    表达式1 && 表达式2
+                规律：只有当两个表达式都为true的时候，这个表达式才是真
+                短路操作：假设我们的表达式1为假，则整体一定为假，表达式2都不用运行，直接跳过给出结果
+
+
+            或运算
+                格式：
+                    表达式1 || 表达式2
+                规律：只有当两个表达式都为false的时候，这个表达式才是false
+                短路操作：假设我们的表达式1为真，则整体一定为真，表达式2都不用运行，直接跳过给出结果
+
+            非运算
+                格式：
+                    !表达式1
+                规律：先将表达式的值自动数据类型转换成bool值，然后在取反。
+        */
+        
+        //验证短路操作
+        alert(10<5 && alert(num))    //直接输出false,在控制台没有错误
+
+        alert(num)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

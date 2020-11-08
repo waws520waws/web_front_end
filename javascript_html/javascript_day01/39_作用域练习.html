@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            就近原则：离那个作用域近,就使用哪个作用域内同名的变量
+
+            实参给形参传递值，在函数中形参变化，但是并不影响外边的实参
+        */
+
+
+        var a = 10, b = 20;
+        function show(a){
+            var b =100;
+            a += 5;
+            alert(a + "," + b)  // 15,100
+        } 
+
+        show(a)
+        alert(a + ", "+b)   // 10,20
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

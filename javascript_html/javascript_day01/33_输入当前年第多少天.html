@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            问题：输入年，月，日，计算某一天是该年的第几天
+        */
+
+        //传统做法
+        
+        // var year = 2008;
+        // var month = 8;
+        // var day = 8;
+        // var date = 0;
+        // for(var i=1;i<month;i++){
+        //     switch(i){
+        //         case 1:
+        //         case 3:
+        //         case 5:
+        //         case 7:
+        //         case 8:
+        //         case 10:
+        //         case 12:
+        //             var days = 31;
+        //             break;
+        //         case 4:
+        //         case 6:
+        //         case 9:
+        //         case 11:
+        //             var days = 30;
+        //             break
+        //         default:
+        //             if(year % 4 == 0 && year % 100 != 0 || year % 400 ==0){
+        //                 var days = 29;
+        //             }else{
+        //                 var days=28;
+        //             }
+        //             break;
+        //     }
+        //     date += days
+        // }
+        // date += day
+        // alert(date)
+        
+
+        //省略break的switch
+        var year = 2008;
+        var month = 8;
+        var day = 8;
+        var sum = 0;
+        switch(month){
+            case 12:
+                sum += 30;
+
+            case 11:
+                sum += 31;
+
+            case 10:
+                sum += 30;
+            case 9:
+                sum += 31;
+
+            case 8:
+                sum += 31;
+
+            case 7:
+                sum += 30;
+
+            case 6:
+                sum += 31;
+
+            case 5:
+                sum += 30;
+        
+            case 4:
+                sum += 31;
+            case 3:
+                if(year % 4 == 0 && year % 100 != 0 || year % 400 ==0){
+                    sum += 29;
+                }else{
+                    sum += 28;
+                }
+
+            case 2:
+                sum += 31
+
+            case 1:
+                sum += day;
+                break;
+            default:
+                alert("error");
+                break;
+
+        }
+        alert(sum)
+
+        /*
+            Math.ceil() 向上取整  3.1-->4  3.0--->3
+        */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

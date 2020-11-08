@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            do……while循环
+                语法：
+                    do{
+
+                    }while();
+                注:do……while循环后面的分号不要省略
+                可以直接使用while循环先写，然后在改写成do……while的形式
+
+            do……while 和 while的区别：
+                只有第一次的时候有区别
+                while循环
+                    先判断条件，在决定是否执行循环体内的语句
+                do……while
+                    先去运行一次循环体，在去判断条件是不是成立
+        */
+        
+        var i = 1;
+        var sum = 0;
+        do{
+            sum += i;
+            i++;
+        }while(i < 101);
+
+        alert(sum)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

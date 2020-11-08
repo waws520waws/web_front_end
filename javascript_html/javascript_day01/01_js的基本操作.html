@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            ECMAScript：是一种由Ecma国际(前身为欧洲计算机制造商协会,英文名称是European Computer Manufacturers Association)通过ECMA-262标准化的脚本程序设计语言。这种语言在万维网上应用广泛，它往往被称为JavaScript或JScript，但实际上后两者是ECMA-262标准的实现和扩展
+
+            BOM： Browse Object Model，提供与浏览器交互的方法和接口(就是一个浏览器的新窗口)
+
+            DOM： Document    Object Model，提供访问和操作网页内容的方法和接口(就是文档)
+
+            注意：所有的js代码都是在一个script的标签中编写的
+            属性：
+                1.type="text/javascript"  主要是用于声明标签中的文本格式  可以直接省略
+                2.src="demo.js" 引入外部的.js文件
+
+            注意点：
+                1.可以存在多个script标签，多个script标签是自上而下的顺序进行执行
+                2.一个script标签只能专心的做一个事情
+                    既使用src引入外部js文件，又在script中间写js代码，两部分js代码都不会生效
+
+            alert()  在当前的页面中弹出一个警告框，警告框中显示要显示的内容
+
+        */
+        alert("hello world")
+
+    </script>
+
+    <script>
+        alert("hello")
+    </script>
+
+    <script>
+        alert("world")
+    </script>
+
+    <script src="./js/demo.js">
+
+    </script>
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

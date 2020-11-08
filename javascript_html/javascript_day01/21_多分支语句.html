@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            多分支语句：
+                语法：
+                    if(判断的条件1){
+                        执行语句；(判断条件为真的时候执行)
+                    }else if(判断条件2){
+                        执行语句2
+                    }
+                    ……
+                    else{
+                        执行语句(当上面所有的条件都不成立的时候，执行这里)
+                    }
+
+            注意：我们的数学公式中可以这样表达  1 <= x <10
+                但是我们的代码中不能这样去写：因为执行顺序是   1 <= x 先进行判断 结果为1/0 在比较1/0 < 10 恒成立 就会发生错误，使用&& 和 || 进行书写连不等式。
+        */
+
+        //分段函数
+        var x = 10;
+        var y = null;
+        if(x < 1){
+            y = x;
+        }else if(1 <= x && x < 10){
+            y = 2 * x + 1;
+        }else{
+            y = 5 * x - 17;
+        }
+        alert("y: " + y)
+
+
+        //成绩判定
+        var grade = 86;
+        if(grade > 85){
+            if(grade > 95 && grade <= 100){
+                alert("优秀，得1000元奖金");
+            }else if(grade > 90 && grade <= 95){
+                alert("优秀，得800元奖金");
+            }else{
+                alert("优秀，得300元奖金");
+            }
+        }else if(grade>=75 && grade <= 85){
+            alert("良好");
+        }else if(grade>=60 && grade < 75){
+            alert("及格");
+        }else{
+            alert("不及格")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

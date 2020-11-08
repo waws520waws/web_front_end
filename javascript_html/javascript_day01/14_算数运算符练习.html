@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            入职薪水10K，每年涨幅入职薪水的5%，50年后工资多少？
+        */
+        var num = 10000;
+        num = num*0.05*50+num;
+        alert(num);
+
+        /* 
+            为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+        */
+        var num1 = 89;
+        // var days = (num1-num1%24)/24;
+        //取整
+        var days = parseInt(num1/24);
+        var hours = num1%24;
+        alert(""+days+"天"+hours+"小时");
+
+        /*
+            给定一个三位数，分别把这个数字的百位、十位、个位算出来并显示。
+        */
+        var num2 = 129;
+        var bai = parseInt(num2/100);
+        var shi = parseInt(num2/10)%10;
+        var ge = num2%10;
+        alert(bai);
+        alert(shi);
+        alert(ge);
+
+        /*
+            小明要到美国旅游，可是那里的温度是以华氏度为单位记录的。它需要一个程序将华氏温度（80度）转换为摄氏度，并以华氏度和摄氏度为单位分别显示该温度。\u2028提示：摄氏度与华氏度的转换公式为：摄氏度 = 5/9.0*(华氏度-32)
+        */
+
+        var fahrenheit=80;
+        var temperature = 5/9*(fahrenheit-32);
+        alert(temperature)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

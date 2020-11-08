@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /*
+            兔子繁殖问题，设有一对新生兔子，从第四个月开始他们每个月月初都生一对兔子，新生的兔子从第四个月月初开始又每个月生一对兔子按此规律，并假定兔子没有死亡,n(n <= 20)个月月末共有多少对兔子？
+
+            递归问题的核心求解思路就是找到：数学递推公式
+
+
+                    一月兔          二月兔          三月兔         成熟兔          总兔
+            第一月      1               0             0             0              1 
+            第二月      0               1             0             0              1
+            第三月      0               0             1             0              1
+            第四月      1               0             0             1              2
+            第五月      1               1             0             1              3
+            第六月      1               1             1             1              4
+            第七月      2               1             1             2              6       
+            第八月      3               2             1             3              9
+            第九月      4               3             2             4              13
+            ……
+
+            rabbit(4) = rabbit(3) + rabbit(1)
+            rabbit(n) = rabbit(n-1) + rabbit(n-3)
+        */
+
+        function rabbit(n){
+            if(n<4){
+                return 1;
+            }
+            return rabbit(n-3)+rabbit(n-1)
+        }
+
+        alert(rabbit(9))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
