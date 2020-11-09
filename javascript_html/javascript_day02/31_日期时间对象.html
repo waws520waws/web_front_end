@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            日期对象声明：
+                1.没有传入参数，默认当前系统时间
+                    Mon Nov 09 2020 19:36:10 GMT+0800 (中国标准时间)
+                    GMT 格林尼治时间  东八区 + 8小时
+                2.传入参数
+                    "2020-01-01"
+                        Wed Jan 01 2020 08:00:00 GMT+0800 (中国标准时间)
+                    "2020/01/01"
+                    按照顺序，分别传入参数 年 月 日 时 分 秒  毫秒
+                        Date(2020,5,20,13,14,10);   显示6月注意了
+                        Sat Jun 20 2020 13:14:10 GMT+0800 (中国标准时间)
+                    注意：再国外月份是从0开始数的 0~11
+
+                    直接传入毫秒数(以1970年1月1日0:0:0为时间参照去进行换算)
+                        Thu Jan 01 1970 08:00:01 GMT+0800 (中国标准时间)
+                        小彩蛋：1970/01/01 linux创始人
+        */
+
+        /* var d = new Date();
+        alert(d) */
+
+
+        /* var d = new Date("2020-01-01");
+        alert(d) */
+
+        /* var d = new Date(2020,5,20,13,14,10);
+        alert(d) */
+
+        var d = new Date(1000);
+        alert(d)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            indexOf()
+                格式：supStr.indexOf(subStr,start)
+                参数：第一个参数 要查找的字符串
+                    start 从哪个位置开始查找 下标 可以不传入 默认是0
+                功能：再supStr中查找第一次出现subStr下标，从start开始寻找
+                返回值：-1 没有查找到
+                        >= 0  查找到的元素的下标
+
+            lastIndexOf()
+                格式：supStr.lastIndexOf(subStr,start)
+                功能：再supStr中查找最后一次出现subStr下标,从start开始，从右向左找到第一个满足条件的下标
+                返回值：-1 没有查找到
+                        >= 0  查找到的元素的下标
+
+            search()
+                格式：supStr.search(subStr)
+                参数：字符串/正则表达式
+                    和indexOf的区分：就是再这个参数上
+                功能：再supStr中查找第一次出现subStr下标
+                返回值：-1 没有查找到
+                        >= 0  查找到的元素的下标
+        */
+
+        var supStr = "abcabaabcabc";
+        var subStr = "abc";
+
+        var index = supStr.indexOf(subStr,1)
+        alert(index)
+
+        var lastindex = supStr.lastIndexOf(subStr)
+        alert(lastindex)
+
+        var lastindex_start = supStr.lastIndexOf(subStr,7)
+        alert(lastindex_start)
+
+        var searchindex = supStr.search(subStr)
+        alert(searchindex)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+

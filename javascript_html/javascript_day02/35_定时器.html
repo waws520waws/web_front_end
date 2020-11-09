@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            定时器：
+                格式：var timer = setInterval(函数，毫秒数)
+                功能：每隔对应的毫秒数，执行一次输入的函数
+                返回值：启动定时器，系统分配的编号
+
+            clearInterval(timer)  取消定时器
+        */
+
+        var i = 0;
+        function show(){
+            if(i == 5){
+                clearInterval(timer)
+            }
+            document.write(i++ + "<br>")
+        }
+
+
+        /* var show = function(){
+            if(i == 5){
+                clearInterval(timer)
+            }
+            document.write(i++ + "<br>")
+        } */
+
+        var timer = setInterval(show,1000);
+
+        /* 
+            一般情况下，我们将没有名字的函数叫做匿名函数 
+            常见的就是定时器和匿名函数的连用
+            setInterval(function(){
+                if(i == 5){
+                    clearInterval(timer)
+                }
+                document.write(i++ + "<br>")
+            },1000)
+        */
+
+        
+
+        alert(timer)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            var
+            省略var 直接去强制给一个变量赋值，这个变量会被js强制声明成全局变量
+            注意：不建议这样使用，语法不规范错误
+        */
+
+        function show(){
+            var num = 10;
+            alert(num)
+        }
+
+        show();
+        alert(num)  // 报错，num没有定义
+
+
+        function show1(){
+            num1 = 10;
+            alert(num1)
+        }
+
+        show1();
+        alert(num1)  // num1正常输出
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

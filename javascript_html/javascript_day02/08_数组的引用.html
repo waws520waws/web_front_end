@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            基本数据类型
+        */
+
+        var num1 = 10;
+        var num2 = num1;
+        num2 = 20;
+        // alert(num1 + ", " + num2)
+
+        /*
+            运行程序：
+                1.准备运行程序要用的空间(一旦分配好了，内存大小就没办法进行改变了)
+                2.开始运行程序
+
+            复合/应用数据类型：内存中公用地址
+            数组，数组变量存储的仅仅是数组的地址
+        */
+
+        var arr1 = [10,20,30,40];
+        var arr2 = arr1;
+        arr1.push(50,60)
+        // alert(arr1)    //10,20,30,40,50,60
+        // alert(arr2)    //10,20,30,40,50,60
+
+        /*
+            深拷贝：concat()的方法，再堆中克隆一份数组数据，并将地址返回给新变量
+        */
+
+        var arr3 = [10,20,30,40];
+        var arr4 = arr3.concat();
+        arr3.push(50,60)
+        alert(arr3)    //10,20,30,40,50,60
+        alert(arr4)    //10,20,30,40
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

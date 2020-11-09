@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #msg{width: 400px;height: 400px;border: 1px black solid;}
+    </style>
+    <script>
+        /*
+            表单中元素，获取其中的内容，通过.value的方式进行获取
+            双标签节点中的元素内容，通过 节点.innerHTML() 进行获取
+
+            要求：
+                1.敏感词要都过滤掉
+                2.将敏感词替换成*
+        */
+
+        var arr = [/哈哈/gi,/垃圾/gi,/小屁孩/gi]
+        function btnClick(){
+            var text = document.getElementById("txt1")
+            var content = text.value
+            for(var i = 0;i < arr.length;i++){
+                if(i == 0){
+                    var newstr = content.replace(arr[i],"**")
+                }else{
+                    newstr = newstr.replace(arr[i],"**")
+                }
+            }
+            
+            var msg = document.getElementById("msg");
+            text.value = ""
+            msg.innerHTML = newstr
+        }
+    </script>
+</head>
+<body>
+    <textarea name="" id="txt1" cols="30" rows="10"></textarea>
+    <button onclick="btnClick();">发布</button>
+    <div id="msg"></div>
+</body>
+</html>

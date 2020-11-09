@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            编写函数has(arr,60),判断数组中是否存在60这个元素，返回bool类型
+        */
+
+        function has(arr,num){
+            for(var i in arr){
+                if(num === arr[i]){
+                    return true
+                }
+            }
+            return false
+        }
+
+        alert(has([1,2,3,4,5,67],50))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            验证码：验证你是不是机器人
+
+                纯数字组成的验证码：非常容易破解  6位纯数字验证码
+                数字和字母组成的验证码
+                    0~9
+                    a~z  97~122
+                    A~Z  65~90
+                方法：
+                    1.生成一个数组，装有单个字符，长度62
+                        随机 0~61de 下标
+                    2.
+        */
+        //n位纯数字验证码
+        function numTestCode(n){
+            var arr = [];
+            for(var i=0;i<n;i++){
+                arr.push(parseInt(Math.random()*10))
+            }
+            return arr.join("")
+        }
+
+        //n位纯数字加字母验证码
+        function num_letter_TestCode(n){
+            var arr = [];
+            for(var i=0;i<n;i++){
+                var num = parseInt(Math.random()*123);
+                if(num>=0 && num <= 9){
+                    arr.push(num)
+                }else if(num>=65 && num <= 90 || num>=97 && num <= 122){
+                    arr.push(String.fromCharCode(num))
+                }else{
+                    i--;
+                }
+            }
+            return arr.join("")
+        }
+
+        // alert(numTestCode(6))
+        alert(num_letter_TestCode(6))
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

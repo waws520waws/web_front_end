@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            substring()
+                格式：字符串.substring(start,end)
+                功能：将字符串中[start,end)提取这一部分的字符，生成一个新字符串
+                返回值：新组成的字符串
+
+            substr
+                格式：字符串.substring(start,length)
+                功能：将字符串中start开始位置提取这长度为length的字符，生成一个新字符串
+                返回值：新组成的字符串
+
+            slice
+                格式：字符串.slice(start,end)
+                功能：将字符串中[start,end)提取这一部分的字符，生成一个新字符串
+                返回值：新组成的字符串
+
+            replace
+                格式：字符串.replace(oldstr,newstr)
+                功能：将字符串中oldstr全部替换成newstr，生成一个新字符串
+                返回值：替换成新字符串
+
+                这里的替换只能执行一次，不能够进行全局匹配，如果需要全局匹配，则应使用正则表达式： str.replace(/are/gi,"old are") g表示进行全局匹配，i表示匹配的时候忽略大小写
+
+
+            split
+                格式：字符串.split(分割符,length)
+                参数：
+                    第一个参数:用这个分割符对源字符串进行分割
+                    第二个参数:控制返回的数组的元素个数，一般情况下不用
+                功能：用分割符对源字符串，进行字符串分割，将分割完毕以后的子串，放在数组中返回
+                返回值：数组
+
+                注意：
+                    1.相邻的两个分隔符，会产生一个空字符串
+                    2.分割符是空字符串"",直接将每一个字符，单独分割成子串，放在数组中返回
+        */
+
+        /* var str = "hello";
+        var newStr = str.substring(1,4)
+        alert(newStr)
+        alert(str) */
+
+        /* var str = "hello";
+        var newStr = str.substr(1,2)
+        alert(newStr)
+        alert(str) */
+
+        /* var str = "hello";
+        var newStr = str.slice(1,4)
+        alert(newStr)
+        alert(str) */
+
+        /* var str = "helloabcell";
+        var newStr = str.replace("ell","###")  //h###oabcell
+        alert(newStr)
+        alert(str) */
+
+        /* var str = "helloabcell";
+        var newStr = str.replace(/ell/gi,"###")  //h###oabc###
+        alert(newStr)
+        alert(str) */
+
+        /* var str = "hello abc world";
+        var newStr = str.split(" ")  //[hello,abc,world]
+        alert(newStr)
+        alert(str) */
+
+        /* var str = "hello abc world";
+        var newStr = str.split(" ",2)  //[hello,abc]  返回个数变成两个
+        alert(newStr)
+        alert(str) */
+
+        /* var str = "hello  abc world";
+        var newStr = str.split(" ")  //[hello,"",abc,world]
+        alert(newStr)
+        alert(str) */
+
+        /* var str = "hello  abc world";
+        var newStr = str.split("")  //[h,e,l,l,o, , ,a,b,c, ,w,o,r,l,d]
+        alert(newStr)
+        alert(str) */
+
+
+        /*
+            toLowerCase()  全部转换成小写
+            toUpperCase()  全部转换成大写
+        */
+
+        /* var str = "hello abc world";
+        var newStr = str.toUpperCase();
+        alert(newStr);
+        var str1 = "hello aHHHc world";
+        var newStr1 = str1.toLowerCase(); 
+        alert(newStr1);*/
+
+
+        /*
+            concat 字符串拼接
+        */
+
+        var str = "hello abc";
+        var newStr = str.concat(" world",100);  //可以多参数一起拼接 注意一下
+        // var newStr = str + " world" + 100;
+        alert(newStr);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

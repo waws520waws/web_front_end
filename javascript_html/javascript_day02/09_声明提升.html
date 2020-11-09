@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            声明提升
+                内存分配，一次分配，
+                所有的变量函数等内存空间会提前分配好
+
+            预编译：
+                再所有的代码运行之前，计算机会将代码从头到尾的看一遍
+                将这个程序需要运行的空间一次性分配好
+
+                还没有运行alert(num);之前，我们的计算机再预编译的过程中，就会给num开辟一块空间，然后再运行代码的时候，num中是没有值的，所以输出undefined,再给了num = 10后，num中有值了，就会输出对应的值，10
+
+
+            函数也会声明提升！
+
+            声明提升；再当前作用域，声明变量和函数，会直接提升再整个代码的最前面运行。
+        */
+
+        alert(num);  //undefined  未定义，并不会报错
+        var num = 10;
+        alert(num);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

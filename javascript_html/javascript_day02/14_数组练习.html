@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            随机给出一个五位以内的数，然后输出该数共有多少位，每一位分别是什么
+        */
+
+        // function countofNum(num){
+        //     var arr = [];
+        //     var remainder = 1
+        //     var divisor = 0
+        //     while(remainder != 0 || divisor != 0){
+        //         remainder = num % 10
+        //         divisor = num / 10
+        //         if(remainder == 0 || divisor == 0){
+        //             break;
+        //         }
+        //         arr.push(remainder);
+        //         num = (num-remainder)/10  // num = parseInt(num/10) 
+        //     }
+        //     return arr.reverse()
+        // }
+
+
+        //借鉴写法
+        function countofNum(num){
+            var arr = [];
+            while(num){
+                arr.push(num % 10);
+                num = parseInt( num / 10 )
+            }
+            arr.reverse()
+            alert("一共是："+arr.length+"位"+",每一位分别是"+arr)
+        }
+
+        countofNum(145)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

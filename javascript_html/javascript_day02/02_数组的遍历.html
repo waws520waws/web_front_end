@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            以下通过循环给数组的每个元素赋值，随机数
+
+            Math.random()   随机[0,1)
+            
+            //随机出来0~9的整数
+            parseInt(Math.random()*10)
+        */
+        var arr = Array(10);
+        for(var i = 0;i<arr.length;i++){
+            arr[i] = parseInt(Math.random()*10);
+        }
+        alert(arr);
+
+        /*
+            遍历：
+                for 循环
+                for……in…… 遍历，快速遍历  快速的原因：不用判断直接对数组进行取值
+        */
+        var arr1 = Array(10,20,30,40,50);
+        for(var j = 0;j<arr1.length;j++){
+            document.write(arr1[j]+"<br>")
+        }
+
+        //注意用in的这种形式只是arr1的下标，并不是真实的元素
+        for(var k in arr1){
+            document.write(arr1[k] + "<br>")
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1.发展历史
+                汇编语言：汇编、C语言   面向过程语言
+                编程语言：java、C++、JavaScript、python  面向对象语言
+
+            2.思想
+                面向过程编程思想：只考虑数学逻辑
+                面向对象编程思想：直接将生活逻辑映射到我们的程序中。
+                    <1>分析有哪些实体
+                    <2>设计实体属性和功能
+                    <3>实体之间相互作用
+
+            3.语法(再javascript中没有类这个概念，只有对象，ECMA6版新增了类的概念)
+                类：一类具有相同特征事务的抽象概念(并不存在)
+                对象：具体某一个个体，唯一的实例。
+
+            4.声明一个对象
+                1.通过new运算符声明对象
+                2.通过省略new
+                3.对象常量赋值(使用{}代表一个对象)
+        */
+
+        var obj1 = new Object();
+        var obj2 = Object();
+        var obj3 = {};
+
+        //新增属性 使用起来和普通的变量没有什么区别
+        obj3.username = "waws";
+        obj3.age = 18;
+
+        //[]的方式添加属性，必须字符串
+        obj3["username1"] = "魏淑芬";
+        obj3["age1"] = 23;
+
+        alert(obj3.age)
+        alert(obj3.username)
+        alert(obj3["age1"])
+        alert(obj3["username1"])
+
+        //新增方法 使用起来和普通的变量没有什么区别
+        obj3.show = function(){
+            alert("我叫"+obj3.username+"年龄："+obj3.age)
+        }
+        obj3["show1"] = function(){
+            alert("我叫"+obj3.username1+"年龄："+obj3.age1)
+        }
+        obj3.show()
+        obj3["show1"]()
+
+
+        //通过常量的方式添加
+        var obj4 = {
+            "username":"waws1",
+            "age":20,
+            "show":function(){
+                alert("我叫"+obj4.username+"年龄："+obj4.age)
+            }
+        }
+        obj4.show()
+
+        /*
+            delete 删除对象的属性和方法，直接从内存中进行清除
+        */
+
+        delete obj4.age
+        obj4.show()
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+
+        #mian{width: 200px;height: 300px;border: 1px solid #000;margin: 50px auto;background-color: orange;}
+        #second{width: 100%;height: 100px;color: white;text-align: center;line-height: 100px;font-size: 30px;}
+        #mian ul{width: 100%;height: 200px;text-align: center;color:white;font-size: 22px;line-height: 40px;}
+        #mian ul li{width: 100px;height: 40px;margin: 0 auto 10px;border: 1px gray solid;background-color:brown;}
+    </style>
+    <script>
+
+        /*
+            不合并的时候会出现一个问题就是，我们点击一个start的时候，我们就会启动一个定时器，多个定时器共同作用，
+            数字会越加越快，需要解决这问题
+        */
+        var timer = null;
+        function start(){
+            timer = setInterval(function(){
+                var second = document.getElementById("second");
+                sec = second.innerHTML;
+                var sec_arr = sec.split(":")
+                if(sec_arr[2]==="59"){
+                    sec_arr[2]="00";
+                    if(sec_arr[1]=="59"){
+                        sec_arr[0] = String(Number(sec_arr[0])+1)
+                        if(sec_arr[0].length==1){
+                            sec_arr[0] = "0"+ sec_arr[0]
+                        }
+                        sec_arr[1]=="00"
+                    }else{
+                        sec_arr[1] = String(Number(sec_arr[1])+1)
+                        if(sec_arr[1].length==1){
+                            sec_arr[1] = "0"+ sec_arr[1]
+                        }
+                    }
+                }else{
+                    sec_arr[2] = String(Number(sec_arr[2])+1)
+                    if(sec_arr[2].length==1){
+                        sec_arr[2] = "0"+ sec_arr[2]
+                    }
+                }
+                var new_sec = sec_arr.join(":");
+                second.innerHTML = new_sec;
+            },1000)
+        }
+
+        function stop(){
+            if(timer==null){
+                var a = 1;
+            }else{
+                clearInterval(timer)
+            }
+        }
+
+        function reset(){
+            if(timer==null){
+                var a = 1;
+            }else{
+                clearInterval(timer)
+            }
+            var second = document.getElementById("second");
+            second.innerHTML="00:00:00";
+        }
+    </script>
+</head>
+<body>
+    <div id="mian">
+        <div id="second">00:00:01</div>
+        <ul>
+            
+            <li onclick="start();">开始</li>
+            <li onclick="stop();">暂停</li>
+            <li onclick="reset();">复位</li>
+        </ul>
+    </div>
+</body>
+</html>

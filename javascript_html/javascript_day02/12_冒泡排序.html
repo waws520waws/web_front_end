@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            冒泡排序：
+                规则：前后两个数两两进行比较，如果符合条件就交换两个数的位置
+        */
+
+        function bubbling_sort(arr){
+            for(var i=0;i<arr.length-1;i++){
+                for(var j=0;j<arr.length-i-1;j++){
+                    if(arr[j+1]<arr[j]){
+                        var temp = arr[j+1];
+                        arr[j+1] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+        }
+
+
+        arr = [3,2,5,9,7,5,6,8,1]
+        bubbling_sort(arr)
+        alert(arr)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

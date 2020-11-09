@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            注：所有的参考时间点都是1970年
+            Date.parse()
+                格式：Date.parse(日期对象)
+                功能：可以将日期对象转换成毫秒数
+
+            d.getTime()/d.setTime()
+                格式：日期对象.getTime/setTime
+                功能：将当前日期对象转换成毫秒数
+        */
+
+        var d = new Date();
+        alert(Date.parse(d));
+        alert(d.getTime());
+
+        d.setTime(1000);
+        alert(d)
+
+
+        /*
+            获取两个日期之间相差的天数
+
+            规定：传入日期格式
+            "2020-10-28"
+            "2020-11-23"
+        */
+
+        function countOfDate(d1,d2){
+            var dd1 = new Date(d1);
+            var dd2 = new Date(d2);
+
+            var time1 = dd1.getTime()
+            var time2 = dd2.getTime()
+            var time = Math.abs(time1-time2)
+            //毫秒--->秒--->小时--->天
+            return parseInt(time/1000/3600/24)
+        }
+
+        var d1 = "2020-10-28"
+        var d2 = "2020-11-23"
+        alert(countOfDate(d1,d2))
+
+        /*
+            输入n 输出n天之后的时间
+
+        */
+        
+        function afterOfDate(n){
+            var d = new Date();
+            var day = d.getDate();
+            d.setDate(day+n);
+            return d
+
+        }
+
+        alert(afterOfDate(30))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

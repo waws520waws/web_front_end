@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            严格模式：写在那个作用域下，就再哪个作用域下起作用
+                一旦开启严格模式，这个时候代码必须遵循严格的js的标准去写
+            语法：  
+                "use strict"
+
+            细节：尽量不要将严格模式写在全局。
+            用了严格模式，会有什么变化：
+                1.全局变量声明时候，必须使用var
+                2.再函数中声明同一个名称的形参，可以编译过去，但是不符合规范
+                    严格模式下，同一函数，不可有多个同名形参
+                3.arguments下形参修改，影响arguments中的实参
+                    不允许动态被修改
+                4.新增保留字：implements, interface, let, package, private, protected, public, static, yield
+
+
+            严格模式的目的：
+                消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;
+                消除代码运行的一些不安全之处，保证代码运行的安全；
+                提高编译器效率，增加运行速度；
+                为未来新版本的Javascript做好铺垫。
+        */
+
+
+        //省略var 变成全局变量 
+        /* function show(){
+            "use strict";
+            num = 10;  //再严格模式下不使用var声明变量，再全局调用会出现报错
+        }
+
+        alert(num) */
+
+        //函数中同名形参
+        /* function show(num1,num1,num2){
+            alert(num1 + "," + num2)  //覆盖不会报错
+        } */
+
+        /* function show1(num1,num1,num2){
+            "use strict"
+            alert(num1 + "," + num2)  
+            //Uncaught SyntaxError: Duplicate parameter name not allowed in this context
+            //不能重名形参
+        }
+
+        show1(10,20,30) */
+
+
+        function show(num1,num2){
+            num1 = "hello";
+            alert(num1 + ", " + num2)                    //hello, 30
+            alert(arguments[0] + ", " + arguments[1])    //hello, 30
+            
+        }
+        
+        function show(num1,num2){
+            "use strict"
+            num1 = "hello";
+            alert(num1 + ", " + num2)                   //hello, 30
+            alert(arguments[0] + ", " + arguments[1])   //20, 30
+        }
+
+        show(20,30)
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
