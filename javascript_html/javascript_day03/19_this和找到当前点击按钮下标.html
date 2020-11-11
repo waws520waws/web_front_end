@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* window.onload = function(){
+            var btns = document.getElementsByTagName("button");
+            for(var i=0;i<btns.length;i++){
+
+                //给每一个按钮上都绑定了一个点击函数，但是我们的页面加载完成了，我们的i的值是3
+                //最终当我们进行点击的时候，输出的i就是3，并不是绑定当时的i的值
+                btns[i].onclick = function(){
+                    alert(i);
+                }
+            }
+        } */
+
+        /*
+            this概念：只要封装函数，任何一个函数系统都会内置一个叫做this的变量
+                this变量存储的是地址，是当前函数主人的地址
+
+                【注】：this永远指向当前函数的主人。函数的主人要通过当前上下文去判断
+
+            this 类似现实生活中，用到的"我"
+        */
+
+        /*
+            常用的情况：
+        */
+
+        /* //常用情况1
+        var person = {
+            username:"waws",
+            age:19,
+            show:function(){
+                alert(person.username);
+                alert(this.username);
+            }
+        }
+
+        person.show(); */
+
+        /* //常用情况2
+        function show(){
+            alert(this)
+        }
+
+        show();   //[object Window] */
+
+        /* //常用情况3
+        window.onload = function(){
+            var btn1 = document.getElementById("btn1");
+            btn1.onclick = function(){
+                alert(this);    //[object HTMLButtonElement] this代指按钮对象本身
+            }
+        } */
+
+
+        window.onload = function(){
+            var btns = document.getElementsByTagName("button");
+            for(var i=0;i<btns.length;i++){
+                btns[i].index = i
+                
+                btns[i].onclick = function(){
+                    alert(this.index);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+</body>
+</html>

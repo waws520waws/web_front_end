@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            setAttribute
+                1.class属性的区别
+                        xxx.className = "xxx"
+                        xxx.setgetAttribute("class") = "xxx"
+                    2.自定义属性
+                        xxx.自定义属性名 = "xxx"
+                            虽然设置成功，不能在浏览器端显示
+                            这个属于简写的形式，只支持标准的浏览器属性名称class name id style等
+                        xxx.setAttribute("自定义属性名","自定义属性值")
+            getAttribute
+                和使用.属性的区别：
+                    1.class属性的区别
+                        xxx.className
+                        xxx.getgetAttribute("class")
+                    2.自定义属性
+                        xxx.自定义属性名
+                            不能调用成功
+                            这个属于简写的形式，只支持标准的浏览器属性名称class name id style等
+                        xxx.getAttribute("自定义属性名")
+            removeAttribute()
+                xxx.className = ""  实际上属性还在，只不过是设置成了空值
+                xxx.removeAttribute("class") 实际上属性被删除，在标签中找不到属性了
+        */
+
+        window.onload = function(){
+            var odiv = document.getElementById("div1");
+            
+            alert(odiv.id);
+            alert(odiv.getAttribute("id"));
+
+            alert(odiv.zzz);               //undefined
+            alert(odiv.getAttribute("zzz"));  //yyy
+
+            odiv.className = "div2"         
+            // odiv.setAttribute("class") = "div3" 
+             
+            /* odiv.kkk = "kkk"
+            alert(odiv.kkk)    //可以成功显示，但是检查代码的时候，我们不能在div标签中发现kkk属性 */
+
+            odiv.setAttribute("kkk","kkk")  //检查代码的时候，我们能在div标签中发现kkk属性 
+
+
+            odiv.removeAttribute("zzz")  //检查代码的时候，我们能在div标签中发现zzz属性被删除    
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="div1" class="box" style="width: 100px;border: 1px #000 solid;background-color: red;" zzz="yyy"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{background-color: blue;}
+        .box{height: 300px;}
+    </style>
+    <script>
+        /*
+            通过.style.xxx的方式只能访问到内联的css样式。
+            还是因为我们程序是由上向下执行的，我们js代码加载的时候，我们的css样式还要计算权重程度，最终抉择
+            那个样式的优先级比较高，这样，才会给这个标签中的元素添加对应的样式，无论内联/外联都是需要计算的
+            所以在运行到js代码的时候，是获取不到对应的内联/外联的样式的，只能获取到行内样式
+        */
+        window.onload = function(){
+            var div1 = document.getElementById("div1");
+            /* alert(div1.style.width);
+            alert(div1.style.height);
+            alert(div1.style.border);
+            alert(div1.style.backgroundColor);
+            div1.style.backgroundColor = "hotpink"; */
+
+
+            /*
+                获取当前有效的样式
+                系统提供了两种方法(适配不同的浏览器的)
+                    node.currentStyle("height")
+                    getComputedStyle(node)["height"]
+            */
+
+            // alert(div1.currentStyle("height"));   //IE浏览器
+            //alert(getComputedStyle(div1)["height"]);  //chrome浏览器
+
+            //跨浏览器的兼容问题
+            function getStyle(node,cssStyle){
+                return node.currentStyle ? node.currentStyle(cssStyle) : getComputedStyle(node)[cssStyle]
+            }
+            alert(getStyle(div1,"height"))
+
+
+            /*
+                设置样式:
+                通过.style.xxx的方式进行设置样式，这个样式会被设置在行间，权重最高，一定会生效
+            */
+        }
+    </script>
+</head>
+<body>
+    <div id="div1" class="box" style="width: 100px;border: 1px #000 solid;background-color: red;"></div>
+</body>
+</html>

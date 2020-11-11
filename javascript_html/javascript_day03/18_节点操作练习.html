@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #main{width: 200px;height: 400px;background-color: chocolate;margin-top:20px;margin-left:20px;}
+        #box1{width: 100%; height: 80px;background-color: gray;}
+        #box1 input{width: 190px;height: 30px;}
+        #box1 button{width: 60px;height: 30px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var obtn1 = document.getElementById("btn1");
+            var obtn2 = document.getElementById("btn2");
+            var obtn3 = document.getElementById("btn3");
+            var box2 = document.getElementById("box2");
+            var input = document.getElementById("input");
+
+            btn1.onclick = function(){
+                var oP = document.createElement("p");
+                var oText = document.createTextNode(input.value)
+                oP.style.width="100%";
+                oP.style.height="30px";
+                var str = "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")";
+                oP.style.backgroundColor=str;
+                oP.appendChild(oText)
+                box2.appendChild(oP)
+                input.value = "";
+            }
+
+            btn2.onclick = function(){
+                var ltc = box2.lastChild
+                box2.removeChild(ltc)
+            }
+
+            btn3.onclick = function(){
+                var ltc = box2.lastChild
+                var new_ltc = ltc.cloneNode(true)
+                box2.appendChild(new_ltc)
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="box1">
+                <input type="text" placeholder="请输入内容" id="input">
+                <button id="btn1">增加</button>
+                <button id="btn2">删除</button>
+                <button id="btn3">拷贝</button>
+        </div>
+        <div id=box2></div>
+    </div>
+    
+</body>
+</html>

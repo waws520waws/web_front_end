@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            document.write()
+                【注】：会覆盖页面上原有的内容
+            
+            createElement()
+                格式：document.createElement()
+                参数：标签名
+                返回值：创建好这个节点
+
+            appendChild()
+                格式：node1.appendChild(node2)
+                参数：标签名
+                功能：将node2节点插入到node1节点子节点的末尾
+
+            createTextNode()
+                格式：document.createTextNode(文本)
+                功能：创建文本节点(纯文本)
+
+            insertBefore()
+                格式：odiv.insertBefore(box2,box1) // box1.parentNode.insertBefore(box2,box1)
+                功能：将box2添加到box1的前面(在父节点div中)
+
+            replaceChild()
+                格式：odiv.replaceChild(box2,box1) // box1.parentNode.replaceChild(box2,box1)
+                功能：将box2替换掉box1(在父节点div中)
+
+            cloneNode()
+                格式：node.cloneNode()
+                    node.cloneNode(true)  克隆节点本身和节点下面的所有节点
+                功能：将node进行克隆，形成一个一摸一样的节点
+
+            removeChild()
+                格式：box.parentNode.removeChild(box)
+                功能：将box节点从他的父节点上移除掉
+            
+        */
+        window.onload = function(){
+            var odiv = document.getElementById("div1");
+            var obtn = document.getElementById("btn1");
+            
+            btn1.onclick = function(){
+                var oP = document.createElement("p")
+                var oText = document.createTextNode("<h1>我们都是坏孩子</h1>")  //标签不会生效
+                oP.appendChild(oText)
+                odiv.appendChild(oP)
+            }
+            btn2.onclick = function(){
+                var oP = document.createElement("p")
+                var oText = document.createTextNode("<h1>我们都是好孩子</h1>")
+                oP.appendChild(oText)
+                var oEm = document.getElementsByTagName("em")[0]
+                // odiv.insertBefore(oP,oEm)
+                oEm.parentNode.insertBefore(oP,oEm)
+            }
+            btn3.onclick = function(){
+                var oP = document.createElement("p")
+                var oText = document.createTextNode("<h1>我们孩子</h1>")
+                oP.appendChild(oText)
+                var oEm = document.getElementsByTagName("em")[0]
+                // odiv.replaceChild(oP,oEm)
+                oEm.parentNode.replaceChild(oP,oEm)
+            }
+            btn4.onclick = function(){
+                var oEm = document.getElementsByTagName("em")[0]
+                var new_oEm = oEm.cloneNode()           //克隆只会克隆节点，属性都会克隆，节点中的文字不会克隆
+                var oText = document.createTextNode("新的em节点")
+                new_oEm.appendChild(oText)
+                odiv.appendChild(new_oEm)
+            }
+            btn5.onclick = function(){
+                var oEm = document.getElementsByTagName("em")[0]
+                var new_oEm = oEm.cloneNode(true) 
+                odiv.appendChild(new_oEm)
+            }
+
+            btn6.onclick = function(){
+                var oEm = document.getElementsByTagName("em")[0]
+                oEm.parentNode.removeChild(oEm)               
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">div文本<em class="box3">em文本</em><strong>strong文本</strong></div>
+    <button id="btn1">节点操作</button>
+    <button id="btn2">插入节点操作</button>
+    <button id="btn3">替换节点操作</button>
+    <button id="btn4">克隆节点操作</button>
+    <button id="btn5">克隆All节点操作</button>
+    <button id="btn6">删除节点操作</button>
+</body>
+</html>

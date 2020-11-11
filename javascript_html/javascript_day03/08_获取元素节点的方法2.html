@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            document.querySelector()
+            返回值：一个元素节点，找到符合条件的第一个元素节点
+
+            document.querySelectorAll
+            返回值：找到符合条件的所有元素节点  伪数组
+
+            参数:字符串 CSS选择器格式的字符串
+        */
+
+        
+        window.onload = function(){
+            var ol_li = document.querySelector("#ol1 li");
+            ol_li.style.backgroundColor="red";
+
+            var ol_li = document.querySelector("[name=hello]");
+            ol_li.style.backgroundColor="gray";
+
+            var lis = document.querySelectorAll(".box");
+            for(var i=0;i<lis.length;i++){
+                lis[i].style.backgroundColor="hotpink";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li>111</li>
+        <li class="box">111</li>
+        <li>111</li>
+        <li>111</li>
+        <li name="hello">111</li>
+        <li class="box">111</li>
+        <li>111</li>
+        <div class="box" name="hello">333</div>
+    </ul>
+    <input type="text" name="hello">
+    <span name="hello"></span>
+    <ol id="ol1">
+        <li>222</li>
+        <li class="box">222</li>
+        <li class="box">222</li>
+        <li>222</li>
+        <li>222</li>
+    </ol>
+</body>
+</html>

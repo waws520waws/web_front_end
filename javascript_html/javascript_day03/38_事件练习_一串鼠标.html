@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{width: 20px;height: 20px;background-color: red;border-radius: 50% 50%;position: absolute;}
+    </style>
+    <script>
+        /*
+            
+        */
+
+        window.onload = function(){
+            var div = document.getElementsByTagName("div")
+            document.onmousemove = function(ev){
+                var e = ev || window.event;
+                for(var i=div.length-1;i>=0;i--){
+                    if(i){
+                        div[i].style.left = div[i-1].style.left
+                        div[i].style.top = div[i-1].style.top
+
+                    }else{
+                        div[i].style.left = e.clientX + "px";
+                        div[i].style.top = e.clientY + "px";
+                    }
+                }  
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

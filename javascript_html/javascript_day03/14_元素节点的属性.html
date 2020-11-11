@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            odiv.innerHTML 获取标签之间的所有内容，包括标签  设置值的时候会解析标签
+            odiv.innerText  获取标签之间的所有纯文本内容，不包括标签  设置值的时候会不解析标签
+
+            odiv.outerHTML  获取标签之间的所有内容+自身的标签，包括标签  设置值的时候会解析标签
+        */
+
+        window.onload = function(){
+            var odiv = document.getElementById("div1");
+
+
+            /* alert(odiv.innerHTML)  //div文本<em>em文本</em><strong>strong文本</strong>
+            odiv.innerHTML = "<h1>hello world</h1>"   //标签会解析 */
+
+            /* alert(odiv.innerText)  //div文本em文本strong文本
+            odiv.innerText = "<h1>hello world</h1>"   //标签不会解析 */
+
+
+            alert(odiv.outerHTML)  //<div id="div1">div文本<em>em文本</em><strong>strong文本</strong></div>
+            odiv.outerHTML = "<h1>hello world</h1>"   //标签会解析
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">div文本<em>em文本</em><strong>strong文本</strong></div>
+</body>
+</html>

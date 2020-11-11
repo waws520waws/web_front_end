@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            url:统一资源定位符
+
+            组成
+                协议：//IP(域名):端口号/路径/？查询字符串#锚点
+
+            location
+                是BOM对象之一，它提供了与当前窗口中加载的文档有关的信息,还提供了一些导航功能。事实上，location对象是window对象的属性，也是document对象的属性;所以window.location和document.location等效。
+
+        */
+        open("https://baike.baidu.com/item/%E6%B2%88%E8%85%BE/2934404?fr=aladdin#3")
+        function btnClick(){
+            alert(location.protocol)      //获取当前协议
+            alert(location.href)      //整个URL
+            alert(location.host)      //获取主机
+            alert(location.hash)       //获取#后的字符串 
+            alert(location.hostname)      //获取主机名
+            alert(location.pathname)      //获取当前路径
+            alert(location.port)      //获取当前端口号
+            alert(location.search)      //获取?后面的字符串
+            alert(location)      //整个URL
+        }
+        
+    </script>
+</head>
+<body>
+    <button onclick="btnClick();">打开网页</button>
+</body>
+</html>

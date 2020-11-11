@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            事件是 发生 并得到 处理 的操作
+                两个要素：  
+                    发生
+                    处理
+                JavaScript 事件是由访问 Web 页面的用户引起的一系列操作，例如：用户点击。当用户 执行某些操作的时候，再去执行一系列代码。
+
+            事件的绑定方式：
+                1.内联模式
+                    行间直接写上
+                2.外联模式/脚本模式(最多)
+
+            绑定事件格式：
+                元素节点.on + 事件类型 = 匿名函数
+
+                click  事件类型
+                onclick  事件处理的函数
+
+        */
+        
+        function btnClick(){
+            //内联模式下的处理过程
+            alert("内联模式")
+        }
+
+        window.onload = function(){
+            var btn = document.getElementById("btn1");
+            btn.onclick = function(){
+                //外联模式下的处理过程
+                alert("外联模式")
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- //内联模式 -->
+    <button onclick="btnClick();">内联模式</button>
+    <!-- //外联模式 -->
+    <button id="btn1">外联模式</button>
+</body>
+</html>

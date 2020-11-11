@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+
+        #div{width: 300px;height: 100px;line-height: 100px;text-align: center;margin: 50px auto;background-color: blueviolet;color:rgb(0,0,0);}
+    </style>
+    <script>
+        /*
+            写一个定时器,每个一秒修改一次div内文本颜色和文字大小.
+            最开始这个文字是默认大小,大小开始增大,当增大了6次以后,
+            文字大小开始缩小,缩小6次,文字再开始增大。
+        */
+        window.onload = function(){
+            var isadd = true;
+            var count = 0;
+            setInterval(function(){
+                var odiv = document.getElementById("div");
+                // alert(odiv)
+                var num1 = parseInt(Math.random()*256);
+                var num2 = parseInt(Math.random()*256);
+                var num3 = parseInt(Math.random()*256);
+                odiv.style.color = "rgb("+num1+","+num2+","+num3+")";
+
+                if(isadd){
+                    if(count<6){
+                        count++;
+                    }else{
+                        isadd = false;
+                    }
+                }else{
+                    if(count>0){
+                        count--;
+                    }else{
+                        isadd = true;
+                    }
+                }
+                odiv.style.fontSize = (28-count*2)+"px"
+                
+            },1000)
+        }
+    </script>
+</head>
+<body>
+    <div id="div">我们都是好孩子</div>
+</body>
+</html>

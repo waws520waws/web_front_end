@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            【注】：都是包含文本节点的
+                childNodes 获取元素下面的所有的子节点
+                    返回值：节点列表
+                firstChild 访问子节点中的首位
+                lastChild  访问子节点中的最后一位
+                nextSibling  下一同级节点
+                previousSibling  上一同级节点
+
+                        nodeType      nodeName      nodeValue
+            元素节点       1            标签名          null
+            属性节点       2            属性名         属性值
+            文本节点       3            #text         文本内容
+            
+            空格、回车、tab 看不见 但是都是真实的字符
+
+            【注】：下述这些方法中只获取子节点中的元素节点
+                children
+                firstElementChild 第一个节点
+                lastElementChild 最后一个节点
+                nextElementtSibling 下一同级节点
+                previousElementSibling 上一同级节点
+        */
+
+        window.onload = function(){
+            var odiv = document.getElementById("div1");
+            alert(odiv.childNodes.length)
+            /* alert(odiv.childNodes[0])  //[object Text] 文本节点 文本节点通过元素节点的子节点获取
+            alert(odiv.childNodes[1])  //[object HTMLElement]
+            alert(odiv.childNodes[2])  //[object HTMLElement] */
+
+            /* alert(odiv.childNodes[0].nodeType)  //3
+            alert(odiv.childNodes[1].nodeType)  //1
+            alert(odiv.childNodes[2].nodeType)  //1 */
+
+            /* alert(odiv.childNodes[0].nodeName)  //#text
+            alert(odiv.childNodes[1].nodeName)  //EM
+            alert(odiv.childNodes[2].nodeName)  //STRONG */
+
+            /* alert(odiv.childNodes[0].nodeValue) //div文本
+            alert(odiv.childNodes[1].nodeValue) //null
+            alert(odiv.childNodes[2].nodeValue) //null */
+
+            /* alert(odiv.firstChild.nodeValue) //div文本
+            alert(odiv.lastChild.nodeValue) //null */
+
+            //下面的所有代码都是在不规则写法中进行演示
+            alert(odiv.children.length)   //2
+            alert(odiv.firstElementChild.nodeName) //EM
+            alert(odiv.lastElementChild.nodeName)  //Strong
+            alert(odiv.nextElementSibling.firstChild.nodeValue)  //hehe
+            alert(odiv.previousElementSibling.firstChild.nodeValue)  //haha
+        }
+    </script>
+</head>
+<body>
+    <!-- <div id="div1">div文本<em>em文本</em><strong>strong文本</strong></div> -->
+
+    <!-- odiv.childNodes.length=5 换行元素也是文本元素，不规范的写法会导致，读取孩子节点困难 -->
+    <div>haha</div>
+    <div id="div1">
+        div文本
+        <em>em文本</em>
+        <strong>strong文本</strong>
+    </div>
+    <div>hehe</div>
+</body>
+</html>

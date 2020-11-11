@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            open()
+                第一个参数：跳转的url,打开一个新窗口，加载url
+                第二个参数：字符串，给打开的窗口起一个名字
+                    我们再次点击打开窗口的时候，若规定了名字，我们会在这个指定的名字下打开新页面(覆盖原页面)，不会新开窗口
+                第三个参数：一串特殊含义的字符串
+                    描述的是窗口的特征，控制打开窗口的属性
+                    测试课件中的属性的时候，有些属性再一些浏览器中并不兼容，可能没有效果，火狐的兼容性最好
+        */
+        function btnClick(){
+            open("https://www.baidu.com","xxx")
+            // open("https://www.baidu.com","xxx","width=400,height=400,top=200,left=200")
+        }
+    </script>
+</head>
+<body>
+    <button onclick="btnClick();">打开窗口</button>
+</body>
+</html>

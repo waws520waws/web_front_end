@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        /*
+            创建1W个节点，添加到页面上
+        */
+
+        /* window.onload = function(){
+            console.time("test1");
+            for(var i=0;i<10000;i++){
+                var new_div = document.createElement("div");
+                document.body.appendChild(new_div);
+            }
+            console.timeEnd("test1");    //在控制台 test1: 44.38037109375 ms
+        } */
+
+        /*
+            先创建好1W个节点，将1W个节点插入到一个节点上，最后将这一个节点添加到页面上
+            
+            
+            这种方式的效率更高，这些节点创建出来都是在内存中，并没有插入页面中，内存处理比较高效，所以节约时间
+            文档碎片：再节点中插入节点进行整合，最后整合好的资源一次性插入到页面中
+        */
+        window.onload = function(){
+            console.time("test1");
+            var node = document.createElement("div");
+            for(var i=0;i<10000;i++){
+                var new_div = document.createElement("div");
+                node.appendChild(new_div);
+            }
+            document.body.appendChild(node)
+            console.timeEnd("test1");    //在控制台  test1: 29.0302734375 ms
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

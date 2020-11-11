@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            鼠标事件对象
+                button属性: 左键 0 滚轮 1 右键 2     //滚轮滑动没用，点击才行 
+                            滚轮的点击选中文本很有意思，可再次点击进行实验
+                
+                获取鼠标的当前位置：
+                    clientX,clientY     原点位置：可视窗口的左上角为原点(固定死的，就是导航栏下面的部分)
+                    pageX,pageY         原点位置：整个页面的左上角为原点(包含滚出去的滚动距离)
+                    screenX,screenY     原点位置：电脑屏幕的左上角为原点(绝对位置)
+        */
+
+        window.onload = function(){
+            document.onmousedown = function(ev){
+                var e = ev || window.event
+                alert(e.button)
+
+                alert(e.clientX + ", " + e.clientY)   //原始页面10,11   向上移动一段距离 10，11
+                alert(e.pageX + ", " + e.pageY)       //原始页面10,11   向上移动一段距离 10，51
+
+                alert(e.screenX + ", " + e.screenY)   //通过移动浏览器的位置进行比较查看效果    
+
+            }
+        }
+    </script>
+</head>
+<body style="height:3000px;">
+
+</body>
+</html>

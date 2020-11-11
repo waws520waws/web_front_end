@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{height: 200px;}
+    </style>
+
+    <script>
+        /*
+            DOM document object model  文档对象模型
+            DOM 中的三个字母，D（文档）可以理解为整个 Web 加载的网页文档；O（对象）可 以理解为类似 window 对象之类的东西，可以调用属性和方法，这里我们说的是 document 对象；M（模型）可以理解为网页文档的树型结构。
+
+            节点：
+                <div id="id1">我们</div>
+                元素节点 //div
+                属性节点 //id1
+                文本节点 //我们
+
+            元素节点的获取
+                document.getElementById(id)
+
+        */
+        /* var oDiv = document.getElementById("id1")
+        alert(oDiv)            //在这个部分会输出一个null,是因为我们的代码是顺序执行的在执行这段script代码的时候，我们是获取不到节点的，但是程序加载预分配了，所以不会报错，但是并不能获取到元素 */
+
+        // 第二种解决方式
+        //整个页面加载完毕后再执行的代码
+        window.onload = function(){
+            var oDiv = document.getElementById("id1");
+            alert(oDiv);
+
+
+            /*
+                获取行间属性值
+            */
+            alert(oDiv.title);
+            alert(oDiv.id);
+
+            //class 是关键字，需要注意下 通过className访问
+            alert(oDiv.className);
+
+            /*
+                修改行间属性值
+            */
+            oDiv.id = "id2";
+            oDiv.title = "waws";
+            oDiv.className = "box2";
+
+            //style比较特殊
+            alert(oDiv.style);   //[object CSSStyleDeclaration] 还是对象，.调用属性
+            
+            alert(oDiv.style.width);
+            // alert(oDiv.style.height);
+            alert(oDiv.style.border);
+
+            //如果css样式中带有-，将-去掉，从第二个单词开始首字母大写
+            alert(oDiv.style.backgroundColor);
+
+            oDiv.style.backgroundColor = "blue";
+
+            //写在行间的style可以获取的到，但是写在style标签内的样式获取不到
+            alert(oDiv.style.height);
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <!-- <div id="id1" title="hello" class="box" style="width: 100px;height: 100px;border: 1px solid #000;background-color: red;">我们</div> -->
+    <div id="id1" title="hello" class="box" style="width: 100px;border: 1px solid #000;background-color: red;">我们</div>
+</body>
+<!-- <script>
+    var oDiv = document.getElementById("id1")
+    alert(oDiv)
+    //同样顺序执行，但是此时div这个元素已经加载，我们可以获取得到div这个对象  [object HTMLDivElement]
+</script> -->
+
+</html>

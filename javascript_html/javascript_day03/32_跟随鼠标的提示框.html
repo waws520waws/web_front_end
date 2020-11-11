@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{display: block;font-size: 40px;margin: 100px;width: 130px;}
+        #msg{width: 600px;height: 150px;background-color: gray;color: white;display: none;position: absolute;}
+    </style>
+    <script>
+        /*
+            事件类型：  
+                mouseover
+                    让提示框显示
+                mouseout
+                    让提示框隐藏
+                mousemove
+                    让提示框跟随着鼠标去移动
+
+            属性：
+                clientX，clientY  原点位置：可视窗口的左上角为原点(固定死的，就是导航栏下面的部分)
+
+
+            主要关注两个部分：
+                第一个对于一组元素上添加不同的事件的时候，使用属性将各自的编号记录下来，不要使用变量
+                第二个鼠标下新生成的元素覆盖老元素，事件失灵问题   新元素位置滞后生成
+        */
+
+        //注意
+        window.onload = function(){
+            var arr = ["唐太宗李世民（598年1月28日－649年7月10日），陇西成纪（今甘肃省秦安县）人。唐朝第二位皇帝（626~649年在位），杰出的政治家、战略家、军事家、诗人，唐高祖李渊嫡次子，母为太穆皇后窦氏", "唐高宗李治（628年7月21日-683年12月27日） [1]  ，字为善，祖籍陇西成纪，唐朝第三位皇帝（649至683年在位），唐太宗李世民第九子，嫡三子，其母为文德顺圣皇后长孙氏，与唐太宗嫡长子太子李承乾、嫡次子魏王李泰为同母兄弟。", "武则天（624年－705年12月16日 [1]  ），自名武曌（zhào） [2-3]  ，并州文水（今山西文水）人。中国历史上唯一的正统女皇帝（690年－705年在位），也是即位年龄最大（67岁）、寿命最长的皇帝之一（82岁），与汉朝的吕后并称为“吕武”。", "唐玄宗李隆基（685年9月8日—762年5月3日），唐高宗李治与武则天之孙，唐睿宗李旦第三子，故又称李三郎，母窦德妃。 [1]  先天元年（712年）至天宝十五年（756年）在位，因安史之乱退位为太上皇，是唐朝在位最长的皇帝，亦是唐朝极盛时期的皇帝。"];
+            var oAs = document.getElementsByTagName("a");
+            var oMsg = document.getElementById("msg");
+
+            for(var i=0;i<oAs.length;i++){
+                //注意下这个地方的数据的变化，定义属性保存当前的变化的i值，是属性不是变量
+                oAs[i].index = i;
+                oAs[i].onmouseover = function(){
+                    oMsg.innerHTML = arr[this.index];
+                    oMsg.style.display = "block";
+                }
+                oAs[i].onmouseout = function(){
+                    oMsg.style.display = "none";
+                }
+                //鼠标下新生成的元素覆盖老元素，事件失灵问题
+                //当我们移入到a标签的时候，会触发将div标签变成一个block，这个时候div标签要随着鼠标的移动而移动
+                //这样我们的div标签由于position的关系，就会出现在a标签的上面，鼠标就会出现在div上方，而不是a的上面
+                //这时候就会触发mouseout的方法，div的display又会变成none，不会显示
+
+                /*
+                    鼠标下新生成的元素覆盖老元素，事件失灵问题
+                    解决办法：我们可以让新生成的元素向后挪动几个单位，这样鼠标就不会指向新生成元素，还是在老元素上，
+                             不会造成事件的失灵
+                */
+                oAs[i].onmousemove = function(ev){
+                    var e = ev || window.event;
+                    oMsg.style.display = "block";
+                    oMsg.style.left = ev.clientX + 5 +"px";
+                    oMsg.style.top = ev.clientY + 5 +"px";
+                }
+            }
+
+            
+        }
+    </script>
+</head>
+<body>
+    <a href="#">唐太宗</a>
+    <a href="#">唐高宗</a>
+    <a href="#">武则天</a>
+    <a href="#">唐玄宗</a>
+    <div id="msg"></div>
+</body>
+</html>

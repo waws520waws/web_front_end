@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            事件绑定：
+                元素节点.on  +  事件类型 = 匿名函数；
+            注：系统会在事件绑定一旦完成的时候，生成一个事件对象
+
+            注：触发事件的时候，系统会自动去调用事件绑定函数.将事件对象当作第一个参数传入
+        */
+
+        /* function show(){
+            alert(arguments.length)
+            alert(arguments[0])    //[object MouseEvent] 鼠标事件对象
+            alert("hello world")
+        } */
+
+
+        function show(ev){
+            // alert(ev);                //这种通过形参拿事件对象的方式在IE8以下是不兼容的。 IE8以下  window.event
+            
+            var e = ev || window.event;
+            alert(e);
+            alert("hello world");
+        }
+
+        window.onload = function(){
+            var btn = document.getElementById("btn1");
+            // btn.onclick = show;
+            btn.onclick = function(ev){
+
+                //事件对象获取方式，固定写法
+                var e = ev || window.event;
+                alert(e);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">hahaha</button>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{width: 200px;height: 200px;background-color: gray;text-align: center;margin: 20px;overflow: hidden;}
+        div span{width: 100px;height: 100px;background-color: white;display: block;line-height: 100px;margin: 50px;}
+    </style>
+    <script>
+        /*
+           mouseover 和 mouseenter的区别 ：经过子节点的时候是否会重复触发
+
+           mouseenter 和 mouseleave IE8之后才有的
+
+           mouseover 中div 中有子元素span 从外界进入div 数字+1 从div 进入span 数字+1 从span进入div 数字+1 从div中出去 数字是3
+
+           mouseenter 中div 中有子元素span 从外界进入div 数字+1 从div 进入span 数字无变化 从span进入div 数字无变化 从div中出去 数字是1
+
+        */
+
+        window.onload = function(){
+            var div = document.getElementsByTagName("div");
+
+            var i = 0;
+            div[0].onmouseover = function(){
+                var span = div[0].getElementsByTagName("span");
+                span[0].innerHTML = i++
+            }
+
+            var j = 0;
+            div[1].onmouseenter = function(){
+                var span = div[1].getElementsByTagName("span");
+                span[0].innerHTML = j++
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <span>mouseover</span>
+    </div>
+    <div>
+        <span>mouseenter</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            html事件
+                1.window事件
+                    load          当页面加载完成以后会触发   
+                    unload        当页面解构的时候会触发(刷新页面，关闭当前页面)  IE浏览器兼容
+                    scroll        页面滚动
+                    resize        窗口大小发生变化的时候触发
+        */
+
+        window.onload = function(){
+            alert(2)
+            var i = 0;
+            window.onscroll = function(){
+                document.title = i++
+            }
+
+            window.onresize = function(){
+                document.title = i++
+            }
+        }
+    </script>
+</head>
+<body style="height: 3000px;">
+
+</body>
+<script>
+    alert(1)
+</script>
+</html>

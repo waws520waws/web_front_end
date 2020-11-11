@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{padding: 50px;}
+        #div1{background-color: red;}
+        #div2{background-color: blue;}
+        #div3{background-color: hotpink;}
+    </style>
+    <script>
+        /*
+            
+            浏览器上事件的一个天生的特点：
+                事件冒泡：由里向外逐级触发。
+                事件冒泡存在的必然：像ul..li这种结构，我们再页面上是没有ul元素的，这样没有冒泡，我们向ul添加的事件就永远不会发生，通过冒泡，我们可以经过li进行ul事件的触发。
+            
+            事件流
+              事件流是描述的从页面接受事件的顺序，当几个都具有事件的元素层叠在一起的时候， 那么你点击其中一个元素，并不是只有当前被点击的元素会触发事件，而层叠在你点击范围 的所有元素都会触发事件。事件流包括两种模式：冒泡和捕获。
+            事件冒泡
+                是从里往外逐个触发。
+            事件捕获
+                是从外往里逐个触发。那么现代的浏览器 默认情况下都是冒泡模式。
+
+            简述过程就是：当我们有三个层级div1>div2>div3的时候，我们分别给三个div分别添加点击事件【事件1】、【事件2】、【事件3】，这个时候我们点击div1，触发事件1，我们点击div2,先触发事件2，再触发事件1，我们点击div3,先触发事件3，再触发事件2，最后触发事件1，
+
+
+            阻止事件冒泡：
+                浏览器兼容问题
+                事件对象的属性和方法：
+                    cancelBubble = true
+                    stopPropagation()
+        */
+
+        window.onload = function(){
+            var div = document.getElementsByTagName("div");
+
+            //冒泡演示
+            /* for(var i=0;i<div.length;i++){
+                div[i].onclick = function(){
+                    alert(this.id)
+                }
+            } */
+
+            //阻止冒泡演示
+            for(var i=0;i<div.length;i++){
+                div[i].onclick = function(ev){
+                    var e = ev || window.event
+                    // e.cancelBubble = true
+                    e.stopPropagation()
+                    alert(this.id)
+                }
+            }
+
+
+            //封装跨浏览器兼容的阻止事件冒泡
+            function stopBubble(e){
+                if(e.stopPropagation){
+                    e.stopPropagation()
+                }else{
+                    e.cancelBubble = true
+                }
+            } 
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+
+</body>
+</html>

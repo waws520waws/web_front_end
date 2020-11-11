@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            事件类型的种类：
+                1.鼠标事件
+                    click：当用户单击鼠标按钮或按下回车键时触发
+                    dblclick：当用户双击主鼠标按钮时触发。
+                    mousedown：当用户按下了鼠标还未弹起时触发。
+                    mouseup：当用户释放鼠标按钮时触发。
+                    mouseover：当鼠标移到某个元素上方时触发。
+                    mouseout：当鼠标移出某个元素上方时触发。
+                    
+                    mouseenter：当鼠标移到某个元素上方时触发。
+                    mouseleave：当鼠标移出某个元素上方时触发。
+                    mousemove：当鼠标指针在元素上移动时触发。
+                2.键盘事件
+                3.html事件
+                    3.1 window事件
+                    3.2 表单事件
+        */
+
+        window.onload = function(){
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");
+            var btn3 = document.getElementById("btn3");
+            var btn4 = document.getElementById("btn4");
+            var btn5 = document.getElementById("btn5");
+            var btn6 = document.getElementById("btn6");
+            btn1.ondblclick = function(){
+                //双击
+                alert("双击")
+            }
+
+            btn2.onmousedown = function(){
+                //双击
+                alert("按下")
+            }
+            btn3.onmouseup = function(){
+                //双击
+                alert("释放")
+            }
+            btn4.onmouseover = function(){
+                //双击
+                alert("移入")
+            }
+
+            btn5.onmouseout = function(){
+                //双击
+                alert("移出")
+            }
+            btn6.onmousemove = function(){
+                //双击
+                alert("双击")
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn1">双击</button>
+    <button id="btn2">按下</button>
+    <button id="btn3">释放</button>
+    <button id="btn4">移入</button>
+    <button id="btn5">移出</button>
+    <button id="btn6">移动</button>
+</body>
+</html>

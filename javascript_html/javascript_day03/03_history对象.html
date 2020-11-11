@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            这个对象并不是我们的浏览器的历史记录，而是我们打开窗口进行进行当前窗口操作的历史
+                history对象是window对象的属性，它保存这用户上网的记录,从窗口被打开的那一刻算起。
+                只要加载的url不同，就会产生历史记录
+                要显示history.length 我们可以手动的修改窗口中的链接值，这样不会更新打开的窗口，但是历史记录发生了变化，同时可以对back、forward的进行操作
+                file:///G:/qd_project/javascript_html/javascript_day03/03_history%E5%AF%B9%E8%B1%A1.html#
+            history对象  window.history
+
+            属性：
+                history.length 输出当前窗口历史记录的条数
+                同一浏览器窗口中的不同的url值
+
+            方法：
+                这个地方的方法就是和浏览器上的后退键和前进键的功能是一样的
+                history.back() 返回上一条历史记录
+                history.forward()  前进到下一条历史记录
+                history.go()  
+                    参数：  0   刷新当前页面
+                          正整数    前进n条记录
+                          负整数    回退n条记录
+        */
+
+        function btnClick(){
+            alert(history.length)
+        }
+    </script>
+</head>
+<body>
+    <button onclick="btnClick();">打开窗口</button>
+    <button onclick="history.back();">back</button>
+    <button onclick="history.forward();">forward</button>
+    <button onclick="history.go(3);">go</button>
+</body>
+</html>

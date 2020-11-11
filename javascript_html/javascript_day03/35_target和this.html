@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            target 目标对象/触发对象  事件对象的属性/没有事件都没有target
+            注：这个事件是由谁而起的
+            IE8以下不兼容  window.event.srcElement
+
+            this 永远指向的都是当前函数的主人
+
+            区别：当存在层级关系ul>li*3  我们给我们的ul上增加一个点击事件，我们鼠标点击其中的一个li
+                因为li是ul的子元素，同样可以触发点击事件，这个时候我们的this是指向函数的主人，也就是ul
+                对象，但是触发的机制是li来做的，也就是说这个事件是由li而起的，所以target指向的就是li
+        */
+
+        window.onload = function(){
+            var oli = document.getElementById("li1");
+            /* oli.onclick = function(ev){
+                //注意是事件对象的属性
+                var e = ev || window.event
+                var target = e.target || window.event.srcElement
+                alert(this.innerHTML)
+                alert(target.innerHTML)
+            } */
+
+            var uli = document.getElementById("ul1");
+            uli.onclick = function(ev){
+                var e = ev || window.event;
+                var target = e.target || window.event.srcElement;
+                alert(this.tagName)
+                alert(target.innerHTML)
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li id="li1">111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+</body>
+</html>

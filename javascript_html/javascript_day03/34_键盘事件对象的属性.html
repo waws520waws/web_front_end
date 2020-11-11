@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            keyCode  键码
+            which
+            返回值：键码返回的是大写字母的ASCII码值，不区分大小写，凡是ASCII上有的都会返回
+            格式:var which = e.which || e.keyCode
+            [注]：只在keydown下支持
+        */
+
+        /*
+            charCode  键码
+            which
+            返回值：键码返回的是字母的ASCII码值，区分大小写，只会返回在屏幕上可显示的字符对应的ascii码值
+                    大小写字母、加减乘除符号键、括号、数字等可显示的字符
+            格式:var which = e.which || e.charCode
+            [注]：只在keyparse下支持
+
+        */
+
+        window.onload = function(){
+            /* window.onkeydown = function(ev){
+                var e = ev || window.event;
+                var which = e.which || e.keyCode
+                alert(which)
+            } */
+
+
+            window.onkeypress = function(ev){
+                var e = ev || window.event;
+                var which = e.which || e.charCode
+                alert(which)
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

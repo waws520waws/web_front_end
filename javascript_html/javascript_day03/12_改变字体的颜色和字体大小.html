@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+
+        #div{width: 300px;height: 100px;line-height: 100px;text-align: center;margin: 50px auto;background-color: blueviolet;color:rgb(0,0,0);font-size: 24px;}
+    </style>
+    <script>
+        /*
+            写一个定时器,每个一秒修改一次div内文本颜色和文字大小.
+            最开始这个文字是默认大小,大小开始增大,当增大了6次以后,
+            文字大小开始缩小,缩小6次,文字再开始增大。
+        */
+        window.onload = function(){
+            //思想：每隔6秒进行一次变化，可以用 秒数 % 6 做周期性变化
+            var count = 0;
+            var speed = 2;
+            setInterval(function(){
+                var odiv = document.getElementById("div");
+                
+                var str = "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")";
+                
+                //这个地方的往复操作的写法，吸收下
+                count++
+                if(count % 6==0){
+                    speed *= -1
+                }
+                //注意下这个地方，是因为我们下面要用到当前值
+                var font_size = parseInt(getComputedStyle(odiv)["font-size"]);   
+                odiv.style.fontSize = font_size + speed + "px";
+                odiv.style.color = str;
+                
+                
+            },1000)
+        }
+    </script>
+</head>
+<body>
+    <div id="div">我们都是好孩子</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            数组：
+                for循环
+                for……in……
+                forEach
+        */
+        var arr = [10,20,30,40,50];
+        for(var i=0;i<arr.length;i++){
+            document.write("for, " + i + ", " + arr[i] + "<br>" );
+        }
+
+        for(var i in arr){
+            document.write("forin, " + i + ", " + arr[i] + "<br>" );
+        }
+
+        arr.forEach(function(item,index,arr){
+            document.write("forEach, " + item + "<br>" );
+            document.write("forEach, " + index + ", " + arr[index] + "<br>" );
+        });
+
+
+        /*
+            对象：
+                for……in……
+        */
+
+         var person = {
+             username:"waws",
+             age:18,
+             sex:"男"
+         }
+
+         for(var i in person){
+             //i  是当前遍历到的属性名
+             document.write(i + " : " + person[i] + "<br>");
+         }
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

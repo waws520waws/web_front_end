@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{background-color: black;}
+        #div{width: 208px;height: 208px;background: url(./img/girl.gif) no-repeat;position:absolute;}
+    </style>
+    <script>
+        /*
+            
+        */
+
+        window.onload = function(){
+            var div = document.getElementById("div")
+            document.onmousemove = function(ev){
+                var e = ev || window.event;
+                div.style.left = e.clientX - 100 + "px"; 
+                div.style.top = e.clientY - 100 + "px"; 
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+</body>
+</html>

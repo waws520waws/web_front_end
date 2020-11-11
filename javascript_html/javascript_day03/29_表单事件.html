@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            html事件
+                1.window事件
+                    load          当页面加载完成以后会触发   
+                    unload        当页面解构的时候会触发(刷新页面，关闭当前页面)  IE浏览器兼容
+                    scroll        页面滚动
+                    resize        窗口大小发生变化的时候触发
+                
+                2.表单事件
+                    blur  失去焦点
+                    focus   获取焦点
+                    select  当我们在输入框中选中一些文本的时候触发
+                    change  当我们对输入框中文本进行修改并且失去焦点的时候触发
+
+                    必须添加在form上
+                    submit   当我们点击submit上的按钮的时候才能触发
+                    reset    当我们点击reset上的按钮的时候才能触发
+        */
+
+        window.onload = function(){
+            var input = document.getElementById("input1");
+            input.onblur = function(){
+                this.value = "失去焦点";
+            }
+            input.onfocus = function(){
+                this.value = "获取焦点";
+            }
+            input.onselect = function(){
+                alert("被选中了");
+            }
+            input.onchange = function(){
+                alert("文本被修改了");
+            }
+
+            var f1 = document.getElementById("f1");
+            f1.onsubmit = function(){
+                alert("点击submit");
+            }
+            f1.onreset = function(){
+                alert("点击reset");
+            }
+        }
+    </script>
+</head>
+<body style="height: 3000px;">
+    <input type="text" value="默认文本" id="input1" >
+
+    <form id="f1">
+        <input type="text">
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+</body>
+</html>
