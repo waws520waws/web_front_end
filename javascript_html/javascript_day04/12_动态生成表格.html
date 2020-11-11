@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        table{border: 1px solid #000;}
+        table tr td{width:50px;height: 20px;;border:1px #000 solid;}
+    </style>
+    <script>
+        /*
+            自动生成表格
+        */
+
+        window.onload = function(){
+            var row = document.getElementById("row")
+            var col = document.getElementById("col")
+            var btn = document.getElementById("btn")
+            var table = document.getElementById("table")
+
+            //给表格上的删除按钮添加事件委托,添加事件委托的时候我们找到button的父节点，td新创建的，不能作为委托节点
+            //再向上找，tr也是新创建的，不能作为委托节点，最终找到不变的元素table
+            btn.onclick = function(){
+                if(row.value && col.value){
+                    for(var i =0;i<row.value;i++){
+                        var tr = document.createElement("tr")
+                        for(var j=0;j<col.value;j++){
+                            var td = document.createElement("td")
+                            tr.appendChild(td)
+                        }
+                        var delete_td = document.createElement("td");
+                        delete_td.innerHTML = "<button >按钮</button>"
+                        tr.appendChild(delete_td)
+                        table.appendChild(tr)
+                    }
+                }else if(!row.value){
+                    alert("请输入行的值")
+                }else{
+                    alert("请输入列的值")
+                }
+            }
+            table.onclick = function(ev){
+                var e = ev || window.event
+                var target = e.target || window.event.srcElement
+                if(target.nodeName.toLowerCase()=="button"){
+                    table.removeChild(target.parentNode.parentNode);
+                }
+            } 
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" value="" placeholder="行" id="row">
+    <input type="text" value="" placeholder="列" id="col">
+    <button id="btn">生成</button>
+    <table id="table" cellspacing="0"></table>
+</body>
+</html>

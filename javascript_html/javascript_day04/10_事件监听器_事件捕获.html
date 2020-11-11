@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{padding: 50px;}
+        #div1{background-color: red;}
+        #div2{background-color: blueviolet;}
+        #div3{background-color: hotpink;}
+    </style>
+    <script>
+        /*
+            事件从内向外的进行叫做：事件冒泡
+            事件从内向外的进行叫做：事件捕获
+        */
+
+        window.onload = function(){
+            var div = document.getElementsByTagName("div");
+            for(var i = 0;i<div.length;i++){
+                /* div[i].addEventListener("click",function(){
+                    alert(this.id)
+                },false) //div3 --->div2----->div1  冒泡的方式 */
+
+                div[i].addEventListener("click",function(){
+                    alert(this.id)
+                },true) //div1 --->div2----->div3  捕获的方式
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+</body>
+</html>

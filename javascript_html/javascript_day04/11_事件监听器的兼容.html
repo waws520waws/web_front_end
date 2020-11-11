@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            低版本的浏览器中实现事件监听使用的是
+                attachEvent()
+                detachEvent()
+        */
+
+        function addEvent(node,EventType,funcName){
+            if(node.addEventListener){
+                node.addEventListener(EventType,funcName,false);
+            }else{
+                node.attachEvent("on"+EventType,funcName);
+            }
+        }
+
+        function removeEvent(node,EventType,funcName){
+            if(node.removeEventListener){
+                node.removeEventListener(EventType,funcName);
+            }else{
+                node.detachEvent("on"+EventType,funcName);
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

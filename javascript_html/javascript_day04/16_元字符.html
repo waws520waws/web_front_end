@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            元字符：在正则表达中有特殊含义的字符
+            
+            单个数字和字符的元字符：
+                .  匹配单个的任意字符
+                []   匹配单个[]范围内的字符
+                [^]  匹配单个除了[]范围内的字符
+                \w  匹配单个数字字母下划线 [a-zA-Z0-9_]
+                \W  匹配单个除了数字字母下划线 就是不在这个范围中[a-zA-Z0-9_]
+                \d  匹配单个数字 [0-9]
+                \D  匹配单个非数字 就是不在这个范围中[0-9]
+
+            重复字符的元字符：x (任意的单个字符)
+                x?   匹配0个或者1个x
+                x+   匹配至少一个x
+                x*   匹配任意多个x
+                x{m,n}  匹配至少m个x,至多n个x 
+                x{n}   必须匹配n个字符
+                (xyz)+   小括号括起来的部分是当作单个字符处理 括号中的部分当成了一个整体 (110)+ 110这个整体至少出现一次
+
+            空白字符
+                \0   匹配null字符
+                \b   匹配空格字符  
+                \f   匹配禁止字符  
+                \n   匹配换行字符
+                \r   匹配回车换行字符
+                \t   匹配制表字符
+                \s   匹配空白字符、空格、制表和换行字符
+                \S   匹配非空白字符
+
+            锚字符
+                ^   以什么开头
+                $   以什么结尾
+
+            替代字符
+                which|haha|logo  匹配which 或者 haha 或者 logo中的任意一个
+
+
+            
+
+        */
+
+        var str = "google"
+        var pattern = /go.gle/
+        alert(pattern.test(str))
+
+        var pattern1 = /go[a-zA-Z0-9_]gle/
+        alert(pattern1.test(str))
+
+        var pattern2 = /goo?gle/
+        alert(pattern2.test(str))   //匹配的模式 google 或 gogle
+
+        var pattern4 = /goo|hha|hehe/
+        alert(pattern4.test(str))   //匹配的模式 google 或 gogle
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

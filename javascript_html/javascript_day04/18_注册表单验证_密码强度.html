@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Document</title>
+        <style>
+            #div1{width: 200px; height: 200px; background-color: lightblue; border: 1px solid black; text-align: center; padding: 50px; margin: 100px auto}
+            #div1 input{width: 200px; height: 30px; font-size: 18px; margin-top: 10px}
+            #div1 span{font-size: 14px; color: red}
+            .testCode{width: 50px;height: 30px;line-height: 30px;background-color: gray;color: black;float: left;margin-top: 10px;margin-left: 10px;}
+        </style>
+        <script>
+            /* 
+                事件驱动函数 onclick
+                           onblur  失去焦点
+             */
+            window.onload = function(){
+                var username = document.getElementById("username")
+                var username_span = document.getElementById("username_span")
+                var password = document.getElementById("password")
+                var password = document.getElementById("password")
+                var div = document.getElementById("div1")
+                var divs = document.getElementsByClassName("testCode")
+                
+                // 获取username输入的值
+                username.onblur = function(){
+                    var str = username.value
+                    alert(str)
+                    var pattern = /\W/
+                    var pattern1 = /^[a-zA-Z]/
+                    if(str.length>18 || str.length<6){
+                        username_span.innerHTML="❗️长度应为6~18个字符";
+                    }else if(pattern.test(str)){
+                        username_span.innerHTML="❗️邮件地址需由字母、数字或下划线组成"
+                    }else if(!pattern1.test(str)){
+                        username_span.innerHTML="❗️邮件地址必需以英文字母开头"
+                    }else{
+                        username_span.innerHTML="✅恭喜，该邮件地址可注册";
+                    }
+                }
+
+                //给密码输入框，添加键盘事件
+                /*
+                    keydown事件触发的事件是输入文本之前，没有办法获取到完整的文本信息
+                    keyup
+                */
+                password.onkeyup = function(){
+                    var value = this.value
+
+                    //在这个地方清理下样式的操作学到了
+                    for(var i=0;i<divs.length;i++){
+                        divs[i].style.backgroundColor = "gray";
+                    }
+
+                    if(value.length >= 6){
+                        //开始密码强度验证
+                        /*
+                            密码强度归类：
+                                1.弱  纯数字 纯小写  纯大写
+                                2.强  三种都有
+                        */
+                        if(/^[a-z]+$/.test(value) || /^\d+$/.test(value) || /^[A-Z]+$/.test(value)){
+                            divs[0].style.backgroundColor = "green";
+                        }else if(value.search(/[a-z]/)!=-1 && value.search(/[A-Z]/)!=-1 && value.search(/\d/)!=-1){
+
+                            divs[2].style.backgroundColor = "green";
+                        }else{
+                            divs[1].style.backgroundColor = "green";
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id = 'div1'>
+            <input id = 'username' type="text" placeholder="用户名"/>
+            <span id = 'username_span'>6~18个字符，可使用字母、数字、下划线，需以字母开头</span>
+            <input id="password" type="text" placeholder="密码"/>
+            <div class="testCode">弱</div>
+            <div class="testCode">中</div>
+            <div class="testCode">强</div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+
+            案例：我们为什么需要事件委托？？
+                1.冗余问题
+                    下面的代码中我们给我们的的每一个li标签都添加了一个方法，用于完成点击事件，但是这5个li上的方法是相同的，这样造成代码的冗余问题，和内存空间的消耗过多的问题
+                2.新增节点，但是没有事件绑定和相应，还要重新启动代码
+                    新增加一些li节点上，并不会绑定事件的.循环添加点击事件已经结束了，不会再添加事件了
+        */
+
+        window.onload = function(){
+            var ul = document.getElementById("ul1");
+            var lis = ul.getElementsByTagName("li");
+            var btn = document.getElementById("btn");
+
+            btn.onclick = function(){
+                alert("hah");
+                var li = document.createElement("li");
+                var text = document.createTextNode("hahaha");
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+
+            for(var i=0;i<lis.length;i++){
+                lis[i].onclick = function(){
+                    this.style.backgroundColor = "red";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">增加</button>
+    <ul id="ul1">
+        
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+</body>
+</html>

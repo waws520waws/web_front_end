@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            修饰符：
+                i   忽略大小写
+                g   全局匹配
+                m   换行匹配   如果在字符串，遇到换行，重新开始计算行首
+        */
+        var str = "1.b23du\n2.g2ogle\n3.bi21g";
+        var pattern = /^\d/gm;
+        alert(str.replace(pattern,"*"))
+
+
+        /*
+            检查文件是否是压缩包
+            zip  rar gz tar
+        */
+        var str1 = "wwwwwsss.zip"
+        var pattern = /[\w]+\.(zip|rar|gz|tar)$/
+        alert(pattern.test(str1))
+
+        /*
+            验证字符串是否是纯中文
+        */
+        var str2 = "我们都是好孩子"
+        var pattern1 = /^[\u4e00-\u9fa5]+$/
+        alert(pattern1.test(str2))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

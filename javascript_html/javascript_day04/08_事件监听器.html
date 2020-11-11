@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            1.传统事件
+                <1> 重复添加，覆盖的问题
+                    btn.onclick 我想添加两个点击事件
+
+
+            2.事件监听器
+                就是我们对于开发事件的不完备性，导致我们再后期还需要对事件进行完善，我们可以采用这种补丁的方式进行，不是必须要找到原始的代码再进行修改
+                实际上就是事件绑定的另一种方法
+                addEventListener() 方法用于向指定元素添加事件句柄，IE8及其以下不支持，火狐和谷歌支持。
+                    格式：node.addEventListener()
+                    参数：
+                        第一个参数：事件类型
+                        第二个参数：绑定函数
+                        第三个参数：bool值
+                                   true  事件捕获
+                                   false  事件冒泡
+
+                removeEventListener() 方法移除由 addEventListener() 方法添加的事件函数
+        */
+
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+
+            //先执行点击1,再执行点击2
+            btn.addEventListener("click",function(){
+                alert("点击1");
+            },false);
+            btn.addEventListener("click",function(){
+                alert("点击2");
+            },false);
+        }
+    </script>
+</head>
+<body>
+    <button id="btn"></button>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            箭头函数：新潮的函数写法，应用方式没啥变化
+            适当的省略我们的函数中的function和return关键字
+        */
+        function add(x){
+            return x + 10
+        }
+
+        //换成箭头函数
+        var add1 = x=>x+10
+        alert(add1(20))    
+
+        /*
+            各种形式的箭头函数
+        */
+        //1.无参数，无返回值的
+        function show1(){
+            alert("hello world")
+        }
+
+        var show1 = ()=>{
+            alert("hello world")
+        }
+
+        //2.有一个参数，无返回值的
+        function show2(num){
+            alert("hello world")
+        }
+
+        var show2 = num=>{
+            alert("hello world")
+        }
+
+
+        //3.有一个参数，有一个返回值的(最好应用的)
+        function show3(num){
+            return num+10
+        }
+
+        var show3 = num=>num+10;
+
+        //4.有多个参数，没有/有一个返回值的(最好应用的)
+        function show4(num1,num2){
+            return num2+num1
+        }
+
+        var show3 = (num1,num2)=>num1+num2;    //多参数使用()的方式括起来
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

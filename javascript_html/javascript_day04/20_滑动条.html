@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #slide{position: relative;width: 600px;height: 30px;border: 1px solid #000;margin: 100px auto;}
+        #block{width: 30px;height: 30px;background-color: blue;position: absolute;left: 100px;}
+        #full{width: 100px;height: 30px;background-color: hotpink;position: absolute;left: 0;top:0;}
+    </style>
+    <script>
+        /*
+            
+        */
+        window.onload = function(){
+            var slide = document.getElementById("slide")
+            var full = document.getElementById("full")
+            var block = document.getElementById("block")
+
+            if(!window.localStorage){
+                alert("当前页面中不支持localStorage")
+            }else{
+                full.style.width = localStorage.getItem("width")?localStorage.getItem("width") + "px" : "0px" 
+                block.style.left = localStorage.getItem("left")?localStorage.getItem("left") + "px": "0px" 
+            }
+
+    
+
+            block.onmousedown = function(ev){
+                
+                var e = ev || window.event
+                var offsetX = e.clientX - block.offsetLeft
+
+
+                document.onmousemove = function(ev){
+                    var e = ev || window.event
+                    l = e.clientX - offsetX
+                    if(l<=0){
+                        l = 0
+                    }
+
+                    //这个例子中学会使用边界问题，offsetLeft 是针对父级的
+                    if(l>=570){
+                        l = 570
+                    }
+
+
+                    block.style.left = l + "px";  
+                    full.style.width = l + "px";
+                }
+            }
+
+            block.onmouseup = function(){
+                document.onmousemove = null;
+                if(!window.localStorage){
+                    alert("当前页面中不支持localStorage")
+                }else{
+                    localStorage.setItem("width",l)
+                    localStorage.setItem("left",l)
+                }
+            }
+        }    
+    </script>
+</head>
+<body>
+    <div id = "slide">
+        <div id ="full"></div>
+        <div id ="block"></div>
+    </div>
+</body>
+</html>

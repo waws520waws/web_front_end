@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #div{width: 100px;height: 100px;border: 1px solid #000;background-color: red;position: absolute;}
+    </style>
+    <script>
+        /*
+            拖拽：
+                mousedown
+                    记录鼠标按下位置和被拖拽物体的相对距离
+                    var offsetX = e.clientX - node.offsetLeft
+                    var offsetY = e.clientY - node.offsetTop
+                mousemove
+                    一致保持，相对距离
+                    node.style.left = e.clientX - offsetX 
+                    node.style.top = e.clientY - offsetY 
+                mouseup
+                    取消拖拽
+
+
+            拖拽存在的问题：
+                鼠标快速移动的时候，物体和鼠标的分离
+                物体可以越界，到浏览器的外边去
+                    
+        */
+
+        window.onload = function(){
+            var div = document.getElementById("div");
+            div.onmousedown = function(ev){
+                var e = ev || window.event;
+                var offsetX = e.clientX - div.offsetLeft + "px";
+                var offsetY = e.clientY - div.offsetTop + "px";
+
+
+
+                div.onmousemove = function(ev){
+                    var e = ev || window.event;
+                    div.style.left = e.clientX - parseInt(offsetX) + "px";
+                    div.style.top = e.clientY - parseInt(offsetY) + "px";
+                }
+            }
+
+            div.onmouseup = function(){
+                div.onmousemove = null;  //注意这个地方是将mousemove置成null
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+</body>
+</html>

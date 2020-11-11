@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            1.传统事件
+                <1> 重复添加，覆盖的问题
+                    btn.onclick 我想添加两个点击事件
+                <2> 不能精确的删除事件上的某一个函数，只能置null
+
+
+            2.事件监听器
+                就是我们对于开发事件的不完备性，导致我们再后期还需要对事件进行完善，我们可以采用这种补丁的方式进行，不是必须要找到原始的代码再进行修改
+                实际上就是事件绑定的另一种方法
+                addEventListener() 方法用于向指定元素添加事件句柄，IE8及其以下不支持，火狐和谷歌支持。
+                    格式：node.addEventListener("click",show,false)
+                        常见：node.addEventListener("click",function(){
+
+                        },false)
+                    参数：
+                        第一个参数：事件类型
+                        第二个参数：绑定函数
+                        第三个参数：bool值
+                                   true  事件捕获
+                                   false  事件冒泡
+
+                removeEventListener() 方法移除由 addEventListener() 方法添加的事件函数
+                    node.removeEventListener("click",show)
+        */
+
+        window.onload = function(){
+            var btn = document.getElementsByTagName("button");
+            /* btn[1].onclick = function(){
+                alert("原有的点击函数")
+            }
+
+            btn[0].onclick = function(){
+                btn[1].onclick = show;   //依旧是覆盖的结果
+            }
+
+            btn[2].onclick = function(){
+                btn[1].onclick = null;    //实现清空的方式就是置null,还是覆盖
+            } */
+
+            btn[1].addEventListener("click",function(){
+                alert("原有的函数")
+            },false);
+            btn[0].addEventListener("click",function(){
+                btn[1].addEventListener("click",show,false);
+            },false);
+            btn[2].addEventListener("click",function(){
+                btn[1].removeEventListener("click",show);   //只是删除了show函数
+            },false);
+
+        }
+
+        function show(){
+            alert("hello world")
+        }
+    </script>
+</head>
+<body>
+    <button>添加函数</button>
+    <button>按钮</button>
+    <button>删除函数</button>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            本地存储技术：
+                localStorage(IE8以下是不兼容的)
+                    在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。
+
+                    1.永久存储
+                    2.最大可以存储5M
+                    3.只能去存储字符串
+
+                cookie
+                    1.可以设置过期时间
+                    2.最大可以存储4K
+                    3.每一个域名下面最多可以存储50条数据
+
+                sessionStorage(结合后台使用)
+                    保存一个会话的东西
+
+            localStorage 对象
+                setItem(name,value)  存储键值
+                getItem(name)        依据name取值
+                removeItem(name)     移除name的值
+        */
+
+        if(!window.localStorage){
+            alert("当前页面中不支持localStorage")
+        }else{
+            // localStorage.setItem("a",1);
+            // localStorage.b = 2;
+            // localStorage["c"] = 3;
+
+            /* alert(localStorage.getItem("b"));
+            alert(localStorage["a"]);
+            alert(localStorage.c); */
+
+
+        }
+
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                localStorage.removeItem("a")
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+</html>

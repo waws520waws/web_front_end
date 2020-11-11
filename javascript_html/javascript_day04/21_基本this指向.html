@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            每一个函数中都有一个内置的变量this,this指向当前函数的主人，函数的主人要根据上下文关系进行判断。
+            [注]：this指向当前函数的主人。
+        */    
+
+        //常见的this
+
+        //全局函数
+        function show(){
+            alert(this);   //[object Window]  指向window
+        }
+
+        /* var person = {
+            username:"waws",
+            show:function(){
+                alert(person.username)
+                alert(this.username)   //waws  this 指向person
+            }
+        }
+
+        person.show(); */
+
+        //事件绑定
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                alert(this.id)   //指向的是button对象
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            call
+                格式：函数名.call()
+                参数：
+                    第一个参数：传入该函数this指向的对象，传入什么就指向什么
+                    第二个参数开始：将原函数的参数向后顺延一位
+
+            apply
+                格式：函数名.apply()
+                参数：
+                    第一个参数：传入该函数this指向的对象，传入什么就指向什么
+                    第二个参数：数组，放入我们原有的所有参数
+
+            bind
+                预设this指向
+                格式：函数名.apply()
+                参数：
+                    第一个参数：传入该函数this指向的对象，传入什么就指向什么
+                    第二个参数：数组，放入我们原有的所有参数
+
+        */    
+
+        /* function show(x,y){
+            alert(this);
+            alert(x + "," + y)
+        }
+
+        show.call("call",20,40)  //call  this指向call字符串
+
+        show.apply("apply",[20,40])  //apply   this指向apply字符串
+
+        var res = show.bind("bind")   //function () { [native code] }  返回值依旧是一个函数
+        res(20,30)                     //bind   this指向bind字符串 */
+
+        function show(){
+            alert(this);
+        }
+
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                //btn.onclick = show.call("call") 这是一种错误的写法，放在外边会立即执行，相当于是将函数的返回结果给了btn.onclick就是在没有按键触发的条件下，也会先执行show函数，逻辑问题，需要将其放在function中
+                show.call("call");       
+            }
+
+
+            btn.onclick = function(){
+                show.apply("apply");       
+            }
+
+            btn.onclick = show.bind("bind");
+        }
+
+
+        /*
+            apply 方法应用的小技巧
+        */
+        
+        //下面的调用方式比较麻烦我们可以利用apply的后续参数是数组的形式简化
+        Math.min(10,20,30,40,50)
+        Math.max(10,20,30,40,50)
+
+        var arr = [10,20,30,40,50]
+        alert(Math.min.apply(null,arr))
+        alert(Math.max.apply(null,arr))
+
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+</html>

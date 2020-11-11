@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            let关键字  是用来声明变量的
+                更过分  只要遇到大括号就算是作用域
+                【注】：let关键字声明的变量，所在的作用域叫做块级作用域
+            var 关键字  是用来声明变量的  将变量或者形参所在函数的大括号作为作用域处理  遵循垃圾回收机制
+        */
+
+        /* function show(){
+            var num = 10;
+            alert(num);
+        } 
+
+        alert(num)   //  访问不到num  */
+        /* function show(){
+            if(1){
+                let num = 10;
+            }
+            alert(num);  //没有输出，num的作用域仅限在if中，出了if失效了
+        }
+
+        show();
+
+
+        for(let i=0;i<5;i++){
+            setTimeout(function(){
+                console.log(i)
+            },4000)
+        } */
+
+        //这个作用域更加诡异
+        /* { i= 0
+            setTimeout(function(){
+                console.log(i)
+            },4000)
+        }
+
+        { i= 1
+            setTimeout(function(){
+                console.log(i)
+            },4000)
+        } */
+
+        //以此类推
+
+        //let可以解决选项卡的i值跑偏的问题
+        window.onload = function(){
+            var btn = document.getElementsByTagName("button")
+            for(let i =0;i<btn.length;i++){
+                btn[i].onclick = function(){
+                    alert(i)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+</body>
+</html>

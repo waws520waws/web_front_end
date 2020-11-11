@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            filter、map函数和箭头函数的结合使用
+
+            箭头函数需要注意的部分：
+                1.箭头函数，不能使用new
+                2.箭头，如果返回值是一个对象，一定要加一个();
+                3.箭头函数中的this,指向的是上一层函数的主人
+        */  
+
+        var arr = [10,20,30,40,50];
+        /* var  newArr = arr.filter(function(item){
+            return item>20;
+        }) */
+
+        var newArr = arr.filter(item=>item>20)
+        alert(newArr)
+
+        var newArr1 = arr.map(item=>item*1.5)
+        alert(newArr1)
+
+        var person = {
+            username:"waws",
+            age:19,
+            /* show:function(){
+                alert(person.username);
+                alert(this.username);
+            } */
+
+            show:()=>{
+                alert(person.username);
+                alert(this.username);  //undefined  箭头函数中此时指向的是person的上一级，也就是window对象，没有username属性，就会输出undefined
+            },
+            show1:()=>{
+                alert(person.username);
+                alert(this);  //直接输出this，看指向的对象   [object Window]
+            }
+        }
+
+        person.show()
+        person.show1()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

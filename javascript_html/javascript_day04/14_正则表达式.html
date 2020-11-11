@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            正则表达式：正则表达式(regular expression)是一个描述字符模式的对象。ECMAScript 的 RegExp 类 表示正则表达式，而 String 和 正则表达式都定义了进行强大的【模式匹配】和【文本检索】与【替换】的函数。  
+
+            1.通过new RegExp去声明这则表达式 
+                第一个参数：正则表达式主体  字符串
+                第二个参数：修饰符  i    g
+                注：修饰符没有顺序
+
+            2.省略new通过RegExp去声明这则表达式  
+            3.常量的形式
+        */
+
+        /* //创建正则表达式的三种方法
+        var box1 = new RegExp("hello","ig");
+        var box2 = RegExp("hello","ig");
+        var box3 = /hello/ig; */
+
+
+
+
+        /*
+            正则表达式对象只有两个方法：
+                test
+                    格式：正则.test(字符串)
+                    功能：在字符串中匹配这个正则模式是不是存在
+                    返回值：如果匹配成功返回true,匹配失败返回false
+
+                exec
+                    格式：正则.exec(字符串)
+                    功能：在字符串中匹配这个正则模式是不是存在
+                    返回值：返回匹配到的串，如果匹配成功，返回装有字符串的数组
+                                              匹配失败，返回null
+        */
+        var box = /are/;
+        var str = "how are you!"
+        alert(box.test(str))
+
+        var box1 = /are/ig;
+        var str1 = "how aRe you aRe you arE you!"
+        alert(box1.exec(str1))     //只返回了一个值
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
