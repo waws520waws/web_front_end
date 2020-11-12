@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            集合：
+                无序
+                不重复
+
+            在下面创建并添加元素的过程中
+                imgs.add(new String("world"))
+                imgs.add(new String("world"))
+                两个"world"是通过new的方式创建的，这样的话是地址不同的两个不同的对象，虽然对象中的内容是相同的
+                都可以添加到集合中
+
+            Set
+                集合的键值是一样的
+            Map
+                集合的键值是不一样的
+        
+            集合的遍历：
+                我们发现遍历之后的键和值是一模一样的 entries 显示 Array [100,100]  前面是键，后面是值
+                for……of
+        */
+        let imgs = new Set();
+        
+        imgs.add(100)
+        imgs.add(100)
+        imgs.add("hello")
+        imgs.add("hello")
+        imgs.add(true)
+        imgs.add(new String("world"))
+        imgs.add(new String("world"))
+
+        console.log(imgs)
+        /* //通过键进行遍历
+        for(let item of imgs.keys()){
+            console.log(item);
+        } */
+
+        /* //通过值进行遍历
+        for(let item of imgs.values()){
+            console.log(item);
+        } */
+
+        /* //通过
+        for(let item of imgs.entries()){
+            console.log(item);
+        } */
+        
+        /* //集合变成数组
+        var set = new Set([10,20,30,40,10,30,50,20,60])
+        
+        //集合变成数组
+        //[...set] 将集合展开成数组
+        var arr = [...set]
+        alert(arr) */
+
+        //数组去重的标准写法
+        var arr = [10,20,30,40,10,30,50,20,60];
+        arr = [...new Set(arr)]
+        alert(arr)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            数组：
+                for
+                for……in
+                for……of
+                forEach
+            对象
+                for……in
+            set
+                for……of
+            map
+                for……of
+        */
+       
+        //数组的遍历方式
+        var arr = [10,20,30,40,50]
+        for(var i =0;i<arr.length;i++){
+            document.write("for循环 " + arr[i] + ", " + i + "<br>")
+        }
+
+        arr.forEach(function(item,index){
+            document.write("forEach " + item + ", " + index + "<br>")
+        })
+
+        for(var i in arr){
+            document.write("for……in " + arr[i] + ", " + i + "<br>")
+        }
+
+        for(var item of arr){
+            document.write("for……of " + item + "<br>")
+        }
+
+        //对象的遍历
+        var person = {
+            name:"waws",
+            age:19,
+            sex:"man"
+        }
+
+        for(var i in person){
+            document.write("for……in 键:" + i +  "值:" + person[i] + "<br>")
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            Array.from()   将伪数组转换成数组
+        */ 
+
+        /* window.onload = function(){
+            var lis = document.getElementsByTagName("li");
+            var new_lis = Array.from(lis)
+            new_lis.push("hello")
+            alert(new_lis)    
+            //[object HTMLLIElement],[object HTMLLIElement],[object HTMLLIElement],[object HTMLLIElement],[object HTMLLIElement],[object HTMLLIElement],hello
+        } */  
+
+
+        /*
+            find()
+                功能：在数组中查找符合条件的元素，只要找到第一个符合条件的元素，就停止遍历
+                返回值：找到的元素
+            
+            findIndex()
+                功能：在数组中查找符合条件的元素，只要找到第一个符合条件的元素，就停止遍历
+                返回值：找到的元素的下标
+
+            
+        */
+
+        /* var arr = [10,20,30,40,50];
+        var res = arr.find(function(item,index,arr){
+            return item>20
+        })
+        alert(res)  //30 只返回找到符合条件的第一个
+
+        var res1 = arr.find((item => item>20))
+        alert(res1)   //30
+
+        var res2 = arr.findIndex((item => item>20))
+        alert(res2)  //2 */
+
+
+        /*
+            copyWithin()
+                参数：
+                    第一个参数：从那个下标开始
+                    第二个参数和第三个参数：范围[start,end)
+                    0   1   2   3   4   5   6   7   8   9
+            arr     1   2   3   4   5   6   7   8   9   10
+            截取元素                     |               |(不包括10)  截取出来的6，7，8，9
+            寻找下标             |
+            覆盖    1   2   3   6   7   8   9   8   9   10
+        */
+
+        var arr = [1,2,3,4,5,6,7,8,9,10];
+        arr.copyWithin(3,5,9)
+        alert(arr)        //1,2,3,6,7,8,9,8,9,10
+    </script>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

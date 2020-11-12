@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            map映射
+        */
+        let map = new Map();
+        map.set("张三","洗菜的")    
+        map.set("李四","切菜的")    
+        map.set("王五","做菜的")  
+
+        console.log(map)    //0: {"张三" => "洗菜的"}
+
+
+        /*
+            map.get("键")  取值
+        */
+        alert(map.get("王五"))
+
+        /*
+            遍历：for……of
+        */
+        for(let [key,value] of map){
+            alert(key + "," + value)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

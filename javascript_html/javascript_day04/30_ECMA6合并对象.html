@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            Object.assign 合并对象
+                [注]：将所有传入的对象，都合并到第一个对象中
+            在对象中存在基本数据类型，其他的合并对象的修改不会影响最后的合并对象的数据
+            在对象中存在复合数据类型，其他的合并对象的修改会影响最后的合并对象中的数据
+
+            浅拷贝：
+                是在obj1中新键变量b,c,d,然后将被合并的对象中的基本数据类型的数据拷贝过来，不会相互影响
+                但是对于复合数据类型，是新建变量f，然后将被合并的对象中的复合数据类型的地址拷贝过来，实际上两个
+                对象中的f变量指向的是同一份数据
+
+            深拷贝：
+                是在obj1中新键变量b,c,d,然后将被合并的对象中的基本数据类型的数据拷贝过来，不会相互影响
+                但是对于复合数据类型，是新建变量f，然后将被合并的对象中的复合数据类型复制一份，将新生成的
+                数据地址放到f中，实际上这个时候两个对象中的f变量指向的是不是同一份数据了
+        */
+        var Obj1 = {
+            a:10
+        }
+        var Obj2 = {
+            b:20,
+            c:30
+        }
+        var Obj3 = {
+            d:40,
+            f:["hello","world",true]
+        }
+
+        Object.assign(Obj1,Obj2,Obj3)
+
+        // console.log(Obj1)
+        Obj2.b = 100;
+        console.log(Obj2)
+        Obj3.f.push("waws")
+        console.log(Obj3)
+        console.log(Obj1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

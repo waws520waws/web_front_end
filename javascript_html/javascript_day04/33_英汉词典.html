@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/demo.js"></script>
+    <style>
+        #box{width: 360px;height: 350px;border: 1px solid #000;background-color: gray;margin: 50px auto;}
+        #word{width: 300px;height: 50px;line-height: 50px;font-size: 30px;color: blue;margin-left: 30px;margin-top: 20px;}
+        #trans{width: 300px;height: 200px;font-size: 30px;background-color: cadetblue;margin-top: 20px;margin-left: 30px;}
+    </style>
+    <script>
+        var arr = word.split("\n")
+        var map = new Map()
+        for(var i=0;i<arr.length-1;i=i+2){
+            map.set(arr[i].substring(1),arr[i+1].substring(6));
+        }
+        
+        window.onload = function(){
+            var word = document.getElementById("word");
+            var trans = document.getElementById("trans");
+            word.onkeyup = function(){
+                if(map.get(word.value)){
+                    trans.innerHTML = map.get(word.value);
+                }else{
+                    trans.innerHTML = "查无此词";
+                }
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="text" name="" id="word">
+        <div id="trans"></div>
+    </div>
+</body>
+</html>
