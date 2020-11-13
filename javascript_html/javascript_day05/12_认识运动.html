@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding: 0;}
+        div{width: 100px;height: 100px;background-color: blueviolet;position: absolute;left: 0;top:100px;}
+    </style>
+    <script>
+        /*
+            动画  图像
+            原理 ：能够识别的最小的时间间隔是18帧
+            动画：只需要让动画的切换事件大于18帧
+                  一般情况下电影院中放映的电影都是24帧的
+        */    
+
+        /*
+            简单运动：让一个div运动起来
+
+            1.停不下来
+                我们设置的定时器，到一定的条件的时候，清除定时器即可
+            2.当速度取某些值的时候停不下来的问题
+                我们设置的定时器，到一定的条件(条件设置的精密一点)的时候，清除定时器即可
+            3.到达停止的位置了，我们在点击开始运动，滑块还会向前移动一点，并不合理
+                定时器启动了就关闭了，但是里面的代码最少也要执行一遍
+            4.我们多次点击会生成多个定时器，共同作用在滑块身上，会让滑块运动的越来越快
+                我们需要保证只有一个定时器在启动中
+                每次启动定时器之前，先将上一次的定时器关闭
+        */
+
+        /*
+            运动框架：
+                1.每一次启动定时器之前，先将上一次的定时器关闭
+                2.if……else将运动和停止分开
+        */
+
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            var div = document.getElementById("div1");
+
+            var speed = 7;
+            var timer = null
+
+            btn.onclick = function(){
+                clearInterval(timer);
+                timer = setInterval(() => {
+                    if(div.offsetLeft >= 500){
+                        clearInterval(timer);
+                    }else{
+                        div.style.left = div.offsetLeft + speed + "px"
+                    }
+                    
+                }, 30);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">开始运动</button>
+    <div id="div1"></div>
+</body>
+</html>

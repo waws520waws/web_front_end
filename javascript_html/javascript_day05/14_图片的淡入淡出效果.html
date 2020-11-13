@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{opacity: 0.3;filter: alpha(opacity=30);}
+    </style>
+    <script>
+        /*
+
+        */
+        
+        window.onload = function(){
+            var img = document.getElementById("img")
+            img.onmouseover = function(){
+                startMove(100);
+            }
+            img.onmouseout = function(){
+                startMove(30);
+            }
+        }
+
+        var alpha = 30;
+        var timer = null;
+        function startMove(target){
+            var img = document.getElementById("img");
+            var speed = 2;
+            
+            clearInterval(timer);
+
+
+            //这个部分是浏览器兼容，我们没有办法一次性获取到透明度的所有值，只能预设一个值alpha,
+            //当我们target = 100的时候target > alpha成立 speed=2
+            //当我们target = 30的时候 我们的alpha预设就是30,target > alpha不成立 speed=-2  
+            //这个条件好像是故意设计的(可以)
+            speed = target > alpha ? Math.abs(speed):-Math.abs(speed);
+            timer = setInterval(function(){
+                if(alpha==target){
+                    clearInterval(timer);
+                }else{
+                    alpha += speed
+                }
+                img.style.opacity = alpha/100;
+                img.style.filter = `alpha(opacity=${alpha})`;
+            },30);
+
+        }
+    </script>
+</head>
+<body>
+    <img id="img" src="./img/1.png" alt="">
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        function KFC(food,eatFunc){
+            alert("您的餐"+food+"已经准备好了,请及时就餐");
+            eatFunc();
+        }
+
+        function take_away(){
+            alert("打包带走")
+        }
+
+        KFC("香辣鸡腿堡",take_away)  //其实传入的就是函数的地址
+
+        KFC("香辣鸡腿堡",function(){
+            alert("堂食")
+        })  //匿名函数传入的就是函数的地址   和上面定义好在调用是一样的
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

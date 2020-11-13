@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding: 0;}
+        div{width: 100px;height: 40px;margin-bottom: 80px;margin-left: 100px;background-color: red;opacity: 0.3;filter:alpha(opacity=30);}
+        #div1{margin-top: 80px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var divs = document.getElementsByTagName("div");
+
+            for(var i=0;i<divs.length;i++){
+                divs[i].alpha = 30;
+                divs[i].onmouseover = function(){
+                    startMove(100,this);
+                }
+                divs[i].onmouseout = function(){
+                    startMove(30,this);
+                }
+            }
+        }
+
+        
+        /*
+            多物体运动：
+                1.定时器不能公用
+                2.任何的数据都不能共用
+        */
+        function startMove(target,node){
+            clearInterval(node.timer)
+            var speed = 5;
+            if(target > node.alpha){
+                speed = speed
+            }else{
+                speed *= -1
+            }
+            node.timer = setInterval(function(){
+                if(node.alpha == target){
+                    clearInterval(node.timer)
+                }else{
+                    node.alpha += speed
+                    node.style.opacity = node.alpha/100;
+                    node.style.filter = `alpha(opacity=${node.alpha})`;
+                }
+            },30)
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

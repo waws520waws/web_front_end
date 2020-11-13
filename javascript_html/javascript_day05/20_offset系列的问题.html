@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{width: 200px;height: 100px;background-color: red;}
+        #div1{width: 200px;height: 100px;background-color: red;border: 1px #000 solid;}
+    </style>
+    <script>
+        /*
+            在这个例子中，我们是想每隔30ms的时间让我们的div减少1px，但是实际运行，div.width不断增大
+                原因：因为我们的width是200px,然后我们的div.offsetWidth = border + padding + width = 200 + 2 = 202
+                      然后div.style.width = 202-1=201，依次类推，我们的width确实在不断地增大，动画效果就是变宽了
+                
+        */
+
+        /* window.onload = function(){
+            var div = document.getElementById("div1");
+            setInterval(function(){
+                div.style.width = div.offsetWidth - 1 + "px";
+            },30)
+        } */
+
+
+
+        /*
+            关于上面的offsetWidth的解决方式
+            在接下来的，实现运动的函数里面，都用getStyle的方式来获取当前想要的有效的样式
+        */
+
+        window.onload = function(){
+            var div = document.getElementById("div1");
+            setInterval(function(){
+                var cur = parseInt(getStyle(div,"width"))
+                div.style.width =  cur - 1 + "px";
+            },30)
+        }
+
+
+        function getStyle(node,cssStyle){
+            return node.currentStyle ? node.currentStyle(cssStyle) : getComputedStyle(node)[cssStyle]
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

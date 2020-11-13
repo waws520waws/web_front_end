@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            工厂模式：
+                1.原料
+                2.加工
+                3.出厂
+
+            注：凡是满足我们上面的三个步骤创建对象的函数，我们将他叫做工厂方法。
+        */
+       
+        function createPerson(name,sex){
+            //1.原料
+            var obj = new Object();
+
+            //2.加工
+            obj.name = name
+            obj.sex = sex
+
+            obj.showName = function(){
+                alert("我的名字是：" + obj.name)
+            }
+
+            obj.showSex = function(){
+                alert("我的性别是：" + obj.sex)
+            }
+
+            //3.出厂
+            return obj
+        }
+
+        var person1 = createPerson("waws","man")
+        person1.showName()
+        person1.showSex()
+        var person2 = createPerson("waws520","woman")
+        person2.showName()
+        person2.showSex()
+
+
+        /*
+            和官方创建方法中的不同地方：    
+                1.没有使用new
+                2.每一个新创建出来的对象都独有一套函数
+        */
+
+        alert(person2.showName === person1.showName) //false
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

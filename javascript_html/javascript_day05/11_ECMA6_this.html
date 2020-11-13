@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+
+        //构造函数的方法
+        /* function Person(name,sex,age){
+            this.name = name
+            this.sex = sex
+            this.age = age
+        }
+
+        Person.prototype.showSelf = function(){
+            alert(`这是一个${this.sex}的,${this.age}岁,叫做${this.name}的小伙子`)
+        } 
+        
+        //继承
+        function Worker(name,age,sex,job){
+            Person.call(this,name,age,sex);
+            this.job = job;
+        } */
+
+        //继承方法
+        /* //1.使用for……in的方式进行继承
+        for(var funcName in Person.prototype){
+            Worker.prototype[funcName] = Person.prototype[funcName];
+        } */
+        /* //2.使用Object.create()的方式
+        Worker.prototype = Object.create(Person.prototype) */
+        /* //3.调用构造函数去继承
+        Worker.prototype = new Person();
+        Worker.prototype.showJob = function(){
+            alert(`这是一个${this.sex}的,${this.age}岁,叫做${this.name}的小伙子,工作是${this.job}`)
+        }
+
+        var worker = new Worker("waws",19,"男","总统");
+        worker.showJob(); */
+
+        
+       
+
+        //class的方法
+        class Person{
+            //属性
+            constructor(name,age,sex){
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+            }
+            showSelf(){
+                alert(`这是一个${this.sex}的,${this.age}岁,叫做${this.name}的小伙子`)
+            }
+        }
+
+        class Worker extends Person{
+            constructor(name,age,sex,job){
+                super(name,age,sex);
+                this.job = job
+            }
+            showJob(){
+                alert(`这是一个${this.sex}的,${this.age}岁,叫做${this.name}的小伙子,工作是${this.job}`)
+            }
+        }
+        var worker = new Worker("waws",19,"男","总统");
+        worker.showJob();
+        
+ 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

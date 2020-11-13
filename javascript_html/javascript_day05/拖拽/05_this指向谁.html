@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            this指向当前函数的主人
+            总结：this容易混乱的部分
+                1.事件绑定
+                    赋值-->相当于将函数的所有权交给了触发元素
+                    这个有点像：我想买apple电脑，apple公司有卖电脑，我想要买电脑，当我去苹果授权店买电脑的时候，这个时候我们不是和苹果公司打交道，而是苹果公司将this授权给了apple授权商店，最终卖的方法是授权点触发的，这个卖的方法的主任是授权店一样。
+                2.定时器
+
+        */ 
+
+        function Aaa(){
+            this.a = 10
+
+            var btn = document.getElementById("btn")
+            var _this = this
+            /* //这个地方发生了赋值，就相当于是将this的所有权交接了出去
+            // btn.onclick =this.show(); */
+
+            /*
+            //完成函数调用不会交接this的所有权 
+            btn.onclick = function(){
+                _this.show();
+            } 
+            */
+
+            //更加简单粗暴的方式：bind 强制改变this的指向 
+            // btn.onclick =this.show.bind(this);  //强制指向当前的this，也就是新创键的drag对象
+
+            setTimeout(this.show,4000)  //[object Window]  定时器中的传参是其实也是赋值的一种和上面的思路一样，交出里函数的所有全，变成了setTimeout的元素也就是window去调用show方法，this的指向也发生了变化
+            // setTimeout(this.show.bind(this),4000)
+            setTimeout(function(){_this.show();},4000)    //Object
+
+
+            
+        }   
+
+        Aaa.prototype.show = function(){
+            alert(this)     //此时点击按钮中，this指向当前函数的主人，绑定事件的函数的触发是由触发元素调用的函数，相当于函数的所有权归属于触发对象，这样的话，当前的函数的主任就是触发对象，就是button
+        }
+
+        
+        window.onload = function(){
+            var a1 = new Aaa();
+            a1.show();
+        }
+        
+    </script>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+</html>

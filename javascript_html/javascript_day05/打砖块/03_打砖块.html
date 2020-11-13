@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #div1{width: 600px;height: 600px;border: 1px solid #000;margin: 100px auto;position: relative;}
+        #div2{width: 20px;height: 20px;background-color: red;position: absolute;left: 290px;bottom:30px;border-radius: 50%;}
+        #div3{width: 100px;height: 30px;background-color: blue;position: absolute;left: 250px;bottom: 0;}
+        #div4 div{width: 98px;height: 30px;float: left;border: 1px #000 solid;}
+    </style>
+    <script>
+        /*
+
+        */
+
+        window.onload = function(){
+            var div1 = document.getElementById("div1");
+            var ball = document.getElementById("div2");
+            var board = document.getElementById("div3");
+            var div4 = document.getElementById("div4");
+            var brick = div4.getElementsByTagName("div")
+            
+            //让小球可以水平方向运动，随机一个水平方向的速度
+            var speedX = parseInt((Math.random()*4)) + 3;
+            var speedY = -parseInt((Math.random()*3)) + 5;
+
+            setInterval(function(){
+                ball.style.left = ball.offsetLeft + speedX + "px";
+                ball.style.top = ball.offsetTop + speedY + "px";
+                if(ball.offsetLeft >= 580 || ball.offsetLeft<=0){
+                    speedX *= -1
+                }
+                if(ball.offsetTop <= 0){
+                    speedY *= -1
+                }
+                if(ball.offsetTop >= 580){
+                    alert("GAME OVER");
+                    window.location.reload();
+                }
+
+                //小球每30ms运动一次，运动完毕进行碰撞检测即可
+                if(konck(ball,board)){
+                    speedY *= -1;
+                }
+                for(var i=0;i<brick.length;i++){
+                    if(konck(ball,brick[i])){
+                        div4.removeChild(brick[i]);
+                        speedY *= -1
+                    }
+                }
+
+            },30);
+
+            createbrike(30)
+
+            Drag(board)
+            
+        }
+
+        /*
+            由于浮动的关系，我们消灭了一块brick后，右边的brick会向做移动
+            文档流转换
+                相对定位 转换成   绝对定位
+        */
+        function createbrike(n){
+            var div4  = document.getElementById("div4")
+            for(var i=0;i<n;i++){
+                var div = document.createElement("div");
+                div.style.backgroundColor = randomColor()
+                div4.appendChild(div)
+            }
+            var brick = div4.getElementsByTagName("div")
+            for(var i = 0;i<brick.length;i++){
+                brick[i].style.left = brick[i].offsetLeft + "px";
+                brick[i].style.top = brick[i].offsetTop + "px";
+                /*
+                    注意：我们不能在这个部分设置position = "absolute"，是因为，每一个设置完成后会使的当前元素
+                          脱离文档，后面的元素还是会受到float的影响，向前移动，最终所有元素会汇聚到一起
+                */
+            }
+            for(var i = 0;i<brick.length;i++){
+                brick[i].style.position = "absolute";
+                /*
+                    这个地方设置是相当于所有的板子都定死了，然后在添加绝对定位
+                */
+            }
+        }
+
+        function randomColor(){
+            var str = "rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")";
+            return str
+        }
+
+
+        function Drag(node){
+            node.onmousedown = function(ev){
+                var e = ev || window.event
+                var offsetX = e.clientX - node.offsetLeft
+                
+
+                document.onmousemove = function(ev){
+                    var e = ev || window.event
+                    var cur = e.clientX - offsetX
+                    if(cur <= 0){
+                        cur = 0
+                    }else if(cur >= 500){
+                        cur = 500
+                    }
+
+                    node.style.left = cur  + "px";
+                }
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = null;
+            }
+        }
+
+        function konck(node1,node2){
+            var l1 = node1.offsetLeft;
+            var r1 = node1.offsetLeft + node1.offsetWidth;
+            var t1 = node1.offsetTop;
+            var b1 = node1.offsetTop + node1.offsetHeight;
+            
+            var l2 = node2.offsetLeft;
+            var r2 = node2.offsetLeft + node2.offsetWidth;
+            var t2 = node2.offsetTop;
+            var b2 = node2.offsetTop + node2.offsetHeight;
+
+            if(r2 < l1 || r1< l2 || t2 > b1 || b2 < t1){
+                //完全碰不着的四种情况
+                return false;
+            }else{
+                return true
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+    </div>
+</body>
+</html>

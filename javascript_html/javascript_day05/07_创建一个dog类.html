@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        function Dog({name,type,age}){
+            this.name = name;
+            this.type = type;
+            this.age = age;
+        }
+
+        Dog.prototype = {
+            run:function(){
+                alert(this.name + "会飞快的奔跑")
+            },
+            showSelf:function(){
+                alert(`这是一个${this.type}的,${this.age}岁,叫做${this.name}的狗`)
+            }
+        }
+
+        /*
+            构造函数构造出来的对象，有一个__proto__的属性，指向构造出这个对象的构造函数的原型
+
+            instanceof  关键字
+            功能:判断一个对象是否是这个构造函数构造出来的
+        */
+        
+        
+        var dog1 = new Dog({
+            name:"小白",
+            age:18,
+            type:"藏獒"
+        })
+
+        dog1.run()
+        dog1.showSelf()
+
+        alert(dog1.__proto__ == Dog.prototype)    //true
+        alert(dog1 instanceof Dog)   //true
+        alert(dog1 instanceof Object)   //true
+        
+
+        var dog2 = new Dog({
+            name:"小黑",
+            age:18,
+            type:"二哈"
+        })
+        dog2.run()
+        dog2.showSelf()
+
+        alert(dog2.__proto__ == Dog.prototype)
+        alert(dog1 instanceof Dog)
+
+        alert(dog1.__proto__ == dog2.__proto__)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

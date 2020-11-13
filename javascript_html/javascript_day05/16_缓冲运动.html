@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        /* div{width: 100px;height: 100px;position: absolute;left: 0;top:300px;background-color: red;} */
+        div{width: 100px;height: 100px;position: absolute;left: 1000px;top:300px;background-color: red;}
+    </style>
+    <script>
+        /*
+            刹车：
+                不是物理规律的特点：速度和距离成正相关
+
+            var speed = 距离
+            var speed = target - cur当前距离
+            速度的变化：
+                63, 63
+                118, 55
+                166, 48
+                208, 42
+                245, 37
+                277, 32
+                305, 28
+                330, 25
+                352, 22
+                371, 19
+                388, 17
+                402, 14
+                415, 13
+                426, 11
+                436, 10
+                444, 8
+                451, 7
+                458, 7
+                464, 6
+                469, 5
+                473, 4
+                477, 4
+                480, 3
+                483, 3
+                486, 3
+                488, 2
+                490, 2
+                492, 2
+                493, 1
+                494, 1
+                495, 1
+                496, 1
+                497, 1
+                498, 1
+                499, 1
+                500, 1
+
+            在这个例子中我遇到的几个问题：
+                第一个我将speed写在了定时器的外边，速度就一直没有变化
+                    我们可以发现，之前的例子中了我们将速度放在定时器的外边是因为速度不会随着时间的变化而变化，但是在这个例子中，我们的距离在变化，速度放在定时器的外边，只能获得一次速度，相当于速度不会变化
+                第二个 speed = speed > 0 ? Math.ceil(speed):Math.floor(speed)的作用
+                    在运动中，我们的div最少也要运动1px，不能运动0.几像素，所以，假设我们不取整，最后的速度是0.几，导致div滑块不会运动到我们指定的位置，这样程序会有问题，正向运动向下取整 ceil(0.5) = 0  负向运动向上取整 floor(-0.5)=0
+
+        */
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                startMove(500);
+            }
+
+            var timer = null;
+            
+            function startMove(target){
+                var div = document.getElementById("div");
+                var oTxt1 = document.getElementById("txt1");
+                clearInterval(timer)
+                timer = setInterval(function(){
+                    var speed = (target - div.offsetLeft)/8
+                    speed = speed > 0 ? Math.ceil(speed):Math.floor(speed)
+                    if(div.offsetLeft == target){
+                        clearInterval(timer)
+                    }else{
+                        div.style.left = div.offsetLeft + speed + "px"; 
+                        txt1.value += div.offsetLeft + ", " + speed + "\n";
+                    }
+                },30);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">开始运动</button>
+    <div id="div"></div>
+    <textarea name="" id="txt1" cols="30" rows="10"></textarea>
+    <span id="span" style="width: 1px;height: 500px;background-color: #000;position: absolute;left: 500px;"></span>
+</body>
+</html>

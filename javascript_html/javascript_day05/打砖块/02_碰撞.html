@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        /*
+            碰撞的情况比较复杂，我们可以考虑完全碰不上的情况，最终反向就是碰撞的结果
+        */
+
+        function konck(node1,node2){
+            var l1 = node1.offsetLeft;
+            var r1 = node1.offsetLeft + node1.offsetWidth;
+            var t1 = node1.offsetTop;
+            var b1 = node1.offsetTop + node1.offsetHeight;
+            
+            var l2 = node2.offsetLeft;
+            var r2 = node2.offsetLeft + node2.offsetWidth;
+            var t2 = node2.offsetTop;
+            var b2 = node2.offsetTop + node2.offsetHeight;
+
+            if(r2 < l1 || r1< l2 || t2 > b1 || b2 < t1){
+                //完全碰不着的四种情况
+                return false;
+            }else{
+                return true
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

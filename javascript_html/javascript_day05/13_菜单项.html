@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{width: 100px;height: 200px;background-color: gray;position: absolute;left: -100px;top:400px;}
+        #div1 span{width: 20px;height: 60px;background-color: orange;position: absolute;left: 100px;top:70px;line-height: 20px;}
+    </style>
+    <script>
+        /*
+            鼠标移入的时候
+        */
+
+        var timer = null;
+        /* function startMove(){
+            var div = document.getElementById("div1");
+            var speed = 5
+            clearInterval(timer)
+            timer = setInterval(function(){
+                if(div.offsetLeft==0){
+                    clearInterval(timer)
+                }else{
+                    div.style.left = div.offsetLeft + speed + "px";
+                }
+            },30);
+        }
+
+        function startMove2(){
+            var div = document.getElementById("div1");
+            var speed = -5
+            clearInterval(timer)
+            timer = setInterval(function(){
+                if(div.offsetLeft==-100){
+                    clearInterval(timer)
+                }else{
+                    div.style.left = div.offsetLeft + speed + "px";
+                }
+            },30);
+        } */
+
+        /* //改进版本1
+        function startMove(speed,left){
+            var div = document.getElementById("div1");
+            var speed = speed
+            clearInterval(timer)
+            timer = setInterval(function(){
+                if(div.offsetLeft==left){
+                    clearInterval(timer)
+                }else{
+                    div.style.left = div.offsetLeft + speed + "px";
+                }
+            },30);
+        } */
+
+
+        //改进版本2
+        function startMove(target){
+            var div = document.getElementById("div1");
+            var speed = 5
+            if(div.offsetLeft>target){
+                speed *= -1
+                
+            }
+            clearInterval(timer)
+            timer = setInterval(function(){
+                if(div.offsetLeft==target){
+                    clearInterval(timer)
+                }else{
+                    div.style.left = div.offsetLeft + speed + "px";
+                }
+            },30);
+        }
+
+        window.onload = function(){
+            var div = document.getElementById("div1");
+
+            div.onmouseover = function(){
+                startMove(0);
+            }
+            div.onmouseout = function(){
+                startMove(-100)
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <span id="span">分享到</span>
+    </div>
+</body>
+</html>

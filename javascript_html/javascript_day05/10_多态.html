@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            面向对象，继承，封装，多态
+            封装：封装构造函数的过程
+
+            面向对象是一个编程思想，支撑面向对象编程思想的语法是类(ECMA6之前没有类这个概念)和对象，构造函数充当类的角色。
+            构造函数和对象实现面向对象程序的时候，体现出 继承、 封装、 多态的特点。
+
+            继承：通过`构造函数.call(this,{name:name})`的方式让新构造函数继承原有构造函数的各种属性
+        */
+        function Dog({name,type,age}){
+            this.name = name;
+            this.type = type;
+            this.age = age;
+        }
+
+        Dog.prototype = {
+            run:function(){
+                alert(this.name + "会飞快的奔跑")
+            },
+            showSelf:function(){
+                alert(`这是一个${this.type}的,${this.age}岁,叫做${this.name}的狗`)
+            }
+        }
+
+
+        /*
+            分类更加细分的构造函数。
+
+            原型链继承：我们使用这个继承方式先继承，后定义了自己的方法，在使用方法时候无端输出了一个undefined
+        */    
+
+        function Teddy({name,type,age,color}){
+            // this = new Object();
+            //1.继承父级构造函数的所有的属性
+            Dog.call(this,{
+                name:name,
+                age:age,
+                type:type
+            }),
+
+            this.color = color
+            // return this
+        }
+        //不能使用对象相等的方式，需要使用for……in的深层次遍历的方式完成对象方法的继承
+        for(var func in Dog.prototype){
+            Teddy.prototype[func] = Dog.prototype[func]
+        }
+
+        /*
+            对于原有函数的一个改造：
+                只会在子一级生效，不会影响父一级构造函数的方法。
+
+                继承和多态同一件事情的两种完全不同的侧重：
+                    继承：侧重的是从父一级构造函数，继承到的属性和方法。
+                    多态：侧重的是子一级，自己重写和新增的属性和方法。
+        */
+
+        //多态：修改继承下来的函数
+        Teddy.prototype.showSelf = function(){
+            alert(`这是一个${this.type}的,${this.age}岁,叫做${this.name}的${this.color}狗`)
+        }
+
+        //多态：创建之前不曾出现过的函数
+        Teddy.prototype.showColor = function(){
+            alert(`这是一个${this.color}色的${this.type}`)
+        }
+
+
+
+
+        var dog3 = new Teddy({
+            name:"哈哈",
+            age:18,
+            type:"泰迪",
+            color:"red"
+        })
+
+        /* alert(dog3.name)
+        alert(dog3.age)
+        alert(dog3.type)
+        alert(dog3.color) */
+        dog3.showSelf();
+
+        var dog4 = new Dog({
+            name:"哈哈",
+            age:18,
+            type:"松狮",
+        })
+
+        dog4.showSelf();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            工厂模式：
+                1.原料
+                2.加工
+                3.出厂
+
+            注：凡是满足我们上面的三个步骤创建对象的函数，我们将他叫做工厂方法。
+
+            如果，我们某一个函数，使用new运算符去调用
+                1.当前函数中的this指向新创建出来的对象
+                2.自动完成 <1>原料 和 <3>出厂操作
+
+            这种通过new调用函数，我们把它叫做构造函数，构造函数可以构造对象
+            [注]：构造函数一般情况下首字母大写。
+        */
+       
+        function Person(name,sex){
+            
+            //this = new Object();
+
+            //2.加工
+            this.name = name
+            this.sex = sex
+
+            this.showName = function(){
+                alert("我的名字是：" + this.name)
+            }
+
+            this.showSex = function(){
+                alert("我的性别是：" + this.sex)
+            }
+
+        }
+
+        var person1 = new Person("waws","man")
+        person1.showName()
+        person1.showSex()
+        var person2 =new Person("waws520","woman")
+        person2.showName()
+        person2.showSex()
+
+
+        /*
+            和官方创建方法中的不同地方：    
+                1.没有使用new
+                2.每一个新创建出来的对象都独有一套函数
+        */
+        alert(person2.showName === person1.showName)  //false
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding: 0;}
+        div{width: 100px;height: 40px;margin-bottom: 80px;margin-left: 100px;background-color: red;}
+        #div1{margin-top: 80px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var divs = document.getElementsByTagName("div");
+
+            for(var i=0;i<divs.length;i++){
+                divs[i].onmouseover = function(){
+                    startMove(300,this);
+                }
+                divs[i].onmouseout = function(){
+                    startMove(100,this);
+                }
+            }
+        }
+
+        /* 
+            多个物体运动的时候会出现一个问题就是，当我的第一个动画的定时器，还没有运动完成的时候，我们的第二个物体触发了新的定时器，这样我们每次都是先将之前的定时器清理掉，在开启新的定时器，所以前一个的动画会停止。 
+            
+            实际上是全局公用一个timer导致的
+
+            让每一个运动的物体都具有一个定时器
+        */
+
+        function startMove(target,node){
+            clearInterval(node.timer)
+
+            node.timer = setInterval(function(){
+                var speed = (target-node.offsetWidth)/8
+                speed = speed>0?Math.ceil(speed):Math.floor(speed)
+                if(node.offsetWidth == target){
+                    clearInterval(node.timer)
+                }else{
+                    node.style.width = node.offsetWidth + speed + "px";
+                }
+            },30)
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

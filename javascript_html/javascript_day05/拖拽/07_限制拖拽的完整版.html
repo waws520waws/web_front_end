@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding: 0;}
+
+        div{width: 200px;height: 200px;border: 1px solid #000;background-color: red;position: absolute;}
+    </style>
+    <script src="./01_drag.js"></script>
+    <script src="./02_LimitDrag.js"></script>
+    <script>
+        window.onload = function(){
+            new Limit("box");
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>

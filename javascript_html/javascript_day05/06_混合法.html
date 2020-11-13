@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+        /*
+            通过new构造函数，并且通过prototype的方式共用函数-----混合法。
+        */
+       
+        function Person(name,sex){
+            
+            this.name = name
+            this.sex = sex
+        }
+
+        Person.prototype.showName = function(){
+                alert("我的名字是：" + this.name)
+            }
+
+        Person.prototype.showSex = function(){
+            alert("我的性别是：" + this.sex)
+        }
+
+        var person1 = new Person("waws","man")
+        person1.showName()
+        person1.showSex()
+        var person2 =new Person("waws520","woman")
+        person2.showName()
+        person2.showSex()
+
+        alert(person2.showName === person1.showName)  //true
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

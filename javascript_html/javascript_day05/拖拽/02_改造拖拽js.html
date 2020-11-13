@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding: 0;}
+
+        div{width: 200px;height: 200px;border: 1px solid #000;background-color: red;position: absolute;}
+    </style>
+    <script>
+
+        /*
+            改造：  
+                1.不能有函数的嵌套
+                2.可以有全局变量
+        */
+
+        var div = null;
+        var offsetX = 0;
+        var offsetY = 0;
+        window.onload = function(){
+            div = document.getElementById("box");
+            div.onmousedown = Mousedown;
+            document.onmouseup = Mouseup;
+        }
+
+        function Mousedown(ev){
+            var e = ev || window.event
+            offsetX = e.clientX - div.offsetLeft;
+            offsetY = e.clientY - div.offsetTop;
+            document.onmousemove = Mousemove;
+        }
+
+        function Mousemove(ev){
+            var e = ev || window.event
+            div.style.left = e.clientX - offsetX + "px";
+            div.style.top = e.clientY - offsetY + "px";
+        }
+
+        function Mouseup(){
+            document.onmousemove = null;
+        }   
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
