@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{width: 100px;height: 100px;background-color: red;}
+    </style>
+    <script>
+        /*
+
+        */
+
+        window.onload = function(){
+            var div = document.getElementById("div");
+            div.onclick = function(){
+                setStyle(this,{
+                    width:"300px",
+                    height:"300px",
+                    backgroundColor:"hotpink",
+                })
+            }
+        }
+
+        /*
+            解决的方式：我们可以传入一个对象
+                一次改变多个样式
+        */
+
+        function setStyle(node,cssobj){
+            for(var attr in cssobj){
+                node.style[attr] = cssobj[attr];
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div"></div>
+</body>
+</html>

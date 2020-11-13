@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{list-style: none;}
+
+        #ul1{width:366px;height: 366px;border: 1px solid #000;margin:50px auto;position: relative;}
+        #ul1 li{width: 100px;height: 100px;border: 1px #000 solid;margin: 10px;float: left;}
+        #ul1 li img{width: 100%;height: 100%;}
+    </style>
+    <script src="./01_完美运动框架.js"></script>
+    <script>
+        /*
+            九宫格：
+
+            遇到的问题
+                就是当我们想要将元素的宽高进行放大后，我们是浮动的，就会导致其他的元素因为占据的位置发生变化
+                最终移动到下一行，这样页面中的格式就混乱了
+            解决问题：
+                还是需要用到文档流转换，先找到所有元素的left,top再将其变成绝对定位
+        */
+
+        window.onload = function(){
+            var ul = document.getElementById("ul1");
+            var lis = ul.getElementsByTagName("li");
+
+            var currentIndex = 2;
+            for(var i=0;i<lis.length;i++){
+                lis[i].style.left = lis[i].offsetLeft + "px";
+                lis[i].style.top = lis[i].offsetTop + "px";
+                /* 
+                    所有的图片都向右、下移动了10px的位置
+                        原因：绝对定位之后的元素，已经设置好了边距，以第一个为例，我们设置了left和top是10px,但是此时的盒子是有margin的我们看到的图片的实际位置就是 left+ margin-left = 20px 就是距离左边20px，同理距离上边也是20px。
+                        消除的办法就是：设置完绝对定位之后，我们需要清理margin
+                */
+            }
+            for(var i=0;i<lis.length;i++){
+                
+                lis[i].style.position = "absolute";
+                lis[i].style.margin = 0;
+
+                lis[i].onmouseover = function(){
+                    //这个是解决图片放大之后的遮挡问题，因为我们的元素都是后面的层级高于前面的，所以后面的会对前面的进行遮挡
+                    //通过改变zindex改变层级关系，始终让我们选中的标签的层级最高
+                    this.style.zIndex = currentIndex++;
+                    startMove(this,{width:200,height:200,marginLeft:-50,marginTop:-50})
+                }
+                lis[i].onmouseout = function(){
+                    startMove(this,{width:100,height:100,marginLeft:0,marginTop:0})
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li><img src="./img/1.jpg" alt=""></li>
+        <li><img src="./img/2.jpg" alt=""></li>
+        <li><img src="./img/3.jpg" alt=""></li>
+        <li><img src="./img/4.jpg" alt=""></li>
+        <li><img src="./img/5.jpg" alt=""></li>
+        <li><img src="./img/6.jpg" alt=""></li>
+        <li><img src="./img/7.jpg" alt=""></li>
+        <li><img src="./img/8.jpg" alt=""></li>
+        <li><img src="./img/9.jpg" alt=""></li>
+    </ul>
+</body>
+</html>

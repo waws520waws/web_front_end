@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0px; padding: 0px}
+        #ul1 li{list-style: none; width: 200px; height: 200px; margin: 10px; float: left;}
+        #ul1 li img{width: 100%; height: 100%}
+        #ul1 {position: absolute; left: 0px}
+        #div1{width: 880px; height: 220px; border: 1px solid black; margin: 150px auto; position: relative; overflow: hidden;}
+    </style>
+    <script>
+        /*
+
+        */
+
+        window.onload = function(){
+            var div = document.getElementById("div1");
+            var ul = document.getElementById("ul1");
+
+            var lis = ul.getElementsByTagName("li");
+
+            ul.innerHTML += ul.innerHTML;
+
+            ul.style.width = 220 * 8 + "px";
+
+            setInterval(function(){
+                ul.style.left = ul.offsetLeft - 2 + "px";
+                //上面的8张图片，我们得到的就是ul.offsetWidth/2就是一半，也就是图片运动过半的时候
+                if(ul.offsetLeft <= -ul.offsetWidth/2){
+                    //将8张图片瞬间切换回到开头，重新开始走
+                    ul.style.left = "0px";
+                }
+            },30)
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <ul id="ul1">
+            <li><img src="./img/1.jpg" alt=""></li>
+            <li><img src="./img/2.jpg" alt=""></li>
+            <li><img src="./img/3.jpg" alt=""></li>
+            <li><img src="./img/4.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
