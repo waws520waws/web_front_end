@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --color:red;
+            --num:100px;
+            --num1:100;   
+            /* --size:20px; */
+        }
+
+        #box{
+
+            /* 作用域 */
+            --color:blue;
+            
+            
+            background: var(--color);
+            width: var(--num);
+            /* height: var(--num1);   没有单位不能添加上这个属性 */
+
+            height: calc(var(--num1) * 1px);
+
+            /* 默认值的使用 */
+            font-size:var(--size,100px)
+        }
+    </style>
+</head>
+<body>
+    <div id="box">aaaaaaaaa</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+ul{position: fixed;bottom:100px;left:50%;margin-left: 600px;}
+ul li{width: 20px;height: 20px; border: 1px solid #000;}
+ul li i{}
+ul li p{display: none;}

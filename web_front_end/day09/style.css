@@ -1,0 +1,103 @@
+.box {
+  width: 100px;
+}
+/*
+    多行注释就是我们的css的多行注释的方式，会被编译出来
+*/
+.box1 {
+  width: 123px;
+  height: 123px;
+}
+.box2 {
+  margin: auto;
+}
+.box2 {
+  height: 456px;
+  width: 456px;
+}
+ul {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+}
+ul li {
+  float: left;
+}
+ul li div {
+  background-color: red;
+}
+ul li p {
+  margin-top: 20px;
+}
+ul {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+}
+ul li {
+  float: left;
+}
+ul:hover {
+  color: red;
+}
+.box4 {
+  width: 300px;
+  height: 110px;
+  margin: 110em;
+  padding: 20px / 1.5;
+  color: #02060a;
+}
+.box5 {
+  width: 3px;
+  height: 5px;
+}
+.show {
+  display: inline;
+}
+.box7 {
+  width: 100px;
+  display: inline;
+  padding: 100px;
+  color: blue;
+}
+.box8 {
+  display: none;
+}
+.line,
+.box9,
+.box10 {
+  display: inline;
+}
+.box11 {
+  background: url(a.png), url(b.png);
+  transform: scale(2) rotate(30deg);
+}
+.box12 {
+  width: 100px;
+}
+@media all and (min-width: 768px) {
+  .box12 {
+    width: 600px;
+  }
+}
+@media all and (min-width: 1440px) {
+  .box12 {
+    width: 900px;
+  }
+}
+.box13 {
+  width: 105px;
+}
+.box-2 {
+  width: 102px;
+}
+.box-1 {
+  width: 101px;
+}
+.box-0 {
+  width: 100px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}

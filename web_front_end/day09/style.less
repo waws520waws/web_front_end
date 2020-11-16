@@ -1,0 +1,156 @@
+.box{width: 100px;}
+
+//单行的注释是不会被编译出来的
+
+/*
+    多行注释就是我们的css的多行注释的方式，会被编译出来
+*/
+
+//变量
+@number:123px;
+.box1{width: @number;height: @number;}
+
+//插值
+@key:margin;
+.box2{@{key}:auto;}
+
+//作用域
+.box2{
+    height: @number;
+    @number:456px;
+    width: @number;
+}
+
+//选择器的嵌套
+ul{
+    list-style: none;
+    width:100px;
+    height: 100px;
+    li{
+        float: left;
+        div{
+            background-color: red;
+        }
+        p{margin-top: 20px;}
+    }
+}
+
+//伪类的嵌套
+ul{
+    list-style: none;
+    width:100px;
+    height: 100px;
+    li{
+        float: left;
+    }
+    &:hover{
+        color:red
+    }
+}
+
+//运算、单位、转义、颜色
+@num1 : 100px;
+.box4{
+    width: @num1 * 3;
+    // height: @num1 + 10px;
+    height: @num1 + 10em;
+
+    margin:10em + @num1;
+
+    // padding: 20px/1.5;
+    padding: ~"20px / 1.5";
+
+    color:#010305 * 2;
+}
+
+
+// 函数
+.box5{
+    width: round(3.4px);
+    height: round(4.5px);
+}
+
+
+//混入：把不同的css组合到一起，实现组合的方式
+.show{
+    display: inline;
+}
+
+.head(@color){
+    padding: 100px;
+    color:@color
+}
+
+.box7{
+    width: 100px;
+    .show;
+    .head(blue);
+}
+
+//命名空间
+#nm(){
+    .show{display: none;}
+}
+
+.box8{
+    #nm.show;
+}
+
+//继承
+.line{
+    display: inline;
+}
+
+.box9{
+    &:extend(.line);
+}
+
+.box10{
+    &:extend(.line);
+}
+
+//合并
+.box11{
+    background+: url(a.png);
+    background+: url(b.png);
+    transform+_: scale(2);
+    transform+_: rotate(30deg);
+}
+
+//媒体
+.box12{
+    width: 100px;
+    @media all and (min-width:768px){
+        width: 600px;
+    }
+    @media all and (min-width:1440px){
+        width: 900px;
+    }
+}
+
+//条件
+@count:5;
+
+.get(@cn) when(@cn > 4 ){
+    width: 100px+@cn;
+}
+
+.box13{
+    .get(@count);
+}
+
+
+//循环
+@count2:0;
+
+.get2(@cn) when(@cn < 3 ){
+    .get2((@cn+1));
+    .box-@{cn}{
+        width: 100px+@cn;
+    }
+}
+
+.get2(@count2);
+
+//导入
+@import "./reboot.less";

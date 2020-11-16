@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{list-style: none;}
+        #main{
+            width: 600px;height: 100px;border: 1px solid #000;margin: 10px;overflow:auto;
+            scroll-snap-type: x mandatory;
+        }
+        #main ul{width: 4000px;}
+        #main li{width:300px;height: 100px;background: red;float: left;margin: 0 100px;
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <ul>
+            <li>0001</li>
+            <li>0002</li>
+            <li>0003</li>
+            <li>0004</li>
+            <li>0005</li>
+        </ul>
+    </div>
+</body>
+</html>

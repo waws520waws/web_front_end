@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .container{padding-left: 15px;padding-right: 15px;margin-left: auto;margin-right: auto;}
+
+        /* 这个部分是在仿照bootstarp进行操作，探索调用原理 */
+
+        .mt-50{
+            margin-top: 50px;
+        }
+
+        @media all and (min-width: 768px){
+            .mt-md-50{margin-top: 50px;}
+        }
+
+        @media all and (min-width: 992px){
+            .mt-lg-50{margin-top: 50px;}
+        }
+
+        @media all and (min-width: 1200px){
+            .mt-xl-50{margin-top: 50px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-50">hello world</div>
+</body>
+</html>

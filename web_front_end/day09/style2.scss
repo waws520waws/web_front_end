@@ -1,0 +1,193 @@
+.box{width: 100px;}
+
+//单行的注释是不会被编译出来的
+
+/*
+    多行注释就是我们的css的多行注释的方式，会被编译出来
+*/
+
+
+//变量
+$num:123px;
+.box1{width: $num;height: $num;}
+
+
+//插值
+$key:margin;
+.box2{#{$key}:auto;}
+
+
+//作用域
+.box2{
+    height: $num;
+    $num:456px;
+    width: $num;
+}
+
+
+//选择器的嵌套
+ul{
+    list-style: none;
+    width:100px;
+    height: 100px;
+    li{
+        float: left;
+        div{
+            background-color: red;
+        }
+        p{margin-top: 20px;}
+    }
+}
+
+
+//选择器的嵌套
+ul{
+    list-style: none;
+    width:100px;
+    height: 100px;
+    li{
+        float: left;
+        div{
+            background-color: red;
+        }
+        p{margin-top: 20px;}
+    }
+    &:hover{
+        color:red;
+    }
+}
+
+
+//属性的嵌套
+div{
+    font : {
+        size:10px;
+        weight: bold;
+        family:宋体;
+    }
+}
+
+//运算、单位、转义、颜色
+$num1 : 100px;
+.box4{
+    width: $num1 * 3;
+
+    // padding: 20px/1.5;
+    // padding: 20px / 1.5;
+    padding: (20px / 1.5);
+
+    color:#010305 * 2;
+}
+
+
+// 函数
+.box5{
+    width: round(3.4px);
+    height: round(4.5px);
+}
+
+//自定义函数
+@function sum($n,$m){
+    @return $n+$m;
+}
+
+.box6{
+    font-size: sum(4px,5px);
+}
+
+
+//混入
+@mixin show{
+    display: inline;
+}
+
+@mixin showname($color){
+    display: inline;
+    color:$color
+}
+
+.box7{
+    width: 100px;
+    @include show;
+    @include showname(blue);
+}
+
+
+//继承
+.line{
+    display: inline;
+}
+
+.box9{
+    @extend .line;
+}
+
+.box10{
+    @extend .line;
+}
+
+
+//继承2
+%line{
+    display: inline;
+}
+
+.box11{
+    @extend %line;
+}
+
+.box12{
+    @extend %line;
+}
+
+
+//合并
+$background:(
+    a:url(a.png),
+    b:url(b.png)
+);
+
+$transform:(
+    a:scale(2),
+    b:rotate(30deg)
+);
+
+
+.box13{
+    background: map-values($background);
+    transform: zip(map-values($transform)...);
+}
+
+//媒体
+.box14{
+    width: 100px;
+    @media all and (min-width:768px){
+        width: 600px;
+    }
+    @media all and (min-width:1440px){
+        width: 900px;
+    }
+}
+
+
+//条件
+$count:3;
+.box15{
+    @if($count > 4){
+        width: 100px + $count;
+    }
+    @else{
+        width: 100px+$count;
+    }
+}
+
+//循环
+@for $i from 0 through 2{
+    .box-#{$i}{
+        width: 100px + $i;
+    }
+}
+
+//导入
+@import "./reboot.scss";
+
