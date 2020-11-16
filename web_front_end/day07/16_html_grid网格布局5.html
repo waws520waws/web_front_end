@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        
+        .box{width: 300px;height: 300px;border: 1px dotted #000;display: grid;grid-template-columns: repeat(3,1fr);grid-template-rows: repeat(3,1fr);}
+        
+        
+        /* .box div{border: 2px #000 solid;background-color: red; 
+            grid-column-end: 3;
+            grid-column-start: 2;
+            grid-row-end: 3;
+            grid-row-start: 2;
+        } */
+
+        /* .box div{border: 2px #000 solid;background-color: red; 
+            grid-column-end: 4;
+            grid-column-start: 2;
+            grid-row-end: 3;
+            grid-row-start: 2;
+        } */
+
+        /* span用来指定所占据的网格数目 */
+        /* .box div{border: 2px #000 solid;background-color: red; 
+            grid-column-end: 3;
+            grid-column-start: 2;
+            grid-row-end: span 2;
+            grid-row-start: 2;
+        } */
+
+        /* 合写的方式 */
+        /* .box div{border: 2px #000 solid;background-color: red; 
+            grid-column: 2/3;
+            grid-row: 2/ span 2;
+        } */
+
+
+        /* 使用grid-area 第一个参数是水平的起始位置，第二个参数是垂直的起始位置，第三个参数是水平的结束位置，第一个参数是水平的结束位置*/
+        /* .box div{border: 2px #000 solid;background-color: red; 
+            grid-area: 3/2/4/4;     
+        } */
+
+        .box div{border: 2px #000 solid;background-color: red;}
+        .box div:nth-child(1){justify-self:center;}
+        /* .box div:nth-child(1){justify-self:start;} */
+        /* .box div:nth-child(1){justify-self:end;} */
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+    </div>
+</body>
+</html>

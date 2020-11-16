@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        /* 
+            flex-flow属性是flex-direction和flex-wrap的缩写，表示flex布局的flow流动特性。第一个值表示方向，第二个值表示换行，中间用空格隔开。
+        */
+        /* #box{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto;display: flex;} */
+        #box{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto;display: flex;flex-flow: column wrap;}
+        #box div{width: 50px;height: 50px;background-color: red;border: 1px #000 solid;color: white;line-height: 50px;font-size: 24px;text-align: center;}
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <!-- 内部元素过多的时候会发生溢出现象 -->
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>3</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

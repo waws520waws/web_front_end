@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        /*
+            高度去掉自适应整个盒子的一个高度
+        */
+        /* #box{width: 500px;height: 500px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content: space-evenly;} */
+
+        /*
+            从顶部开始，盒子高度自动适应内容的大小
+        */
+        /* #box{width: 500px;height: 500px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content: space-evenly;align-items: flex-start;} */
+
+        /*
+            从底部开始，盒子高度自动适应内容的大小
+        */
+        /* #box{width: 500px;height: 500px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content: space-evenly;align-items: flex-end;} */
+
+        /*
+            从中间开始，盒子高度自动适应内容的大小
+        */
+        #box{width: 500px;height: 500px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content: space-evenly;align-items: center;}
+        #box div{width: 50px;background-color: red;border: 1px #000 solid;color: white;}
+        
+
+        
+        
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>测试文本1</div>
+        <div>测试文本2测试文本2</div>
+        <div>测试文本3测试文本3测试文本3</div>
+        <div>测试文本4测试文本4测试文本4测试文本4</div>
+    </div>
+</body>
+</html>

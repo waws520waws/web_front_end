@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* grid-template的分开写的方式 */
+        /* .box{width: 400px;height: 300px;border: 1px dotted #000;display: grid;grid-template-rows: repeat(3,1fr);grid-template-columns: repeat(4,1fr);
+        grid-template-areas: 
+        "a1 a1 a1 a1"
+        "a2 a2 a2 a3"
+        "a2 a2 a2 a3";
+        } */
+
+        /* grid-template的复合写法 */
+        .box{width: 400px;height: 300px;border: 1px dotted #000;display: grid;grid-template:
+        "a1 a1 a1 a1" 1fr
+        "a2 a2 a2 a3" 1fr
+        "a2 a2 a2 a3" 1fr
+        /1fr 1fr 1fr 1fr;
+
+        /* grid-column-gap:10px ;
+        grid-row-gap:10px ; */
+        /* 复合写法：先行后列 */
+        grid-gap:20px 10px;
+        }
+        .box div{border: 2px #000 solid;background-color: red; }
+        .box div:nth-child(1){grid-area: a1;}
+        .box div:nth-child(2){grid-area: a2;}
+        .box div:nth-child(3){grid-area: a3;}
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

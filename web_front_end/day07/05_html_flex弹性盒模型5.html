@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        /* 
+           flex-start 默认值，表现为起始位置对齐。
+        */
+        /* #box{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content:flex-start;} */
+
+        /* 
+            flex-end  表现为结束位置对齐。
+         */
+        /* #box{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content:flex-end;} */
+
+        /* 
+            center 表现为居中对齐。
+         */
+        /* #box{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content:center;} */
+
+        /* 
+            space-between  表现为两端对齐。between是中间的意思，意思是多余的空白间距只在元素中间区域分配。
+         */
+        /* #box{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content:space-between;} */
+
+        /* 
+            space-around  around是环绕的意思，意思是每个flex子项两侧都环绕互不干扰的等宽的空白间距，最终视觉上边缘两侧的空白只有中间空白宽度一半。
+         */
+        #box{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content:space-around;}
+
+        /*
+            space-evenly evenly是匀称、平等的意思。也就是视觉上，每个flex子项两侧空白间距完全相等
+        */
+        /* #box{width: 300px;height: 300px;border: 1px solid #000;margin: 30px auto;display: flex;justify-content:space-evenly;} */
+        #box div{width: 50px;height: 50px;background-color: red;border: 1px #000 solid;color: white;line-height: 50px;font-size: 24px;text-align: center;}
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>
